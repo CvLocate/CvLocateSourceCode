@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CA6983F7-AF69-4473-8712-4BA2DDD23DE8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CvLocate.Common.EndUserDTO</RootNamespace>
+    <AssemblyName>CvLocate.Common.EndUserDTO</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Command\BaseCommand.cs" />
+    <Compile Include="Command\BaseRecruiterCommand.cs" />
+    <Compile Include="Command\ChangeMatchingStatusCommand.cs" />
+    <Compile Include="Command\SigninCommand.cs" />
+    <Compile Include="Command\UpdateMatchCandidateCommand.cs" />
+    <Compile Include="Command\UpdateRecruiterProfileCommand.cs" />
+    <Compile Include="Command\SignUpCommand.cs" />
+    <Compile Include="Command\CloseJobCommand.cs" />
+    <Compile Include="Command\UpdateJobCommand.cs" />
+    <Compile Include="Command\CreateJobCommand.cs" />
+    <Compile Include="DTO\BaseStatusHistory.cs" />
+    <Compile Include="DTO\Candidate.cs" />
+    <Compile Include="Enums\CandidateRegisterStatus.cs" />
+    <Compile Include="Enums\CandidateSearchJobStatus.cs" />
+    <Compile Include="Enums\CandidateSourceType.cs" />
+    <Compile Include="Enums\JobSourceType.cs" />
+    <Compile Include="Enums\RecruiterRegisterStatus.cs" />
+    <Compile Include="Enums\Gender.cs" />
+    <Compile Include="Enums\RecruiterSourceType.cs" />
+    <Compile Include="Enums\UserStatus.cs" />
+    <Compile Include="Enums\UserType.cs" />
+    <Compile Include="Enums\JobStatus.cs" />
+    <Compile Include="Enums\MatchingProcessStatus.cs" />
+    <Compile Include="Enums\RecruiterMatchingStatus.cs" />
+    <Compile Include="Enums\MatchingState.cs" />
+    <Compile Include="Enums\JobState.cs" />
+    <Compile Include="DTO\Job.cs" />
+    <Compile Include="DTO\JobHeader.cs" />
+    <Compile Include="DTO\Location.cs" />
+    <Compile Include="DTO\MatchCandidate.cs" />
+    <Compile Include="DTO\Matching.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Query\BaseQuery.cs" />
+    <Compile Include="Query\BaseRecruiterQuery.cs" />
+    <Compile Include="Query\RecruiterGetJobMatchingsQuery.cs" />
+    <Compile Include="Query\RecruiterGetJobQuery.cs" />
+    <Compile Include="Query\GetRecruiterProfileQuery.cs" />
+    <Compile Include="Query\RecruiterGetMatchCandidateQuery.cs" />
+    <Compile Include="Query\RecruiterGetJobsQuery.cs" />
+    <Compile Include="DTO\Recruiter.cs" />
+    <Compile Include="Response\BaseResponse.cs" />
+    <Compile Include="Response\GetRecruiterProfileResponse.cs" />
+    <Compile Include="Response\UpdateRecruiterProfileResponse.cs" />
+    <Compile Include="Response\SignupResponse.cs" />
+    <Compile Include="Response\RecruiterJobResponse.cs" />
+    <Compile Include="Response\RecruiterGetJobMatchingsResponse.cs" />
+    <Compile Include="Response\RecruiterGetMatchCandidateResponse.cs" />
+    <Compile Include="Response\RecruiterGetJobsResponse.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

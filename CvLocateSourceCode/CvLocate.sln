@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EmailServer", "EmailServer", "{E32EA343-F5CE-4AF0-98A4-BB9D5735D2FD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{88AB7A5D-1CD2-4239-B6CD-1ECCF8956FF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CvLocate.Common", "Common\CvLocate.Common\CvLocate.Common.csproj", "{9A6FFA4D-0B4B-494E-AD8F-C2D3647EA96E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DBComponent", "DBComponent", "{C548F02B-68AF-4C84-B736-C745E6E0ED1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CvLocate.Common.DbFacadeInterface", "Common\CvLocate.Common.DbFacadeInterface\CvLocate.Common.DbFacadeInterface.csproj", "{53337976-55E2-42FD-BCF1-2D743907AEFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CvLocate.Common.EndUserDtoInterface", "Common\CvLocate.Common.EndUserDtoInterface\CvLocate.Common.EndUserDtoInterface.csproj", "{CA6983F7-AF69-4473-8712-4BA2DDD23DE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CvLocate.DBFacade", "DBComponent\CvLocate.DBFacade\CvLocate.DBFacade.csproj", "{A61C0EEC-1343-4FBF-BB95-6B87DEB5A807}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CvLocate.DBFacade.Tester", "DBComponent\CvLocate.DBFacade.Tester\CvLocate.DBFacade.Tester.csproj", "{C39239D1-AD3E-45E6-9527-F06679BD1C6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CvLocate.DbInterface", "DBComponent\CvLocate.DbInterface\CvLocate.DbInterface.csproj", "{32CC8542-A2AB-4031-8C1B-8C0EEC64D9BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CvLocate.MongoDB", "DBComponent\CvLocate.MongoDB\CvLocate.MongoDB.csproj", "{D70757BF-23D5-472B-8CFC-B4FE76468C8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CvLocate.EmailListener", "EmailServer\CvLocate.EmailListener\CvLocate.EmailListener.csproj", "{449FE746-AD6B-4AF6-988B-DAC34073F35F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CvLocate.EmailListener.Tester", "EmailServer\CvLocate.EmailListener.Tester\CvLocate.EmailListener.Tester.csproj", "{0733898F-696E-4FC3-99B1-04A05C657373}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A6FFA4D-0B4B-494E-AD8F-C2D3647EA96E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A6FFA4D-0B4B-494E-AD8F-C2D3647EA96E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A6FFA4D-0B4B-494E-AD8F-C2D3647EA96E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A6FFA4D-0B4B-494E-AD8F-C2D3647EA96E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53337976-55E2-42FD-BCF1-2D743907AEFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53337976-55E2-42FD-BCF1-2D743907AEFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53337976-55E2-42FD-BCF1-2D743907AEFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53337976-55E2-42FD-BCF1-2D743907AEFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA6983F7-AF69-4473-8712-4BA2DDD23DE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA6983F7-AF69-4473-8712-4BA2DDD23DE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA6983F7-AF69-4473-8712-4BA2DDD23DE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA6983F7-AF69-4473-8712-4BA2DDD23DE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A61C0EEC-1343-4FBF-BB95-6B87DEB5A807}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A61C0EEC-1343-4FBF-BB95-6B87DEB5A807}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A61C0EEC-1343-4FBF-BB95-6B87DEB5A807}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A61C0EEC-1343-4FBF-BB95-6B87DEB5A807}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C39239D1-AD3E-45E6-9527-F06679BD1C6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C39239D1-AD3E-45E6-9527-F06679BD1C6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C39239D1-AD3E-45E6-9527-F06679BD1C6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C39239D1-AD3E-45E6-9527-F06679BD1C6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32CC8542-A2AB-4031-8C1B-8C0EEC64D9BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32CC8542-A2AB-4031-8C1B-8C0EEC64D9BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32CC8542-A2AB-4031-8C1B-8C0EEC64D9BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32CC8542-A2AB-4031-8C1B-8C0EEC64D9BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D70757BF-23D5-472B-8CFC-B4FE76468C8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D70757BF-23D5-472B-8CFC-B4FE76468C8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D70757BF-23D5-472B-8CFC-B4FE76468C8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D70757BF-23D5-472B-8CFC-B4FE76468C8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{449FE746-AD6B-4AF6-988B-DAC34073F35F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{449FE746-AD6B-4AF6-988B-DAC34073F35F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{449FE746-AD6B-4AF6-988B-DAC34073F35F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{449FE746-AD6B-4AF6-988B-DAC34073F35F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0733898F-696E-4FC3-99B1-04A05C657373}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0733898F-696E-4FC3-99B1-04A05C657373}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0733898F-696E-4FC3-99B1-04A05C657373}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0733898F-696E-4FC3-99B1-04A05C657373}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{449FE746-AD6B-4AF6-988B-DAC34073F35F} = {E32EA343-F5CE-4AF0-98A4-BB9D5735D2FD}
+		{0733898F-696E-4FC3-99B1-04A05C657373} = {E32EA343-F5CE-4AF0-98A4-BB9D5735D2FD}
+		{9A6FFA4D-0B4B-494E-AD8F-C2D3647EA96E} = {88AB7A5D-1CD2-4239-B6CD-1ECCF8956FF2}
+		{53337976-55E2-42FD-BCF1-2D743907AEFC} = {88AB7A5D-1CD2-4239-B6CD-1ECCF8956FF2}
+		{CA6983F7-AF69-4473-8712-4BA2DDD23DE8} = {88AB7A5D-1CD2-4239-B6CD-1ECCF8956FF2}
+		{A61C0EEC-1343-4FBF-BB95-6B87DEB5A807} = {C548F02B-68AF-4C84-B736-C745E6E0ED1A}
+		{C39239D1-AD3E-45E6-9527-F06679BD1C6B} = {C548F02B-68AF-4C84-B736-C745E6E0ED1A}
+		{32CC8542-A2AB-4031-8C1B-8C0EEC64D9BB} = {C548F02B-68AF-4C84-B736-C745E6E0ED1A}
+		{D70757BF-23D5-472B-8CFC-B4FE76468C8E} = {C548F02B-68AF-4C84-B736-C745E6E0ED1A}
+	EndGlobalSection
+EndGlobal
