@@ -1,4 +1,4 @@
-﻿using CvLocate.Common.EndUserDtoInterface.Enums;
+﻿using CvLocate.Common.CommonDto;
 using System;
 using System.Collections.Generic;
 using System.Linq;

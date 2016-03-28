@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CvLocate.Common.EndUserDtoInterface.Enums
+namespace CvLocate.Common.CommonDto
 {
-    public enum JobStatus
+    public enum JobSourceType
     {
-        New,
-        Accepted,
-        Closed
+        Crawler,
+        Recruiter
     }
 }

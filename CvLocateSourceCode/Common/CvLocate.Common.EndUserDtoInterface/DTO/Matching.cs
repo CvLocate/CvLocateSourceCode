@@ -1,4 +1,4 @@
-﻿using CvLocate.Common.EndUserDtoInterface.Enums;
+﻿using CvLocate.Common.CommonDto;
 
 namespace CvLocate.Common.EndUserDtoInterface
 {

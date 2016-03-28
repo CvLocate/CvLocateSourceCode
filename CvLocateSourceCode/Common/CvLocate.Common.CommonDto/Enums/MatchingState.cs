@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CvLocate.Common.EndUserDtoInterface.Enums
+namespace CvLocate.Common.CommonDto
 {
-    public enum UserType
+    public enum MatchingState
     {
-        Recruiter,
-        JobSeeker
+        New,
+        Reserved
     }
 }

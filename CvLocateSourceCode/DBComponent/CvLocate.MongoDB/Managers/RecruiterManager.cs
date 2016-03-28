@@ -1,6 +1,6 @@
 ﻿using CvLocate.Common.EndUserDtoInterface.Command;
 using CvLocate.Common.EndUserDtoInterface.DTO;
-using CvLocate.Common.EndUserDtoInterface.Enums;
+using CvLocate.Common.CommonDto;
 using CvLocate.Common.EndUserDtoInterface.Response;
 using CvLocate.DbInterface;
 using CvLocate.MongoDB.Entities;
@@ -53,7 +53,7 @@ namespace CvLocate.MongoDB.Managers
             {
                 CanSignIn = true,
                 UserId = newEntity.Id,
-                UserType = CvLocate.Common.EndUserDtoInterface.Enums.UserType.Recruiter
+                UserType = CvLocate.Common.CommonDto.UserType.Recruiter
             };
         }
 

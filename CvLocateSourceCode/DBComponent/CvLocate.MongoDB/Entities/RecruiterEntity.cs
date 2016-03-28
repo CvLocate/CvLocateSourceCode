@@ -1,4 +1,4 @@
-﻿using CvLocate.Common.EndUserDtoInterface.Enums;
+﻿using CvLocate.Common.CommonDto;
 using CvLocate.Common.EndUserDtoInterface.DTO;
 using MongoRepository;
 using System;

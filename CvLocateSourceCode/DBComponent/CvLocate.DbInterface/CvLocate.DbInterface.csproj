@@ -47,7 +47,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Common\CvLocate.Common.EndUserDtoInterface\CvLocate.Common.EndUserDtoInterface.csproj">
       <Project>{ca6983f7-af69-4473-8712-4ba2ddd23de8}</Project>
-      <Name>CvLocate.Common.EndUserDTO</Name>
+      <Name>CvLocate.Common.EndUserDtoInterface</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

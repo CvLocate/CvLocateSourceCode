@@ -52,20 +52,6 @@
     <Compile Include="Command\CreateJobCommand.cs" />
     <Compile Include="DTO\BaseStatusHistory.cs" />
     <Compile Include="DTO\Candidate.cs" />
-    <Compile Include="Enums\CandidateRegisterStatus.cs" />
-    <Compile Include="Enums\CandidateSearchJobStatus.cs" />
-    <Compile Include="Enums\CandidateSourceType.cs" />
-    <Compile Include="Enums\JobSourceType.cs" />
-    <Compile Include="Enums\RecruiterRegisterStatus.cs" />
-    <Compile Include="Enums\Gender.cs" />
-    <Compile Include="Enums\RecruiterSourceType.cs" />
-    <Compile Include="Enums\UserStatus.cs" />
-    <Compile Include="Enums\UserType.cs" />
-    <Compile Include="Enums\JobStatus.cs" />
-    <Compile Include="Enums\MatchingProcessStatus.cs" />
-    <Compile Include="Enums\RecruiterMatchingStatus.cs" />
-    <Compile Include="Enums\MatchingState.cs" />
-    <Compile Include="Enums\JobState.cs" />
     <Compile Include="DTO\Job.cs" />
     <Compile Include="DTO\JobHeader.cs" />
     <Compile Include="DTO\Location.cs" />
@@ -89,7 +75,12 @@
     <Compile Include="Response\RecruiterGetMatchCandidateResponse.cs" />
     <Compile Include="Response\RecruiterGetJobsResponse.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CvLocate.Common.CommonDto\CvLocate.Common.CommonDto.csproj">
+      <Project>{7e682acb-3652-4537-a375-f7dee4cf8446}</Project>
+      <Name>CvLocate.Common.CommonDto</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CvLocate.Common.EndUserDtoInterface.Enums
+namespace CvLocate.ParsingEngine.Tester
 {
-    public enum MatchingState
+    class Program
     {
-        New,
-        Reserved
+        static void Main(string[] args)
+        {
+        }
     }
 }

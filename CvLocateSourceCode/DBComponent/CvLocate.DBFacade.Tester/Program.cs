@@ -1,5 +1,5 @@
-﻿using CvLocate.Common.EndUserDtoInterface.Command;
-using CvLocate.Common.EndUserDtoInterface.Enums;
+﻿using CvLocate.Common.CommonDto;
+using CvLocate.Common.EndUserDtoInterface.Command;
 using System;
 using System.Collections.Generic;
 using System.Linq;

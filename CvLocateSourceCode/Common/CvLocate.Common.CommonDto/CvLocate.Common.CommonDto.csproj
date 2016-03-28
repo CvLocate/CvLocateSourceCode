@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A61C0EEC-1343-4FBF-BB95-6B87DEB5A807}</ProjectGuid>
+    <ProjectGuid>{7E682ACB-3652-4537-A375-F7DEE4CF8446}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CvLocate.DBFacade</RootNamespace>
-    <AssemblyName>CvLocate.DBFacade</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>CvLocate.Common.CommonDto</RootNamespace>
+    <AssemblyName>CvLocate.Common.CommonDto</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,30 +39,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\CandidateRegisterStatus.cs" />
+    <Compile Include="Enums\CandidateSearchJobStatus.cs" />
+    <Compile Include="Enums\CandidateSourceType.cs" />
+    <Compile Include="Enums\Gender.cs" />
+    <Compile Include="Enums\JobSourceType.cs" />
+    <Compile Include="Enums\JobState.cs" />
+    <Compile Include="Enums\JobStatus.cs" />
+    <Compile Include="Enums\MatchingProcessStatus.cs" />
+    <Compile Include="Enums\MatchingState.cs" />
+    <Compile Include="Enums\RecruiterMatchingStatus.cs" />
+    <Compile Include="Enums\RecruiterRegisterStatus.cs" />
+    <Compile Include="Enums\RecruiterSourceType.cs" />
+    <Compile Include="Enums\UserStatus.cs" />
+    <Compile Include="Enums\UserType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserDBFacade.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Common\CvLocate.Common.CommonDto\CvLocate.Common.CommonDto.csproj">
-      <Project>{7e682acb-3652-4537-a375-f7dee4cf8446}</Project>
-      <Name>CvLocate.Common.CommonDto</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Common\CvLocate.Common.DbFacadeInterface\CvLocate.Common.DbFacadeInterface.csproj">
-      <Project>{53337976-55e2-42fd-bcf1-2d743907aefc}</Project>
-      <Name>CvLocate.Common.DbFacadeInterface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Common\CvLocate.Common.EndUserDtoInterface\CvLocate.Common.EndUserDtoInterface.csproj">
-      <Project>{ca6983f7-af69-4473-8712-4ba2ddd23de8}</Project>
-      <Name>CvLocate.Common.EndUserDtoInterface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CvLocate.DbInterface\CvLocate.DbInterface.csproj">
-      <Project>{32cc8542-a2ab-4031-8c1b-8c0eec64d9bb}</Project>
-      <Name>CvLocate.DbInterface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CvLocate.MongoDB\CvLocate.MongoDB.csproj">
-      <Project>{d70757bf-23d5-472b-8cfc-b4fe76468c8e}</Project>
-      <Name>CvLocate.MongoDB</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

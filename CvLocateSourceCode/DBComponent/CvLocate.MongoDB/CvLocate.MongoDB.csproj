@@ -72,6 +72,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\CvLocate.Common.CommonDto\CvLocate.Common.CommonDto.csproj">
+      <Project>{7e682acb-3652-4537-a375-f7dee4cf8446}</Project>
+      <Name>CvLocate.Common.CommonDto</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Common\CvLocate.Common.EndUserDtoInterface\CvLocate.Common.EndUserDtoInterface.csproj">
       <Project>{ca6983f7-af69-4473-8712-4ba2ddd23de8}</Project>
       <Name>CvLocate.Common.EndUserDtoInterface</Name>

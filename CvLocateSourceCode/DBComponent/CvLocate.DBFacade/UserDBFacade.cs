@@ -1,5 +1,5 @@
 ﻿using CvLocate.Common.EndUserDtoInterface.Command;
-using CvLocate.Common.EndUserDtoInterface.Enums;
+using CvLocate.Common.CommonDto;
 using CvLocate.Common.EndUserDtoInterface.Response;
 using CvLocate.Common.DbFacadeInterface;
 using System;
