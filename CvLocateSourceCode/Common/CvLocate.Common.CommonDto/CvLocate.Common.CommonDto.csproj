@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CvLocate.Common.CommonDto</RootNamespace>
     <AssemblyName>CvLocate.Common.CommonDto</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -43,6 +43,7 @@
     <Compile Include="Enums\CandidateRegisterStatus.cs" />
     <Compile Include="Enums\CandidateSearchJobStatus.cs" />
     <Compile Include="Enums\CandidateSourceType.cs" />
+    <Compile Include="Enums\ParsingProcessStatus.cs" />
     <Compile Include="Enums\Gender.cs" />
     <Compile Include="Enums\JobSourceType.cs" />
     <Compile Include="Enums\JobState.cs" />
