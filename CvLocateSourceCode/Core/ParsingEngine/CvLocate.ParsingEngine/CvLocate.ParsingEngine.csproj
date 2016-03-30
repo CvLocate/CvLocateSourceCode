@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CvLocate.ParsingEngine</RootNamespace>
     <AssemblyName>CvLocate.ParsingEngine</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,6 +51,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\CvLocate.Common.CommonDto\CvLocate.Common.CommonDto.csproj">
+      <Project>{7e682acb-3652-4537-a375-f7dee4cf8446}</Project>
+      <Name>CvLocate.Common.CommonDto</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Common\CvLocate.Common.CoreDtoInterface\CvLocate.Common.CoreDtoInterface.csproj">
       <Project>{468ec8fd-37ae-427f-b7e7-6e6b9d00bb3e}</Project>
       <Name>CvLocate.Common.CoreDtoInterface</Name>

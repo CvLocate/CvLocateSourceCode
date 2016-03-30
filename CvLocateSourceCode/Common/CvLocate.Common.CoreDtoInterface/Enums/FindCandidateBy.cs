@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CvLocate.ParsingEngine
+namespace CvLocate.Common.CoreDtoInterface.Enums
 {
-    public interface IParsingEngineManager
+    public enum FindCandidateBy
     {
-        void Initialize();
-        void Stop();
+        ByEmail
     }
 }
