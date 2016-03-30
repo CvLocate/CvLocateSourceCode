@@ -1,4 +1,6 @@
-﻿using CvLocate.Common.EndUserDtoInterface.DTO;
+﻿using CvLocate.Common.EndUserDtoInterface.Command;
+using CvLocate.Common.EndUserDtoInterface.DTO;
+using CvLocate.Common.EndUserDtoInterface.Response;
 using CvLocate.DbInterface;
 using CvLocate.MongoDB.Entities;
 using MongoRepository;
@@ -10,36 +12,41 @@ using System.Threading.Tasks;
 
 namespace CvLocate.MongoDB.Managers
 {
-    public class CandidateManager:ICandidateManager
+    public class CandidateManager : ICandidateManager
     {
-        
-        private MongoRepository<CandidateEntity> _candidateRepository;
+        #region Singletone Implementation
 
-        public CandidateManager()
+        private static CandidateManager _instance;
+        public static CandidateManager Instance
+        {
+            get { return _instance ?? (_instance = new CandidateManager()); }
+        }
+
+        private CandidateManager()
         {
             _candidateRepository = new MongoRepository<CandidateEntity>();
         }
 
-        public void SignIn(string email, string password)
+        #endregion
+
+        #region Members
+
+        private MongoRepository<CandidateEntity> _candidateRepository;
+
+        #endregion
+
+        #region Public Methods
+
+        public SignResponse SignUp(SignUpCommand command)
         {
-            
+            throw new NotImplementedException();
         }
 
-        public string InsertCandidate(Candidate candidate)
+        public SignResponse SignIn(SigninCommand command)
         {
-            //todo add convertion between candidate and candidateentity
-            //CandidateEntity newCandidate = _candidateRepository.Add(candidate);
-            return null;// newCandidate.Id;
+            return new SignResponse() { CanSignIn = false };
         }
 
-        public void UpdateCandidate(CandidateEntity candidate)
-        {
-            _candidateRepository.Update(candidate);
-        }
-
-        public void GetCandidate(string id)
-        {
-            _candidateRepository.First(candidate => candidate.Id == id);
-        }
+        #endregion
     }
 }

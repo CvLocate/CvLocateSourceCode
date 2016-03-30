@@ -11,7 +11,8 @@ namespace CvLocate.DbInterface
 {
     public interface ICandidateManager
     {
-        void SignIn(string email, string password);
-        string InsertCandidate(Candidate candidate);
+        SignResponse SignUp(SignUpCommand command);
+        SignResponse SignIn(SigninCommand command);
+
     }
 }

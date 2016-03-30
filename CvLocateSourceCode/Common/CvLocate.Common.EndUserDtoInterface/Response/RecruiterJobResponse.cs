@@ -8,6 +8,12 @@ namespace CvLocate.Common.EndUserDtoInterface.Response
 {
     public class RecruiterJobResponse : BaseResponse
     {
+        public bool CanExecute { get; set; }
         public Job Job { get; set; }
+
+        public RecruiterJobResponse(bool canExecute)
+        {
+            CanExecute = canExecute;
+        }
     }
 }

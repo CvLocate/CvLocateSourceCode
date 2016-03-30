@@ -56,9 +56,11 @@
   <ItemGroup>
     <Compile Include="Entities\BaseMongoEntity.cs" />
     <Compile Include="Entities\CandidateEntity.cs" />
+    <Compile Include="Entities\JobEntity.cs" />
     <Compile Include="Entities\RecruiterEntity.cs" />
     <Compile Include="Extensions\RepositoryExtensions.cs" />
     <Compile Include="Managers\CandidateManager.cs" />
+    <Compile Include="Managers\JobManager.cs" />
     <Compile Include="Managers\RecruiterManager.cs" />
     <Compile Include="Extensions\MongoExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

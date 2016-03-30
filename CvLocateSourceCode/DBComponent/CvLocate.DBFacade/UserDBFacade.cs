@@ -22,7 +22,7 @@ namespace CvLocate.DBFacade
             {
                 case UserType.Recruiter:
                     {
-                        IRecruiterManager recManager = new RecruiterManager();
+                        IRecruiterManager recManager = RecruiterManager.Instance;
                         return recManager.SignUp(command);
                     }
                 case UserType.JobSeeker:
@@ -33,7 +33,12 @@ namespace CvLocate.DBFacade
 
         public SignResponse SignIn(SigninCommand command)
         {
-            throw new NotImplementedException();
+            if (command == null)
+                return null;
+            SignResponse response = RecruiterManager.Instance.SignIn(command);
+            if (response == null || response.CanSignIn == false)
+                response = CandidateManager.Instance.SignIn(command);
+            return response;
         }
     }
 }

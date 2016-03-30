@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CvLocate.Common.EndUserDtoInterface.DTO
 {
-    public class BaseStatusHistory
+    public class BaseStatusHistory<T>
     {
-        public Enum Status { get; set; }
+        public T Status { get; set; }
         public DateTime Date { get; set; }
     }
 }

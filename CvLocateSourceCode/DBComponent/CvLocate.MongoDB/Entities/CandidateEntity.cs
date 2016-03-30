@@ -25,8 +25,8 @@ namespace CvLocate.MongoDB.Entities
         public MatchingProcessStatus MatchingStatus { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
-        public List<BaseStatusHistory> RegisterStatusHistory { get; set; }
-        public List<BaseStatusHistory> SearchJobStatusHistory { get; set; }
-        public List<BaseStatusHistory> MatchingStatusHistory { get; set; }
+        public List<BaseStatusHistory<CandidateRegisterStatus>> RegisterStatusHistory { get; set; }
+        public List<BaseStatusHistory<CandidateSearchJobStatus>> SearchJobStatusHistory { get; set; }
+        public List<BaseStatusHistory<MatchingProcessStatus>> MatchingStatusHistory { get; set; }
     }
 }

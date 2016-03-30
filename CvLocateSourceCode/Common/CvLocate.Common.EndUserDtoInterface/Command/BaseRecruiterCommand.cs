@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace CvLocate.Common.EndUserDtoInterface.Command
 {
-    public class BaseRecruiterCommand:BaseCommand
+    public class BaseRecruiterCommand : BaseCommand
     {
-         public string RecruiterId { get; set; }
-         public BaseRecruiterCommand(string recruiterId)
+        public string RecruiterId { get; set; }
+        public BaseRecruiterCommand(string recruiterId)
         {
             RecruiterId = recruiterId;
         }

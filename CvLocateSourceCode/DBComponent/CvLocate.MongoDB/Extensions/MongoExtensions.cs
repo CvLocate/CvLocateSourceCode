@@ -29,27 +29,44 @@ namespace CvLocate.MongoDB
 
         #region Public Methods
 
-        public ObjectId UploadFile(FileStream stream, string fileName)
+        public string UploadFile(byte[] fileBytes, string fileName)
         {
+            if (fileBytes == null || string.IsNullOrEmpty(fileName))
+                return null;
             var database = GetFilesDatabase();
+
+            //TODO throw exception with error type
+            if (database.GridFS.Exists(fileName))
+                return null;
+
+            Stream stream = new MemoryStream(fileBytes);
 
             var gridFsInfo = database.GridFS.Upload(stream, fileName);
-            var fileId = gridFsInfo.Id;
-
-            return fileId.AsObjectId;
+            return gridFsInfo.Name;
         }
 
-        public byte[] DownloadFile(ObjectId id)
+        public byte[] DownloadFile(string fileName)
         {
+            if (string.IsNullOrEmpty(fileName))
+                return null;
             var database = GetFilesDatabase();
-            var file = database.GridFS.FindOne(Query.EQ("_id", id));
-
+            var file = database.GridFS.FindOne(fileName);
+            if (file == null)
+                return null;
             using (var stream = file.OpenRead())
             {
                 var bytes = new byte[stream.Length];
                 stream.Read(bytes, 0, (int)stream.Length);
                 return bytes;
             }
+        }
+
+        public void RemoveFile(string fileName)
+        {
+            if (string.IsNullOrEmpty(fileName))
+                return;
+            var database = GetFilesDatabase();
+            database.GridFS.Delete(fileName);
         }
 
         #endregion

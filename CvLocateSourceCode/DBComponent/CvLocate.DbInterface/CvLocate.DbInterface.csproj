@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ICandidateManager.cs" />
+    <Compile Include="IJobManager.cs" />
     <Compile Include="IRecruiterManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

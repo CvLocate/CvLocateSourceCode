@@ -57,6 +57,7 @@
     <Compile Include="DTO\Location.cs" />
     <Compile Include="DTO\MatchCandidate.cs" />
     <Compile Include="DTO\Matching.cs" />
+    <Compile Include="DTO\Owner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query\BaseQuery.cs" />
     <Compile Include="Query\BaseRecruiterQuery.cs" />

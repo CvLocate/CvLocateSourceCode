@@ -16,9 +16,9 @@ namespace CvLocate.Common.EndUserDtoInterface
         public Location Location { get; set; }
         public string Address { get; set; }
         public JobStatus Status { get; set; }
-        public MatchingProcessStatus MatchingProcessStatus { get; set; }
+        public MatchingProcessStatus MatchingStatus { get; set; }
         public DateTime CreatedAt { get; set; }
-        public string CreatedByRecruiterId { get; set; }
+        public string CreatedBy { get; set; }
         public string CreatedByName { get; set; }
         public DateTime UpdatedAt { get; set; }
     }
