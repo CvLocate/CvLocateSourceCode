@@ -12,12 +12,37 @@ namespace CvLocate.ParsingEngine
         //TODO by Zvika
         public CvParsedData ParseCv(CvFile cvFile)
         {
-            return new CvParsedData()
+            string cvText = ExtractText(cvFile.Stream);
+            List<string> seperatedCvTexts = SeperateText(cvText);
+
+            CvParsedData cvParsedData = new CvParsedData()
             {
-                Text="blabla",
-                Name="Moshe",
-                Email="moshe@gmail.com"
+                Text = cvText,
+                SeperatedTexts=seperatedCvTexts
             };
+
+            ExtractMoreData(cvParsedData);
+
+            return cvParsedData;
+        }
+
+        private void ExtractMoreData(CvParsedData cvParsedData)
+        {
+            cvParsedData.Name = "Moshe";
+            cvParsedData.Email = "moshe@gmail.com";
+        }
+
+        private List<string> SeperateText(string cvText)
+        {
+            return new List<string>()
+            {
+                "bla","lab","bla"
+            };
+        }
+
+        private string ExtractText(byte[] p)
+        {
+            return "blabla";
         }
     }
 }

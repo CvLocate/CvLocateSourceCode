@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CvLocate.ParsingEngine
+namespace CvLocate.Common.CoreDtoInterface.Command
 {
-    public interface IParsingEngineManager
+    public class BaseCommonCommand
     {
-        void Initialize();
-        void Stop();
     }
 }
