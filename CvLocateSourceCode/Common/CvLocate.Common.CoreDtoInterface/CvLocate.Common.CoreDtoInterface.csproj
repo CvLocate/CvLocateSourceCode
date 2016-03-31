@@ -41,10 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command\BaseCommonCommand.cs" />
+    <Compile Include="Command\BaseMultipleCommonCommand.cs" />
     <Compile Include="Command\SaveCandidateAfterParsingCommand.cs" />
+    <Compile Include="Command\SaveCvFileCommand.cs" />
     <Compile Include="Command\SaveParsedCvFileCommand.cs" />
     <Compile Include="DTO\Candidate.cs" />
     <Compile Include="DTO\CandidateCvFileForParsing.cs" />
+    <Compile Include="DTO\CvFile.cs" />
     <Compile Include="DTO\CvFileForParsing.cs" />
     <Compile Include="DTO\ParsingEngineConfiguration.cs" />
     <Compile Include="Enums\FindCandidateBy.cs" />
@@ -52,6 +55,7 @@
     <Compile Include="Command\SaveResultOfCandidateParsingCommand.cs" />
     <Compile Include="Query\BaseCommonQuery.cs" />
     <Compile Include="Query\FindCandidateQuery.cs" />
+    <Compile Include="Result\FindCandidateResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CvLocate.Common.CommonDto\CvLocate.Common.CommonDto.csproj">
