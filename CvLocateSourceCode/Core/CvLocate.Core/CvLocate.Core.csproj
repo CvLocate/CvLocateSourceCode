@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{10D95134-B1FD-4736-89F2-2CB84D5B92D6}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{9BC2DC60-7247-470A-AE7A-42EA89126445}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CvLocate.ParsingEngine.Tester</RootNamespace>
-    <AssemblyName>CvLocate.ParsingEngine.Tester</AssemblyName>
+    <RootNamespace>CvLocate.Core</RootNamespace>
+    <AssemblyName>CvLocate.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -33,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net">
-      <HintPath>..\..\..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,27 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="CvFileExample.doc" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Common\CvLocate.Common.CommonDto\CvLocate.Common.CommonDto.csproj">
-      <Project>{7e682acb-3652-4537-a375-f7dee4cf8446}</Project>
-      <Name>CvLocate.Common.CommonDto</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Common\CvLocate.Common.CoreDtoInterface\CvLocate.Common.CoreDtoInterface.csproj">
-      <Project>{468ec8fd-37ae-427f-b7e7-6e6b9d00bb3e}</Project>
-      <Name>CvLocate.Common.CoreDtoInterface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Common\CvLocate.Common\CvLocate.Common.csproj">
+    <ProjectReference Include="..\..\Common\CvLocate.Common\CvLocate.Common.csproj">
       <Project>{9a6ffa4d-0b4b-494e-ad8f-c2d3647ea96e}</Project>
       <Name>CvLocate.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CvLocate.ParsingEngine\CvLocate.ParsingEngine.csproj">
+    <ProjectReference Include="..\ParsingEngine\CvLocate.ParsingEngine\CvLocate.ParsingEngine.csproj">
       <Project>{6960007d-dec5-46d9-a45d-64cad85d3b67}</Project>
       <Name>CvLocate.ParsingEngine</Name>
     </ProjectReference>

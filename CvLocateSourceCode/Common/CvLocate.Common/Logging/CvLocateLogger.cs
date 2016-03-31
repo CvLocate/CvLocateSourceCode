@@ -14,6 +14,7 @@ namespace CvLocate.Common.Logging
         {
             defaultLogger =
               LoggerManager.GetLogger(Assembly.GetCallingAssembly(), "defaultLogger");
+            log4net.Config.XmlConfigurator.Configure(defaultLogger.Repository);
         }
 
         public CvLocateLogger(string loggerName = null)
@@ -21,6 +22,8 @@ namespace CvLocate.Common.Logging
             if (!string.IsNullOrWhiteSpace(loggerName))
             {
                 logger = LoggerManager.GetLogger(Assembly.GetCallingAssembly(), loggerName);
+                log4net.Config.XmlConfigurator.Configure(logger.Repository);
+
             }
         }
         public void Debug(string message)

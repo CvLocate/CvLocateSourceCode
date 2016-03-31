@@ -1,4 +1,5 @@
 ﻿using CvLocate.Common.CoreDtoInterface.DTO;
+using CvLocate.Common.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,19 @@ using System.Threading.Tasks;
 
 namespace CvLocate.ParsingEngine
 {
-    class CvParser:ICvParser
+    public class CvParser:ICvParser
     {
+        ICvLocateLogger _logger;
+        public CvParser(ICvLocateLogger logger)
+        {
+            _logger = logger;
+        }
+
         //TODO by Zvika
         public CvParsedData ParseCv(CvFileForParsing cvFile)
         {
+            _logger.InfoFormat("Start parse cv file {0}", cvFile.Id);
+
             string cvText = ExtractText(cvFile.Stream);
             List<string> seperatedCvTexts = SeperateText(cvText);
 

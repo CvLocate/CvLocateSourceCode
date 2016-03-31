@@ -10,6 +10,7 @@ using CvLocate.Common.CoreDtoInterface.Command;
 using CvLocate.Common.CoreDtoInterface.Query;
 using CvLocate.Common.CoreDtoInterface.Enums;
 using CvLocate.Common.CoreDtoInterface.Result;
+using CvLocate.Common.Logging;
 
 
 namespace CvLocate.ParsingEngine
@@ -23,6 +24,7 @@ namespace CvLocate.ParsingEngine
         IParsingEngineDataWrapper _dataWrapper;
         IParsingQueueManager _parsingQueueManager;
         ICvParser _cvParser;
+        ICvLocateLogger _logger;
 
         Task _parsingProcessTask; //todo replace to list of tasks for best performance
         Task _parsingProcessManagerTask;
@@ -35,11 +37,12 @@ namespace CvLocate.ParsingEngine
 
         #region ctor
         public ParsingEngineManager(IParsingEngineDataWrapper dataWrapper, IParsingQueueManager parsingQueueManager
-            , ICvParser cvParser)
+            , ICvParser cvParser,ICvLocateLogger logger)
         {
             _dataWrapper = dataWrapper;
             _parsingQueueManager = parsingQueueManager;
             _cvParser = cvParser;
+            _logger = logger;
         }
         #endregion
 

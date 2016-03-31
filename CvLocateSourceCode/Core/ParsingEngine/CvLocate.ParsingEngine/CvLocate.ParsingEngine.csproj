@@ -46,6 +46,7 @@
     <Compile Include="IParsingEngineManager.cs" />
     <Compile Include="IParsingEngineDataWrapper.cs" />
     <Compile Include="IParsingQueueManager.cs" />
+    <Compile Include="ParsingEngineDataWrapper.cs" />
     <Compile Include="ParsingEngineManager.cs" />
     <Compile Include="ParsingQueueManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -58,6 +59,10 @@
     <ProjectReference Include="..\..\..\Common\CvLocate.Common.CoreDtoInterface\CvLocate.Common.CoreDtoInterface.csproj">
       <Project>{468ec8fd-37ae-427f-b7e7-6e6b9d00bb3e}</Project>
       <Name>CvLocate.Common.CoreDtoInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\CvLocate.Common\CvLocate.Common.csproj">
+      <Project>{9a6ffa4d-0b4b-494e-ad8f-c2d3647ea96e}</Project>
+      <Name>CvLocate.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
