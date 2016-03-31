@@ -12,7 +12,6 @@ namespace CvLocate.MongoDB.Entities
     [CollectionName("Candidates")]
     public class CandidateEntity : BaseMongoEntity
     {
-        public string Id { get; set; }
         public long CandidateNum { get; set; }
         public string Email { get; set; }
         public string Name { get; set; }

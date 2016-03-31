@@ -14,12 +14,6 @@ namespace CvLocate.EmailListener.Classes
     public delegate void GetMailDelegate(MailMessage message);
     public class EmailOperations
     {
-        #region Members
-
-        private IEmailServer _email;
-
-        #endregion
-
         #region Singletone Implementation
 
         private static EmailOperations _instance;
