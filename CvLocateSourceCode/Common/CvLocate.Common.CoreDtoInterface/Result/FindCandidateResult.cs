@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CvLocate.ParsingEngine
+namespace CvLocate.Common.CoreDtoInterface.Result
 {
-    public interface ICvParser
+    public class FindCandidateResult
     {
-        CvParsedData ParseCv(CvFileForParsing cvFile);
+        public Candidate Candidate { get; set; }
+        public CvFile CvFile { get; set; }
     }
 }

@@ -11,16 +11,16 @@ namespace CvLocate.ParsingEngine
     public class ParsingQueueManager : IParsingQueueManager
     {
         IParsingEngineDataWrapper _dataWrapper;
-        ConcurrentQueue<Candidate> _candidatesQueue;
+        ConcurrentQueue<CandidateCvFileForParsing> _candidatesQueue;
         public void Initialize(IParsingEngineDataWrapper dataWrapper)
         {
             _dataWrapper = dataWrapper;
-            _candidatesQueue = new ConcurrentQueue<Candidate>();
+            _candidatesQueue = new ConcurrentQueue<CandidateCvFileForParsing>();
         }
 
-        public Candidate GetNextCandidate()
+        public CandidateCvFileForParsing GetNextCandidate()
         {
-            Candidate candidate = null;
+            CandidateCvFileForParsing candidate = null;
             if (!(_candidatesQueue.TryDequeue(out candidate)))
             {
                 LoadNextCandidates();
@@ -32,7 +32,7 @@ namespace CvLocate.ParsingEngine
 
         private void LoadNextCandidates()
         {
-           IList<Candidate> nextCandidatesForParsing= _dataWrapper.GetTopCandidatesForParsing();
+            IList<CandidateCvFileForParsing> nextCandidatesForParsing = _dataWrapper.GetTopCandidatesForParsing();
            foreach (var candidate in nextCandidatesForParsing)
            {
                _candidatesQueue.Enqueue(candidate);

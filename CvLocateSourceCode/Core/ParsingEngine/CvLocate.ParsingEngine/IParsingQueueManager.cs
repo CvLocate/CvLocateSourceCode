@@ -10,6 +10,6 @@ namespace CvLocate.ParsingEngine
     public interface IParsingQueueManager
     {
         void Initialize(IParsingEngineDataWrapper dataWrapper);
-        Candidate GetNextCandidate();
+        CandidateCvFileForParsing GetNextCandidate();
     }
 }

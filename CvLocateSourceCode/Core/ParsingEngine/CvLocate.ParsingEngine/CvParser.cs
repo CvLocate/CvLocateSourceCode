@@ -10,7 +10,7 @@ namespace CvLocate.ParsingEngine
     class CvParser:ICvParser
     {
         //TODO by Zvika
-        public CvParsedData ParseCv(CvFile cvFile)
+        public CvParsedData ParseCv(CvFileForParsing cvFile)
         {
             string cvText = ExtractText(cvFile.Stream);
             List<string> seperatedCvTexts = SeperateText(cvText);

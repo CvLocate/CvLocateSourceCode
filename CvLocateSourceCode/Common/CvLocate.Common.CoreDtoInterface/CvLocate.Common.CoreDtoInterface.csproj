@@ -41,8 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command\BaseCommonCommand.cs" />
+    <Compile Include="Command\SaveCandidateAfterParsingCommand.cs" />
+    <Compile Include="Command\SaveParsedCvFileCommand.cs" />
     <Compile Include="DTO\Candidate.cs" />
-    <Compile Include="DTO\CvFile.cs" />
+    <Compile Include="DTO\CandidateCvFileForParsing.cs" />
+    <Compile Include="DTO\CvFileForParsing.cs" />
     <Compile Include="DTO\ParsingEngineConfiguration.cs" />
     <Compile Include="Enums\FindCandidateBy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

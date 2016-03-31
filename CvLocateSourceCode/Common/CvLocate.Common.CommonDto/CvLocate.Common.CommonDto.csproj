@@ -43,6 +43,7 @@
     <Compile Include="Enums\CandidateRegisterStatus.cs" />
     <Compile Include="Enums\CandidateSearchJobStatus.cs" />
     <Compile Include="Enums\CandidateSourceType.cs" />
+    <Compile Include="Enums\CvFileStatus.cs" />
     <Compile Include="Enums\ParsingProcessStatus.cs" />
     <Compile Include="Enums\Gender.cs" />
     <Compile Include="Enums\JobSourceType.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="Enums\RecruiterSourceType.cs" />
     <Compile Include="Enums\UserStatus.cs" />
     <Compile Include="Enums\UserType.cs" />
+    <Compile Include="Enums\CvStatusReason.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

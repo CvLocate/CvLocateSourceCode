@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace CvLocate.Common.CommonDto
 {
-    public enum CandidateSourceType//todo change to CvSourceType
+    public enum CvStatusReason
     {
-        Crawler,
-        Email,
-        Recruiter,
-        System
+        None,
+        Duplicate,
+        ParsingFailed,
+        OtherEmailThenCandidate,
+        ReplacedByCandidate
     }
 }

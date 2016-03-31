@@ -1,4 +1,7 @@
-﻿using CvLocate.Common.CoreDtoInterface.DTO;
+﻿using CvLocate.Common.CoreDtoInterface.Command;
+using CvLocate.Common.CoreDtoInterface.DTO;
+using CvLocate.Common.CoreDtoInterface.Query;
+using CvLocate.Common.CoreDtoInterface.Result;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,14 +17,14 @@ namespace CvLocate.ParsingEngine
         //ii.	Take first registered candidates (their RegisterStatus is 'Register')
         //iii.	Then take the not registered candidates ordered by updated date ascending
         //iv.	The X top parameter is taken from XTopCandidatessForParsingQueue column in Configuration table
-        IList<Candidate> GetTopCandidatesForParsing();
+        IList<CandidateCvFileForParsing> GetTopCandidatesForParsing();
 
         ParsingEngineConfiguration GetParsingEngineConfiguration();
 
-        CvFile GetCandidateCvFile(string p);
+        CvFileForParsing GetCandidateCvFile(string p);
 
-        void SaveResultOfCandidateParsing(Common.CoreDtoInterface.Command.SaveResultOfCandidateParsingCommand saveCommand);
+        void SaveResultOfCandidateParsing(SaveResultOfCandidateParsingCommand saveCommand);
 
-        Candidate FindCandidate(Common.CoreDtoInterface.Query.FindCandidateQuery findCandidateQuery);
+        FindCandidateResult FindCandidate(FindCandidateQuery findCandidateQuery);
     }
 }

@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace CvLocate.Common.CoreDtoInterface.Command
 {
-    public class SaveResultOfCandidateParsingCommand : BaseCommonCommand
+    public class SaveResultOfCandidateParsingCommand : BaseMultipleCommonCommand
     {
-        public Candidate Candidate { get; set; }
-        public string CvText { get; set; }
-        public List<string> SeperatedCvTexts { get; set; }
+       
+      
     }
 }
