@@ -2,6 +2,7 @@
 using CvLocate.Common.CoreDtoInterface.DTO;
 using CvLocate.Common.CoreDtoInterface.Query;
 using CvLocate.Common.CoreDtoInterface.Result;
+using CvLocate.Common.DbFacadeInterface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,29 +13,31 @@ namespace CvLocate.ParsingEngine
 {
    public  class ParsingEngineDataWrapper:IParsingEngineDataWrapper
     {
+       ICoreDBFacade _coreDbFacade;
+
+       public ParsingEngineDataWrapper(ICoreDBFacade coreDbFacade)
+       {
+           this._coreDbFacade = coreDbFacade;
+       }
+
         public IList<CandidateCvFileForParsing> GetTopCandidatesForParsing()
         {
-            throw new NotImplementedException();
+            return _coreDbFacade.GetTopCandidatesForParsing().CandidateCvFilesForParsing;
         }
 
         public ParsingEngineConfiguration GetParsingEngineConfiguration()
         {
-            throw new NotImplementedException();
-        }
-
-        public CvFileForParsing GetCandidateCvFile(string p)
-        {
-            throw new NotImplementedException();
+            return _coreDbFacade.GetParsingEngineConfiguration().Configuration;
         }
 
         public void SaveResultOfCandidateParsing(SaveResultOfCandidateParsingCommand saveCommand)
         {
-            throw new NotImplementedException();
+            _coreDbFacade.SaveResultOfCandidateParsing(saveCommand);
         }
 
         public FindCandidateResult FindCandidate(FindCandidateQuery findCandidateQuery)
         {
-            throw new NotImplementedException();
+            return _coreDbFacade.FindCandidate(findCandidateQuery);
         }
     }
 }

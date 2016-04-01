@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CvLocate.Common.CoreDtoInterface.Query
 {
-    public class BaseCommonQuery
+    public class BaseCoreQuery
     {
     }
 }

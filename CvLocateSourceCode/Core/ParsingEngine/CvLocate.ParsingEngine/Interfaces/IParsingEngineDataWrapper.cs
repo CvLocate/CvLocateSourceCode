@@ -21,8 +21,6 @@ namespace CvLocate.ParsingEngine
 
         ParsingEngineConfiguration GetParsingEngineConfiguration();
 
-        CvFileForParsing GetCandidateCvFile(string p);
-
         void SaveResultOfCandidateParsing(SaveResultOfCandidateParsingCommand saveCommand);
 
         FindCandidateResult FindCandidate(FindCandidateQuery findCandidateQuery);

@@ -40,11 +40,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IEmailServerDBFacade.cs" />
+    <Compile Include="ICoreDBFacade.cs" />
     <Compile Include="IRecruiterDBFacade.cs" />
     <Compile Include="IUserDBFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CvLocate.Common.CommonDto\CvLocate.Common.CommonDto.csproj">
+      <Project>{7e682acb-3652-4537-a375-f7dee4cf8446}</Project>
+      <Name>CvLocate.Common.CommonDto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CvLocate.Common.CoreDtoInterface\CvLocate.Common.CoreDtoInterface.csproj">
+      <Project>{468ec8fd-37ae-427f-b7e7-6e6b9d00bb3e}</Project>
+      <Name>CvLocate.Common.CoreDtoInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CvLocate.Common.EmailServerDtoInterface\CvLocate.Common.EmailServerDtoInterface.csproj">
+      <Project>{eb0dffa1-2a1b-4c12-aa90-48d6af802cc3}</Project>
+      <Name>CvLocate.Common.EmailServerDtoInterface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CvLocate.Common.EndUserDtoInterface\CvLocate.Common.EndUserDtoInterface.csproj">
       <Project>{ca6983f7-af69-4473-8712-4ba2ddd23de8}</Project>
       <Name>CvLocate.Common.EndUserDtoInterface</Name>

@@ -40,12 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CvParsedData.cs" />
+    <Compile Include="Entities\CvParsedData.cs" />
     <Compile Include="CvParser.cs" />
-    <Compile Include="ICvParser.cs" />
-    <Compile Include="IParsingEngineManager.cs" />
-    <Compile Include="IParsingEngineDataWrapper.cs" />
-    <Compile Include="IParsingQueueManager.cs" />
+    <Compile Include="Interfaces\ICvParser.cs" />
+    <Compile Include="Interfaces\IParsingEngineManager.cs" />
+    <Compile Include="Interfaces\IParsingEngineDataWrapper.cs" />
+    <Compile Include="Interfaces\IParsingQueueManager.cs" />
     <Compile Include="ParsingEngineDataWrapper.cs" />
     <Compile Include="ParsingEngineManager.cs" />
     <Compile Include="ParsingQueueManager.cs" />
@@ -59,6 +59,10 @@
     <ProjectReference Include="..\..\..\Common\CvLocate.Common.CoreDtoInterface\CvLocate.Common.CoreDtoInterface.csproj">
       <Project>{468ec8fd-37ae-427f-b7e7-6e6b9d00bb3e}</Project>
       <Name>CvLocate.Common.CoreDtoInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\CvLocate.Common.DbFacadeInterface\CvLocate.Common.DbFacadeInterface.csproj">
+      <Project>{53337976-55e2-42fd-bcf1-2d743907aefc}</Project>
+      <Name>CvLocate.Common.DbFacadeInterface</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Common\CvLocate.Common\CvLocate.Common.csproj">
       <Project>{9a6ffa4d-0b4b-494e-ad8f-c2d3647ea96e}</Project>

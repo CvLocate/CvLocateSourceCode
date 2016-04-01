@@ -1,4 +1,6 @@
-﻿using CvLocate.Common.Logging;
+﻿using CvLocate.Common.DbFacadeInterface;
+using CvLocate.Common.Logging;
+using CvLocate.DBFacade;
 using CvLocate.ParsingEngine;
 using System;
 using System.Collections.Generic;
@@ -16,7 +18,8 @@ namespace CvLocate.Core
         {
             ICvLocateLogger parsingEngineLogger = new CvLocateLogger("parsingEngineLogger");
             ICvParser cvParser = new CvParser(parsingEngineLogger);
-            IParsingEngineDataWrapper dataWrapper = new ParsingEngineDataWrapper();
+            ICoreDBFacade coreDbFacade = new CoreDBFacade();
+            IParsingEngineDataWrapper dataWrapper = new ParsingEngineDataWrapper(coreDbFacade);
             IParsingQueueManager parsingQueueManager = new ParsingQueueManager(dataWrapper);
 
             ParsingEngineManager parsingManager = new ParsingEngineManager(dataWrapper, parsingQueueManager, cvParser, parsingEngineLogger);

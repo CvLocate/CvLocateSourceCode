@@ -53,9 +53,11 @@
     <Compile Include="Enums\FindCandidateBy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Command\SaveResultOfCandidateParsingCommand.cs" />
-    <Compile Include="Query\BaseCommonQuery.cs" />
+    <Compile Include="Query\BaseCoreQuery.cs" />
     <Compile Include="Query\FindCandidateQuery.cs" />
     <Compile Include="Result\FindCandidateResult.cs" />
+    <Compile Include="Result\GetParsingEngineConfigurationResult.cs" />
+    <Compile Include="Result\GetTopCandidatesForParsingResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CvLocate.Common.CommonDto\CvLocate.Common.CommonDto.csproj">
