@@ -8,13 +8,17 @@ using System.Threading.Tasks;
 namespace CvLocate.Common.CoreDtoInterface.Result
 {
 
-    public class GetTopCandidatesForParsingResult
+    public class GetTopCvFilesForParsingResult
     {
         public IList<CandidateCvFileForParsing> CandidateCvFilesForParsing { get; set; }
 
-        public GetTopCandidatesForParsingResult(IList<CandidateCvFileForParsing> candidateCvFilesForParsing)
+        public GetTopCvFilesForParsingResult(IList<CandidateCvFileForParsing> candidateCvFilesForParsing)
         {
             CandidateCvFilesForParsing = candidateCvFilesForParsing;
+        }
+        public GetTopCvFilesForParsingResult()
+        {
+            CandidateCvFilesForParsing = new List<CandidateCvFileForParsing>();
         }
     }
 }

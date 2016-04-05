@@ -20,9 +20,9 @@ namespace CvLocate.ParsingEngine
            this._coreDbFacade = coreDbFacade;
        }
 
-        public IList<CandidateCvFileForParsing> GetTopCandidatesForParsing()
+        public IList<CandidateCvFileForParsing> GetTopCvFilesForParsing()
         {
-            return _coreDbFacade.GetTopCandidatesForParsing().CandidateCvFilesForParsing;
+            return _coreDbFacade.GetTopCvFilesForParsing().CandidateCvFilesForParsing;
         }
 
         public ParsingEngineConfiguration GetParsingEngineConfiguration()

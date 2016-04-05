@@ -35,7 +35,7 @@ namespace CvLocate.ParsingEngine
 
         private void LoadNextCandidates()
         {
-            IList<CandidateCvFileForParsing> nextCandidatesForParsing = _dataWrapper.GetTopCandidatesForParsing();
+            IList<CandidateCvFileForParsing> nextCandidatesForParsing = _dataWrapper.GetTopCvFilesForParsing();
             foreach (var candidate in nextCandidatesForParsing)
             {
                 _candidatesQueue.Enqueue(candidate);

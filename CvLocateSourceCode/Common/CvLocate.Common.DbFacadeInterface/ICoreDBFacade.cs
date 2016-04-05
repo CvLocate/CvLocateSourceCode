@@ -15,7 +15,7 @@ namespace CvLocate.Common.DbFacadeInterface
         //•	Take just records with ParsingStatus =  'WaitingForParsing'
         //•	The order is done by UpdatedAt field. First take the oldest recorded.
         //•	In future: Take first the files of registered candidates
-        GetTopCandidatesForParsingResult GetTopCandidatesForParsing();
+        GetTopCvFilesForParsingResult GetTopCvFilesForParsing();
 
         GetParsingEngineConfigurationResult GetParsingEngineConfiguration();
 

@@ -12,5 +12,12 @@ namespace CvLocate.Common.CoreDtoInterface.DTO
     {
         public byte[] Stream { get; set; }
         public string Extention { get; set; }
+
+        public override string ToString()
+        {
+            string result = base.ToString();
+            result += string.Format(" Extension: {0}", Extention);
+            return result;
+        }
     }
 }

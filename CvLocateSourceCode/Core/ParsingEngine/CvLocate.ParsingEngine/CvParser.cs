@@ -16,10 +16,9 @@ namespace CvLocate.ParsingEngine
             _logger = logger;
         }
 
-        //TODO by Zvika
         public CvParsedData ParseCv(CvFileForParsing cvFile)
         {
-            _logger.InfoFormat("Start parse cv file {0}", cvFile.Id);
+            _logger.DebugFormat("CV file {0}: Start parsing.", cvFile.Id);
 
             string cvText = ExtractText(cvFile.Stream);
             List<string> seperatedCvTexts = SeperateText(cvText);
@@ -31,6 +30,8 @@ namespace CvLocate.ParsingEngine
             };
 
             ExtractMoreData(cvParsedData);
+
+            this._logger.DebugFormat("CV file {0}: Parsing result: {1}", cvFile.Id, cvParsedData);
 
             return cvParsedData;
         }
@@ -49,7 +50,7 @@ namespace CvLocate.ParsingEngine
             };
         }
 
-        private string ExtractText(byte[] p)
+        private string ExtractText(byte[] fileStream)
         {
             return "blabla";
         }
