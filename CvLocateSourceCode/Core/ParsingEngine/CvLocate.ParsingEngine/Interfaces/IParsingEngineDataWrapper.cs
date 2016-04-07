@@ -17,7 +17,7 @@ namespace CvLocate.ParsingEngine
         //ii.	Take first registered candidates (their RegisterStatus is 'Register')
         //iii.	Then take the not registered candidates ordered by updated date ascending
         //iv.	The X top parameter is taken from XTopCandidatessForParsingQueue column in Configuration table
-        IList<CandidateCvFileForParsing> GetTopCandidatesForParsing();
+        IList<CandidateCvFileForParsing> GetTopCvFilesForParsing();
 
         ParsingEngineConfiguration GetParsingEngineConfiguration();
 

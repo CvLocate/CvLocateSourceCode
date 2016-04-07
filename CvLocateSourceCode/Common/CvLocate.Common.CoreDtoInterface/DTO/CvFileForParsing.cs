@@ -11,6 +11,17 @@ namespace CvLocate.Common.CoreDtoInterface.DTO
     public class CvFileForParsing : CvFile
     {
         public byte[] Stream { get; set; }
+<<<<<<< HEAD
         public string Extension { get; set; }
+=======
+        public string Extention { get; set; }
+
+        public override string ToString()
+        {
+            string result = base.ToString();
+            result += string.Format(" Extension: {0}", Extention);
+            return result;
+        }
+>>>>>>> origin/Dev
     }
 }

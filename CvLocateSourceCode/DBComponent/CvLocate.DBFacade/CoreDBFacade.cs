@@ -10,7 +10,11 @@ namespace CvLocate.DBFacade
 {
     public class CoreDBFacade:ICoreDBFacade
     {
+<<<<<<< HEAD
         public GetTopCandidatesForParsingResult GetTopCandidatesForParsing()
+=======
+        public CvLocate.Common.CoreDtoInterface.Result.GetTopCvFilesForParsingResult GetTopCvFilesForParsing()
+>>>>>>> origin/Dev
         {
             //return new GetTopCandidatesForParsingResult(n
             throw new NotImplementedException();

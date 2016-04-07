@@ -10,5 +10,11 @@ namespace CvLocate.Common.CoreDtoInterface.DTO
     {
         public CvFileForParsing CvFile { get; set; }
         public Candidate Candidate { get; set; }
+
+        public override string ToString()
+        {
+            string result = string.Format("CV File Deatils: {0}\nCandidate Details:{1}", CvFile, Candidate);
+            return result;
+        }
     }
 }

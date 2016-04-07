@@ -16,10 +16,8 @@ namespace CvLocate.ParsingEngine.Tester
     {
         static void Main(string[] args)
         {
-#if ZVIKA
-            ZvikaTester.TestCvParser();
-#endif
 
+     
 #if CHEVI
             CheviTester.TestParsingEngineManager();
 #endif
@@ -29,3 +27,4 @@ namespace CvLocate.ParsingEngine.Tester
     }
   
 }
+

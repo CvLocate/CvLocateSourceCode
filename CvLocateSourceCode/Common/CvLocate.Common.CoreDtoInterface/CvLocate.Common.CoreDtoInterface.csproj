@@ -64,6 +64,10 @@
       <Project>{7e682acb-3652-4537-a375-f7dee4cf8446}</Project>
       <Name>CvLocate.Common.CommonDto</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CvLocate.Common\CvLocate.Common.csproj">
+      <Project>{9a6ffa4d-0b4b-494e-ad8f-c2d3647ea96e}</Project>
+      <Name>CvLocate.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

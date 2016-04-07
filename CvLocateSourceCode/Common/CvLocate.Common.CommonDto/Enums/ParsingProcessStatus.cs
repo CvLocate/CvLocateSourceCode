@@ -11,6 +11,7 @@ namespace CvLocate.Common.CommonDto
         WaitingForParsing,
         CannotDeciphered,
         Duplicate,
-        Parsed
+        Parsed,
+        ParsedWithWarnings
     }
 }

@@ -14,5 +14,15 @@ namespace CvLocate.Common.CoreDtoInterface.Command
         {
             Commands = new List<BaseCommonCommand>();
         }
+
+        public override string ToString()
+        {
+            string result = string.Empty;
+            foreach (var command in Commands)
+            {
+                result += string.Format("Command {0}: {1}\n",command.GetType().Name,command.ToString());
+            }
+            return result;
+        }
     }
 }
