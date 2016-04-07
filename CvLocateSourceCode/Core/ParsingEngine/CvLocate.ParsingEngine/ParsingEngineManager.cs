@@ -226,101 +226,6 @@ namespace CvLocate.ParsingEngine
                 }
                 else//this email already exists in system
                 {
-<<<<<<< HEAD
-                    FindCandidateResult existingCandidateWithSameEmail = _dataWrapper.FindCandidate(new FindCandidateQuery(FindCandidateBy.ByEmail, parsedCv.Email));
-
-                    if (existingCandidateWithSameEmail == null)//this email doesn't exist in system yet
-                    {
-                        saveParsedCvFileCommand.CvFile.ParsingStatus = ParsingProcessStatus.Parsed;
-                        saveParsedCvFileCommand.CvFile.Status = CvFileStatus.Accepted;
-
-                        saveCandiateAfterParsingCommand = new SaveCandidateAfterParsingCommand()
-                        {//create new candidate
-                            CVFileId = cvFile.Id,
-                            Email = parsedCv.Email,
-                            Name = parsedCv.Name,
-                            MatchingStatus = MatchingProcessStatus.WaitingForMatching
-                        };
-                        saveResultOfCandidateParsingCommand.Commands.Add(saveCandiateAfterParsingCommand);
-                    }
-                    else//this email already exists in system
-                    {
-                        if (existingCandidateWithSameEmail.Candidate.CVFileId == cvFile.Id)
-                        {//A candidate uploaded this cv file
-                            saveParsedCvFileCommand.CvFile.ParsingStatus = ParsingProcessStatus.Parsed;
-                            saveParsedCvFileCommand.CvFile.Status = CvFileStatus.Accepted;
-
-                            saveCandiateAfterParsingCommand = new SaveCandidateAfterParsingCommand()
-                            {
-                                CandidateId = existingCandidateWithSameEmail.Candidate.Id,
-                                Name = string.IsNullOrWhiteSpace(existingCandidateWithSameEmail.Candidate.Name) ? parsedCv.Name : existingCandidateWithSameEmail.Candidate.Name,
-                                MatchingStatus = MatchingProcessStatus.WaitingForMatching
-                            };
-                            saveResultOfCandidateParsingCommand.Commands.Add(saveCandiateAfterParsingCommand);
-                        }
-                        else //there is a candidate with same email but with other cv file
-                        {
-                            bool replaceCvFileForExistingCandidate = false;
-
-                            if (existingCandidateWithSameEmail.CvFile.SourceType == CvSourceType.System)
-                            {
-                                replaceCvFileForExistingCandidate = false;
-                            }
-                            else if (existingCandidateWithSameEmail.CvFile.Status == CvFileStatus.Deleted)
-                            {
-                                replaceCvFileForExistingCandidate = true;
-                            }
-                            else
-                            {
-                                //take the newest cv file
-                                replaceCvFileForExistingCandidate = existingCandidateWithSameEmail.CvFile.CreatedDate < cvFile.CreatedDate;
-                            }
-
-                            if (replaceCvFileForExistingCandidate == true)
-                            {
-                                saveParsedCvFileCommand.CvFile.ParsingStatus = ParsingProcessStatus.Parsed;
-                                saveParsedCvFileCommand.CvFile.Status = CvFileStatus.Accepted;
-                                saveParsedCvFileCommand.CvFile.CandidateId = existingCandidateWithSameEmail.Candidate.Id;
-
-                                saveCandiateAfterParsingCommand = new SaveCandidateAfterParsingCommand()
-                                {
-                                    CandidateId = existingCandidateWithSameEmail.Candidate.Id,
-                                    CVFileId = cvFile.Id,
-                                    Name = parsedCv.Name,
-                                    MatchingStatus = MatchingProcessStatus.WaitingForMatching
-                                };
-
-
-                                if (existingCandidateWithSameEmail.CvFile.Status != CvFileStatus.Deleted)
-                                {
-                                    //delete the old cv file
-                                    SaveCvFileCommand deleteOldCvFileCommand = new SaveCvFileCommand()
-                                    {
-                                        CvFile = existingCandidateWithSameEmail.CvFile
-                                    };
-
-                                    deleteOldCvFileCommand.CvFile.Status = CvFileStatus.Deleted;
-                                    deleteOldCvFileCommand.CvFile.StatusReason = CvStatusReason.Duplicate;
-                                    deleteOldCvFileCommand.CvFile.StatusReasonDetails = string.Format("The system found cv file (id: {0}) with same email {1}, so the candidate {2} will connect to the newest cv file (id: {3})"
-                                                                                            , cvFile.Id,parsedCv.Email, existingCandidateWithSameEmail.Candidate.Id,cvFile.Id);
-
-                                    saveResultOfCandidateParsingCommand.Commands.Add(deleteOldCvFileCommand);
-                                }
-                                saveResultOfCandidateParsingCommand.Commands.Add(saveCandiateAfterParsingCommand);
-                            }
-                            else//dont replace cv file for existing candidate
-                            {
-                                saveParsedCvFileCommand.CvFile.CandidateId = existingCandidateWithSameEmail.Candidate.Id;
-                                saveParsedCvFileCommand.CvFile.ParsingStatus = ParsingProcessStatus.Parsed;
-                                saveParsedCvFileCommand.CvFile.Status = CvFileStatus.Deleted;
-                                saveParsedCvFileCommand.CvFile.StatusReason = CvStatusReason.Duplicate;
-                                saveParsedCvFileCommand.CvFile.StatusReasonDetails = string.Format("There is already a candidate (id:{0}) with same email {1} that is already connected to other cv file (id: {2})",
-                                                                                                        existingCandidateWithSameEmail.Candidate.Id, existingCandidateWithSameEmail.Candidate.Email, existingCandidateWithSameEmail.Candidate.CVFileId);
-                            }
-                        }
-
-                    }
-=======
                     parsingCommands = ParsingCommandsForExistingEmail(parsedCvFile, parsedCvData, relatedCandidateOfParsedCvFile, saveParsedCvFileCommand, existingCandidateWithSameEmail);
                 }
 
@@ -346,7 +251,6 @@ namespace CvLocate.ParsingEngine
         private List<BaseCommonCommand> ParsingCommandsForCandidateWithSameEmailButOtherCvFile(CvFileForParsing parsedCvFile, CvParsedData parsedCvData, Candidate relatedCandidateOfParsedCvFile, SaveParsedCvFileCommand saveParsedCvFileCommand, FindCandidateResult existingCandidateWithSameEmail)
         {
             bool replaceCvFileForExistingCandidate = CheckIfReplaceCvFileForExistingCandidate(parsedCvFile, parsedCvData, relatedCandidateOfParsedCvFile, saveParsedCvFileCommand, existingCandidateWithSameEmail);
->>>>>>> origin/Dev
 
             List<BaseCommonCommand> parsingCommands = null;
 
@@ -368,7 +272,7 @@ namespace CvLocate.ParsingEngine
             string log = string.Format("CV file {0}: Candidate {1} with same email {2} is connected to other CV file {3} ",
                 parsedCvFile.Id, existingCandidateWithSameEmail.Candidate.Id, parsedCvData.Email, existingCandidateWithSameEmail.CvFile.Id);
 
-            if (existingCandidateWithSameEmail.CvFile.SourceType == CandidateSourceType.System)
+            if (existingCandidateWithSameEmail.CvFile.SourceType == CvSourceType.System)
             {
                 this._logger.DebugFormat(log + "with source type {0}, so delete the parsed CV file and leave the candidate with the current CV file.", existingCandidateWithSameEmail.CvFile.SourceType);
                 replaceCvFileForExistingCandidate = false;

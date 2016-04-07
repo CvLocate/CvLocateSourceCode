@@ -35,7 +35,7 @@ namespace CvLocate.ParsingEngine.Tester
             {
                 CandidateCvFileForParsing file = new CandidateCvFileForParsing()
                 {
-                    CvFile = new CvFileForParsing() { Extention = "docx", Id = (i * 100).ToString(), ParsingStatus = ParsingProcessStatus.WaitingForParsing, Status = CvFileStatus.New }
+                    CvFile = new CvFileForParsing() { Extension = "docx", Id = (i * 100).ToString(), ParsingStatus = ParsingProcessStatus.WaitingForParsing, Status = CvFileStatus.New }
                 };
                 if (i % 2 == 0)
                 {//some files are already connected to candidates
@@ -52,7 +52,7 @@ namespace CvLocate.ParsingEngine.Tester
             {
                 CandidateCvFileForParsing file = new CandidateCvFileForParsing();
                 file.Candidate = new Candidate() { Id = i.ToString(), CVFileId = (i * 100).ToString(), Email = i.ToString() + "@gmail.com", MatchingStatus = MatchingProcessStatus.NotReadyForMatching, UpdatedAt = DateTime.Today.AddDays(-i) };
-                file.CvFile = new CvFileForParsing() { CandidateId = file.Candidate.Id, Extention = "docx", Id = (i * 100).ToString(), ParsingStatus = ParsingProcessStatus.WaitingForParsing, Status = CvFileStatus.New };
+                file.CvFile = new CvFileForParsing() { CandidateId = file.Candidate.Id, Extension = "docx", Id = (i * 100).ToString(), ParsingStatus = ParsingProcessStatus.WaitingForParsing, Status = CvFileStatus.New };
 
                 cvFiles.Add(file);
             }
@@ -62,7 +62,7 @@ namespace CvLocate.ParsingEngine.Tester
             {
                 CandidateCvFileForParsing file = new CandidateCvFileForParsing();
                 file.Candidate = new Candidate() { Id = i.ToString() , CVFileId = (i * 100).ToString(), Email = i.ToString() + "-other@gmail.com", MatchingStatus = MatchingProcessStatus.NotReadyForMatching, UpdatedAt = DateTime.Today.AddDays(-i) };
-                file.CvFile = new CvFileForParsing() { CandidateId = file.Candidate.Id, Extention = "docx", Id = (i * 100).ToString(), ParsingStatus = ParsingProcessStatus.WaitingForParsing, Status = CvFileStatus.New };
+                file.CvFile = new CvFileForParsing() { CandidateId = file.Candidate.Id, Extension = "docx", Id = (i * 100).ToString(), ParsingStatus = ParsingProcessStatus.WaitingForParsing, Status = CvFileStatus.New };
 
                 cvFiles.Add(file);
             }
@@ -72,7 +72,7 @@ namespace CvLocate.ParsingEngine.Tester
             {
                 CandidateCvFileForParsing file = new CandidateCvFileForParsing()
                 {
-                    CvFile = new CvFileForParsing() { Extention = "docx", Id = (i * 100).ToString(), ParsingStatus = ParsingProcessStatus.WaitingForParsing, Status = CvFileStatus.New }
+                    CvFile = new CvFileForParsing() { Extension = "docx", Id = (i * 100).ToString(), ParsingStatus = ParsingProcessStatus.WaitingForParsing, Status = CvFileStatus.New }
                 };
                 cvFiles.Add(file);
             }
@@ -83,7 +83,7 @@ namespace CvLocate.ParsingEngine.Tester
             {
                 CandidateCvFileForParsing file = new CandidateCvFileForParsing()
                 {
-                    CvFile = new CvFileForParsing() { Extention = "docx", Id = (i * 100).ToString(), ParsingStatus = ParsingProcessStatus.WaitingForParsing, Status = CvFileStatus.New, CreatedDate = DateTime.Now.AddDays(-10) }
+                    CvFile = new CvFileForParsing() { Extension = "docx", Id = (i * 100).ToString(), ParsingStatus = ParsingProcessStatus.WaitingForParsing, Status = CvFileStatus.New, CreatedDate = DateTime.Now.AddDays(-10) }
                 };
 
                 cvFiles.Add(file);
@@ -129,7 +129,7 @@ namespace CvLocate.ParsingEngine.Tester
                                 result.CvFile = new CvFile()
                                 {
                                     Id = candidate.CVFileId,
-                                    SourceType = CandidateSourceType.System
+                                    SourceType = CvSourceType.System
                                 };
                                 if (candidateId < 4200)
                                 {
@@ -141,7 +141,7 @@ namespace CvLocate.ParsingEngine.Tester
                                 result.CvFile = new CvFile()
                                 {
                                     Id = candidate.CVFileId,
-                                    SourceType = CandidateSourceType.Email,
+                                    SourceType = CvSourceType.Email,
                                     Status = CvFileStatus.Deleted
                                 };
                             }
@@ -150,7 +150,7 @@ namespace CvLocate.ParsingEngine.Tester
                                 result.CvFile = new CvFile()
                                 {
                                     Id = candidate.CVFileId,
-                                    SourceType = CandidateSourceType.Email,
+                                    SourceType = CvSourceType.Email,
                                     Status = CvFileStatus.New
 
                                 };

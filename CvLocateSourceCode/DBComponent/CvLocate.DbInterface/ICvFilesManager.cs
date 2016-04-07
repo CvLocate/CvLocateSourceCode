@@ -11,7 +11,7 @@ namespace CvLocate.DbInterface
 {
     public interface ICvFilesManager
     {
-        GetTopCandidatesForParsingResult GetTopCandidatesForParsing();
+        GetTopCvFilesForParsingResult GetTopCandidatesForParsing();
         BaseInsertResult UploadCvFile(UploadCvFileCommand command);
     }
 }

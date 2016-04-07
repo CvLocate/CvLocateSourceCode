@@ -36,7 +36,7 @@ namespace CvLocate.MongoDB.Managers
 
         #endregion
 
-        public GetTopCandidatesForParsingResult GetTopCandidatesForParsing()
+        public GetTopCvFilesForParsingResult GetTopCandidatesForParsing()
         {
             var files = _cvFilesRepository.Where(cvFile => cvFile.ParsingStatus == Common.CommonDto.ParsingProcessStatus.WaitingForParsing);
             if (files == null)

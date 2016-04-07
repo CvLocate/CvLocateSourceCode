@@ -10,27 +10,23 @@ namespace CvLocate.DBFacade
 {
     public class CoreDBFacade:ICoreDBFacade
     {
-<<<<<<< HEAD
-        public GetTopCandidatesForParsingResult GetTopCandidatesForParsing()
-=======
-        public CvLocate.Common.CoreDtoInterface.Result.GetTopCvFilesForParsingResult GetTopCvFilesForParsing()
->>>>>>> origin/Dev
-        {
-            //return new GetTopCandidatesForParsingResult(n
-            throw new NotImplementedException();
-        }
 
-        public CvLocate.Common.CoreDtoInterface.Result.GetParsingEngineConfigurationResult GetParsingEngineConfiguration()
+        public GetTopCvFilesForParsingResult GetTopCvFilesForParsing()
         {
             throw new NotImplementedException();
         }
 
-        public CvLocate.Common.CoreDtoInterface.Result.FindCandidateResult FindCandidate(CvLocate.Common.CoreDtoInterface.Query.FindCandidateQuery findCandidateQuery)
+        public GetParsingEngineConfigurationResult GetParsingEngineConfiguration()
         {
             throw new NotImplementedException();
         }
 
-        public void SaveResultOfCandidateParsing(CvLocate.Common.CoreDtoInterface.Command.SaveResultOfCandidateParsingCommand saveCommand)
+        public FindCandidateResult FindCandidate(Common.CoreDtoInterface.Query.FindCandidateQuery findCandidateQuery)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveResultOfCandidateParsing(Common.CoreDtoInterface.Command.SaveResultOfCandidateParsingCommand saveCommand)
         {
             throw new NotImplementedException();
         }
