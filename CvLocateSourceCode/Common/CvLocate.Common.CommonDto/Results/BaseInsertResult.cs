@@ -9,5 +9,11 @@ namespace CvLocate.Common.CommonDto.Results
     public class BaseInsertResult
     {
         public string Id { get; set; }
+        public bool Inserted { get; set; }
+
+        public BaseInsertResult(bool inserted)
+        {
+            Inserted = inserted;
+        }
     }
 }

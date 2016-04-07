@@ -234,7 +234,7 @@ namespace CvLocate.ParsingEngine
                         {
                             bool replaceCvFileForExistingCandidate = false;
 
-                            if (existingCandidateWithSameEmail.CvFile.SourceType == CandidateSourceType.System)
+                            if (existingCandidateWithSameEmail.CvFile.SourceType == CvSourceType.System)
                             {
                                 replaceCvFileForExistingCandidate = false;
                             }

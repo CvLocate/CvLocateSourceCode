@@ -21,7 +21,7 @@ namespace CvLocate.ParsingEngine.Tester
                 CvFileForParsing cvFile = new CvFileForParsing()
                 {
                     Id = "idblabla",
-                    Extention = "docx",
+                    Extension = "docx",
                     Stream = fileBytes
                 };
 

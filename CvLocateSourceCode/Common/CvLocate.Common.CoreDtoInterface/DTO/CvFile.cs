@@ -11,7 +11,7 @@ namespace CvLocate.Common.CoreDtoInterface.DTO
     {
         public string Id { get; set; }
         public string CandidateId { get; set; }
-        public CandidateSourceType SourceType { get; set; }
+        public CvSourceType SourceType { get; set; }
         public string Source { get; set; }
         public CvFileStatus Status { get; set; }
         public CvStatusReason StatusReason { get; set; }

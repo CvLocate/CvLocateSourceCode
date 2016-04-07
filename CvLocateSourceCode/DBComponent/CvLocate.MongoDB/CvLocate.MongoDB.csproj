@@ -56,10 +56,12 @@
   <ItemGroup>
     <Compile Include="Entities\BaseMongoEntity.cs" />
     <Compile Include="Entities\CandidateEntity.cs" />
+    <Compile Include="Entities\CvFileEntity.cs" />
     <Compile Include="Entities\JobEntity.cs" />
     <Compile Include="Entities\RecruiterEntity.cs" />
     <Compile Include="Extensions\RepositoryExtensions.cs" />
     <Compile Include="Managers\CandidateManager.cs" />
+    <Compile Include="Managers\CvFilesManager.cs" />
     <Compile Include="Managers\JobManager.cs" />
     <Compile Include="Managers\RecruiterManager.cs" />
     <Compile Include="Extensions\MongoExtensions.cs" />
@@ -77,6 +79,14 @@
     <ProjectReference Include="..\..\Common\CvLocate.Common.CommonDto\CvLocate.Common.CommonDto.csproj">
       <Project>{7e682acb-3652-4537-a375-f7dee4cf8446}</Project>
       <Name>CvLocate.Common.CommonDto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\CvLocate.Common.CoreDtoInterface\CvLocate.Common.CoreDtoInterface.csproj">
+      <Project>{468ec8fd-37ae-427f-b7e7-6e6b9d00bb3e}</Project>
+      <Name>CvLocate.Common.CoreDtoInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\CvLocate.Common.EmailServerDtoInterface\CvLocate.Common.EmailServerDtoInterface.csproj">
+      <Project>{eb0dffa1-2a1b-4c12-aa90-48d6af802cc3}</Project>
+      <Name>CvLocate.Common.EmailServerDtoInterface</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Common\CvLocate.Common.EndUserDtoInterface\CvLocate.Common.EndUserDtoInterface.csproj">
       <Project>{ca6983f7-af69-4473-8712-4ba2ddd23de8}</Project>

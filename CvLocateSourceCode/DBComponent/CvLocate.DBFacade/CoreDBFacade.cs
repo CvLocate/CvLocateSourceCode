@@ -1,4 +1,5 @@
-﻿using CvLocate.Common.DbFacadeInterface;
+﻿using CvLocate.Common.CoreDtoInterface.Result;
+using CvLocate.Common.DbFacadeInterface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,9 @@ namespace CvLocate.DBFacade
 {
     public class CoreDBFacade:ICoreDBFacade
     {
-        public CvLocate.Common.CoreDtoInterface.Result.GetTopCandidatesForParsingResult GetTopCandidatesForParsing()
+        public GetTopCandidatesForParsingResult GetTopCandidatesForParsing()
         {
+            //return new GetTopCandidatesForParsingResult(n
             throw new NotImplementedException();
         }
 

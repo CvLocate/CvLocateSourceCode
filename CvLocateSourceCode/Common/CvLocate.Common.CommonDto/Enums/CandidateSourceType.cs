@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CvLocate.Common.CommonDto
 {
-    public enum CandidateSourceType//todo change to CvSourceType
+    public enum CvSourceType//todo change to CvSourceType
     {
         Crawler,
         Email,

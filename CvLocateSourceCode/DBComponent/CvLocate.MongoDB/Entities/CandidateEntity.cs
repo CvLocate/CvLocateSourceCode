@@ -17,7 +17,7 @@ namespace CvLocate.MongoDB.Entities
         public string Name { get; set; }
         public string Password { get; set; }
         public string CVFileId { get; set; }
-        public CandidateSourceType SourceType { get; set; }
+        public CvSourceType SourceType { get; set; }
         public string Source { get; set; }
         public CandidateRegisterStatus RegisterStatus { get; set; }
         public CandidateSearchJobStatus SearchJobStatus { get; set; }

@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace CvLocate.Common.CoreDtoInterface.DTO
 {
-    public class CvFileForParsing:CvFile
+    public class CvFileForParsing : CvFile
     {
         public byte[] Stream { get; set; }
-        public string Extention { get; set; }
+        public string Extension { get; set; }
     }
 }

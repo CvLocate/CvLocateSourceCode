@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace CvLocate.Common.EmailServerDtoInterface.Command
 {
-    public class UploadCvFileCommand:BaseEmailServerCommand
+    public class UploadCvFileCommand : BaseEmailServerCommand
     {
         public byte[] Stream { get; set; }
-        public string Extention { get; set; }
-        public CandidateSourceType SourceType { get; set; }
+        public string Extension { get; set; }
+        public CvSourceType SourceType { get; set; }
         public string Source { get; set; }
+        //unique field, maybe join email with firstName or id or ...
+        public string FileName { get; set; }
     }
 }

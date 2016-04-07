@@ -47,6 +47,13 @@ namespace CvLocate.MongoDB.Managers
             return new SignResponse() { CanSignIn = false };
         }
 
+        public Candidate GetCandidateById(string id)
+        {
+            CandidateEntity candidateEntity = _candidateRepository.GetById(id);
+            AutoMapper.Mapper.CreateMap<CandidateEntity,Candidate>();
+            return AutoMapper.Mapper.Map<CandidateEntity, Candidate>(candidateEntity);
+        }
+
         #endregion
     }
 }
