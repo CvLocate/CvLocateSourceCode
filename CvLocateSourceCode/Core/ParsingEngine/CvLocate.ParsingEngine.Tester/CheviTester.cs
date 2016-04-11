@@ -1,6 +1,6 @@
 ﻿using CvLocate.Common.DbFacadeInterface;
 using CvLocate.Common.Logging;
-using CvLocate.DBFacade;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -9,6 +9,6 @@ namespace CvLocate.CvFilesScanner.Interfaces
 {
     public interface ICvFileScanner
     {
-        ScanResult Scan(string filePath); 
+        //ScanResult Scan(string filePath); 
     }
 }

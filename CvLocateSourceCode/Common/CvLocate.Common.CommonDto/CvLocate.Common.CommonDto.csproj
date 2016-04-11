@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="Enums\CandidateRegisterStatus.cs" />
     <Compile Include="Enums\CandidateSearchJobStatus.cs" />
-    <Compile Include="Enums\CandidateSourceType.cs" />
+    <Compile Include="Enums\CvSourceType.cs" />
     <Compile Include="Enums\CvFileStatus.cs" />
     <Compile Include="Enums\FileType.cs" />
     <Compile Include="Enums\ParsingProcessStatus.cs" />

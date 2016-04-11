@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CvLocate.Common.Utils;
-using DocumentConverter;
+//using DocumentConverter;
 
 namespace CvLocate.CvFilesScanner
 {
@@ -24,32 +24,32 @@ namespace CvLocate.CvFilesScanner
             this._documentConverterFactory = documentConverterFactory;
         }
 
-        public ScanResult Scan(string filePath)
-        {
-            this._filePath = filePath;
-            this._result = new ScanResult() { Succeed = true };
-            try
-            {
-                FindFileType();
-                ExtractText();//todo for pdf file by zvi
-                FindEncoding();//todo by zvi
-                ScanText();//todo by zvi
-                FillStream();
-                CreateImage();//todo by zvi
-            }
-            catch (Exception ex)
-            {
-                this._result.Succeed = false;
-                this._result.ErrorMessage = ex.Message;
-                if (ex.InnerException != null)
-                {
-                    this._result.ErrorMessage += string.Format(" Origional Exception: {0}", ex.InnerException.ToString());
-                }
-            }
+        //public ScanResult Scan(string filePath)
+        //{
+        //    this._filePath = filePath;
+        //    this._result = new ScanResult() { Succeed = true };
+        //    try
+        //    {
+        //        FindFileType();
+        //        ExtractText();//todo for pdf file by zvi
+        //        FindEncoding();//todo by zvi
+        //        ScanText();//todo by zvi
+        //        FillStream();
+        //        CreateImage();//todo by zvi
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        this._result.Succeed = false;
+        //        this._result.ErrorMessage = ex.Message;
+        //        if (ex.InnerException != null)
+        //        {
+        //            this._result.ErrorMessage += string.Format(" Origional Exception: {0}", ex.InnerException.ToString());
+        //        }
+        //    }
 
-            return this._result;
+        //    return this._result;
 
-        }
+        //}
 
         private void FindFileType()
         {
@@ -106,16 +106,16 @@ namespace CvLocate.CvFilesScanner
         {
             try
             {
-                IDocumentConverter converter = this._documentConverterFactory.GetDocumentConverter((FileType)this._fileType);
-                if (converter == null)
-                {
-                    throw new Exception(string.Format("Cannot find converter for file type {0}", this._fileType));
-                }
-                this._result.Text = converter.ConvertFileToText(this._filePath);
-                if (string.IsNullOrWhiteSpace(this._result.Text))
-                {
-                    throw new Exception("File is empty");
-                }
+                //IDocumentConverter converter = this._documentConverterFactory.GetDocumentConverter((FileType)this._fileType);
+                //if (converter == null)
+                //{
+                //    throw new Exception(string.Format("Cannot find converter for file type {0}", this._fileType));
+                //}
+                //this._result.Text = converter.ConvertFileToText(this._filePath);
+                //if (string.IsNullOrWhiteSpace(this._result.Text))
+                //{
+                //    throw new Exception("File is empty");
+                //}
             }
             catch (Exception ex)
             {
