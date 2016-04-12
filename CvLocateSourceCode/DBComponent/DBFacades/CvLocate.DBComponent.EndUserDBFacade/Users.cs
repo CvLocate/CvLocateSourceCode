@@ -23,6 +23,9 @@ namespace CvLocate.DBComponent.EndUserDBFacade
                 case UserType.Recruiter:
                     {
                         IRecruiterManager recManager = RecruiterManager.Instance;
+                        //check email not exists
+                        if (recManager.CheckEmailNotExists(command.Email))
+                            return new SignResponse() { CanSignIn = false, ErrorMessage = "There is such email in this table" };
                         return recManager.SignUp(command);
                     }
                 case UserType.JobSeeker:

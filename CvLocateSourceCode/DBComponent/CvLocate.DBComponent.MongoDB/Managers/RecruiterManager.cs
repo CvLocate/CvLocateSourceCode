@@ -41,28 +41,38 @@ namespace CvLocate.DBComponent.MongoDB.Managers
 
         #region Public Methods
 
-        public SignResponse SignUp(SignUpCommand command)
+        /// <summary>
+        /// Check if email not exists in recruiters table
+        /// </summary>
+        /// <param name="email">Email for check</param>
+        /// <returns>If exists</returns>
+        public bool CheckEmailNotExists(string email)
         {
-            if (command == null)
-                return new SignResponse() { CanSignIn = false };
-            if (_recruitersRepository.Exists(rec => rec.Email == command.Email))
-                return new SignResponse() { CanSignIn = false };
-            RecruiterEntity newEntity = _recruitersRepository.Add(new RecruiterEntity()
-             {
-                 Email = command.Email,
-                 Password = command.Password,
-                 Gender = Gender.Unknown,
-                 RegisterStatus = RecruiterRegisterStatus.Register,
-                 SourceType = RecruiterSourceType.System,
-                 CreatedAt = DateTime.Now,
-                 UpdatedAt = DateTime.Now,
-                 RegisterStatusHistory = new List<BaseStatusHistory<RecruiterRegisterStatus>>() { new BaseStatusHistory<RecruiterRegisterStatus>() { Status = RecruiterRegisterStatus.Register, Date = DateTime.Now } },
-             });
+            return _recruitersRepository.Exists(rec => rec.Email == email);
+        }
+
+        public SignResponse CreateRecruiter(string email, string password)
+        {
+            //if (string.IsNullOrEmpty(email)|| string.IsNullOrEmpty(password))
+            //    return new SignResponse() { CanSignIn = false };
+            //if (_recruitersRepository.Exists(rec => rec.Email == command.Email))
+            //    return new SignResponse() { CanSignIn = false };
+            //RecruiterEntity newEntity = _recruitersRepository.Add(new RecruiterEntity()
+            // {
+            //     Email = command.Email,
+            //     Password = command.Password,
+            //     Gender = Gender.Unknown,
+            //     RegisterStatus = RecruiterRegisterStatus.Register,
+            //     SourceType = RecruiterSourceType.System,
+            //     CreatedAt = DateTime.Now,
+            //     UpdatedAt = DateTime.Now,
+            //     RegisterStatusHistory = new List<BaseStatusHistory<RecruiterRegisterStatus>>() { new BaseStatusHistory<RecruiterRegisterStatus>() { Status = RecruiterRegisterStatus.Register, Date = DateTime.Now } },
+            // });
 
             return new SignResponse()
             {
                 CanSignIn = true,
-                UserId = newEntity.Id,
+               // UserId = newEntity.Id,
                 UserType = CvLocate.Common.CommonDto.UserType.Recruiter
             };
         }
@@ -143,5 +153,10 @@ namespace CvLocate.DBComponent.MongoDB.Managers
 
         #endregion
 
+
+        public SignResponse SignUp(SignUpCommand command)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
