@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CvLocate.DBComponent.FilesDBFacade</RootNamespace>
     <AssemblyName>CvLocate.DBComponent.FilesDBFacade</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,7 +40,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CvFilesScannerDBFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\CvLocate.Common.CommonDto\CvLocate.Common.CommonDto.csproj">
+      <Project>{7e682acb-3652-4537-a375-f7dee4cf8446}</Project>
+      <Name>CvLocate.Common.CommonDto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\CvLocate.Common.CvFilesScannerDtoInterface\CvLocate.Common.CvFilesScannerDtoInterface.csproj">
+      <Project>{3263b227-652b-439c-ba95-4b3fef0d4bb1}</Project>
+      <Name>CvLocate.Common.CvFilesScannerDtoInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\CvLocate.Common.DbFacadeInterface\CvLocate.Common.DbFacadeInterface.csproj">
+      <Project>{53337976-55e2-42fd-bcf1-2d743907aefc}</Project>
+      <Name>CvLocate.Common.DbFacadeInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CvLocate.DBComponent.DbInterface\CvLocate.DBComponent.DbInterface.csproj">
+      <Project>{32cc8542-a2ab-4031-8c1b-8c0eec64d9bb}</Project>
+      <Name>CvLocate.DBComponent.DbInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CvLocate.DBComponent.MongoDB\CvLocate.DBComponent.MongoDB.csproj">
+      <Project>{d70757bf-23d5-472b-8cfc-b4fe76468c8e}</Project>
+      <Name>CvLocate.DBComponent.MongoDB</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

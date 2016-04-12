@@ -8,6 +8,7 @@ namespace CvLocate.Common.CommonDto
 {
     public enum ParsingProcessStatus
     {
+        NotReadyForParsing,
         WaitingForParsing,
         CannotDeciphered,
         Duplicate,

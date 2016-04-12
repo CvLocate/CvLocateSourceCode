@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command\BaseEmailServerCommand.cs" />
-    <Compile Include="Command\UploadCvFileCommand.cs" />
+    <Compile Include="Command\CreateCvFileCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

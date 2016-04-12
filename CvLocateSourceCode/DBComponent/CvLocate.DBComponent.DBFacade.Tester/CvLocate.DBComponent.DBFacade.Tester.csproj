@@ -53,6 +53,14 @@
       <Project>{7e682acb-3652-4537-a375-f7dee4cf8446}</Project>
       <Name>CvLocate.Common.CommonDto</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Common\CvLocate.Common.CvFilesScannerDtoInterface\CvLocate.Common.CvFilesScannerDtoInterface.csproj">
+      <Project>{3263b227-652b-439c-ba95-4b3fef0d4bb1}</Project>
+      <Name>CvLocate.Common.CvFilesScannerDtoInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\CvLocate.Common.EmailServerDtoInterface\CvLocate.Common.EmailServerDtoInterface.csproj">
+      <Project>{eb0dffa1-2a1b-4c12-aa90-48d6af802cc3}</Project>
+      <Name>CvLocate.Common.EmailServerDtoInterface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Common\CvLocate.Common.EndUserDtoInterface\CvLocate.Common.EndUserDtoInterface.csproj">
       <Project>{ca6983f7-af69-4473-8712-4ba2ddd23de8}</Project>
       <Name>CvLocate.Common.EndUserDtoInterface</Name>
@@ -61,9 +69,21 @@
       <Project>{53337976-55e2-42fd-bcf1-2d743907aefc}</Project>
       <Name>CvLocate.Common.DbFacadeInterface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CvLocate.DBComponent.DBFacade\CvLocate.DBComponent.DBFacade.csproj">
-      <Project>{a61c0eec-1343-4fbf-bb95-6b87deb5a807}</Project>
-      <Name>CvLocate.DBComponent.DBFacade</Name>
+    <ProjectReference Include="..\DBFacades\CcLocate.DBComponent.CoreDBFacade\CcLocate.DBComponent.CoreDBFacade.csproj">
+      <Project>{a93301e7-482e-46de-bd2e-5e77fd0c8b4d}</Project>
+      <Name>CcLocate.DBComponent.CoreDBFacade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DBFacades\CvLocate.DBComponent.EmailDBFacade\CvLocate.DBComponent.EmailServerDBFacade.csproj">
+      <Project>{704271a6-cba7-4952-9ab9-0584bf8aeb1b}</Project>
+      <Name>CvLocate.DBComponent.EmailServerDBFacade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DBFacades\CvLocate.DBComponent.EndUserDBFacade\CvLocate.DBComponent.EndUserDBFacade.csproj">
+      <Project>{9530f7ae-ea42-41a2-ad5d-5f043e9910d3}</Project>
+      <Name>CvLocate.DBComponent.EndUserDBFacade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DBFacades\CvLocate.DBComponent.FilesDBFacade\CvLocate.DBComponent.FilesDBFacade.csproj">
+      <Project>{859f0983-9d4c-4fbf-998c-ff8743bda69b}</Project>
+      <Name>CvLocate.DBComponent.FilesDBFacade</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CvLocate.Common.CommonDto
+namespace CvLocate.Common.CvFilesScannerDtoInterface.Command
 {
-    public enum CvFileStatus
+    public class BaseCommand
     {
-        New,
-        Deleted,
-        Scanned,
-        Accepted
     }
 }

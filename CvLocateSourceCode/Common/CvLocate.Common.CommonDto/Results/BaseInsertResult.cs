@@ -10,6 +10,7 @@ namespace CvLocate.Common.CommonDto.Results
     {
         public string Id { get; set; }
         public bool Inserted { get; set; }
+        public string ErrorMessage { get; set; }
 
         public BaseInsertResult(bool inserted)
         {

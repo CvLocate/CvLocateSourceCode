@@ -13,6 +13,6 @@ namespace CvLocate.Common.DbFacadeInterface
 {
     public interface IEmailServerDBFacade
     {
-        BaseInsertResult UploadCvFile(UploadCvFileCommand command);
+        BaseInsertResult CreateCvFile(CreateCvFileCommand command);
     }
 }

@@ -10,6 +10,11 @@ using CvLocate.Common.CoreDtoInterface.DTO;
 using CvLocate.Common.CommonDto.Results;
 using CvLocate.Common.EmailServerDtoInterface.Command;
 using CvLocate.DBComponent.DbInterface;
+using CvLocate.Common.CvFilesScannerDtoInterface.Result;
+using CvLocate.Common.CvFilesScannerDtoInterface.Command;
+using CvLocate.Common.CommonDto;
+using CvLocate.Common.CommonDto.Enums;
+using CvLocate.DBComponent.DbInterface.Exceptions;
 
 namespace CvLocate.DBComponent.MongoDB.Managers
 {
@@ -31,45 +36,116 @@ namespace CvLocate.DBComponent.MongoDB.Managers
 
         private CvFilesManager()
         {
-            _cvFilesRepository = new MongoRepository<CvFileEntity>();
+            var connection = System.Configuration.ConfigurationManager.ConnectionStrings["MongoCvFilesDBSettings"].ConnectionString;
+            _cvFilesRepository = new MongoRepository<CvFileEntity>(connection);
         }
 
         #endregion
 
-        public GetTopCvFilesForParsingResult GetTopCandidatesForParsing()
-        {
-            var files = _cvFilesRepository.Where(cvFile => cvFile.ParsingStatus == Common.CommonDto.ParsingProcessStatus.WaitingForParsing);
-            if (files == null)
-                return null;
+        //public GetTopCvFilesForParsingResult GetTopCandidatesForParsing()
+        //{
+        //    var files = _cvFilesRepository.Where(cvFile => cvFile.ParsingStatus == Common.CommonDto.ParsingProcessStatus.WaitingForParsing);
+        //    if (files == null)
+        //        return null;
 
-            files.OrderByDescending(file => file.UpdatedAt);
-            files.Take(10);
-            List<CandidateCvFileForParsing> cvFilesForParsing = new List<CandidateCvFileForParsing>();
-            files.ToList().ForEach(fileEntity => 
+        //    files.OrderByDescending(file => file.UpdatedAt);
+        //    files.Take(10);
+        //    List<CandidateCvFileForParsing> cvFilesForParsing = new List<CandidateCvFileForParsing>();
+        //    files.ToList().ForEach(fileEntity =>
+        //    {
+        //        //convert from CvFileEntity to CvFileForParsing
+        //        //AutoMapper.Mapper.CreateMap<CvFileEntity, CvFileForParsing>();
+        //        //CvFileForParsing cvFile = AutoMapper.Mapper.Map<CvFileEntity, CvFileForParsing>(fileEntity);
+        //        //download file stream by file name
+        //        //cvFile.Stream = MongoExtensions.Instance.DownloadFile(fileEntity.FileStreamName);
+        //        //get candidate from candidate table by CandidateId
+        //        //Candidate candidate = CandidateManager.Instance.GetCandidateById(fileEntity.CandidateId);
+        //        //cvFilesForParsing.Add(new CandidateCvFileForParsing() { CvFile = cvFile, Candidate = candidate });
+        //    });
+        //    return null;
+        //}
+
+        #region Public Methods
+
+        /// <summary>
+        /// Update existing file to uploaded state
+        /// </summary>
+        /// <param name="cvFileId">CvFile id</param>
+        /// <param name="fileId">File id from Files table</param>
+        public void UpdateCvFileUploaded(string cvFileId, string fileId)
+        {
+            CvFileEntity cvFile = GetCvFileById(cvFileId);
+            if (cvFile == null)
+                throw new MongoEntityNotFoundException(cvFileId, "CvFiles");
+
+            cvFile.FileId = fileId;
+            cvFile.Status = CvFileStatus.Scanned;
+            cvFile.ParsingStatus = ParsingProcessStatus.WaitingForParsing;
+            cvFile.UpdatedAt = DateTime.Now;
+            _cvFilesRepository.Update(cvFile);
+        }
+
+        /// <summary>
+        /// Update existing file to deleted state
+        /// </summary>
+        /// <param name="cvFileId">existing cvFile id</param>
+        /// <param name="statusReason">status reason</param>
+        /// <param name="statusReasonDetails">status reason details</param>
+        public void UpdateCvFileDeleted(string cvFileId, CvStatusReason statusReason, string statusReasonDetails)
+        {
+            CvFileEntity cvFile = GetCvFileById(cvFileId);
+            if (cvFile == null)
+                throw new MongoEntityNotFoundException(cvFileId, "CvFiles");
+
+            cvFile.Status = CvFileStatus.Deleted;
+            cvFile.StatusReason = statusReason;
+            cvFile.StatusReasonDetails = statusReasonDetails;
+            cvFile.UpdatedAt = DateTime.Now;
+            _cvFilesRepository.Update(cvFile);
+        }
+
+        /// <summary>
+        /// Check if CvFile exists
+        /// </summary>
+        /// <param name="cvFileId">CvFile id</param>
+        /// <returns>If exists</returns>
+        public bool CvFileExists(string cvFileId)
+        {
+            return _cvFilesRepository.Exists(cvFile => cvFile.Id == cvFileId);
+        }
+
+        /// <summary>
+        /// Create new record in CvFiles table
+        /// </summary>
+        /// <param name="extension">Extension type</param>
+        /// <param name="sourceType">Source type</param>
+        /// <param name="source">Source string</param>
+        /// <returns>New record id</returns>
+        public string CreateCvFile(FileType extension, CvSourceType sourceType, string source)
+        {
+            CvFileEntity cvFile = new CvFileEntity()
             {
-                //convert from CvFileEntity to CvFileForParsing
-                AutoMapper.Mapper.CreateMap<CvFileEntity, CvFileForParsing>();
-                CvFileForParsing cvFile = AutoMapper.Mapper.Map<CvFileEntity, CvFileForParsing>(fileEntity);
-                //download file stream by file name
-                cvFile.Stream = MongoExtensions.Instance.DownloadFile(fileEntity.FileStreamName);
-                //get candidate from candidate table by CandidateId
-                //Candidate candidate = CandidateManager.Instance.GetCandidateById(fileEntity.CandidateId);
-                //cvFilesForParsing.Add(new CandidateCvFileForParsing() { CvFile = cvFile, Candidate = candidate });
-            });
-            return null;
+                Extension = extension,
+                SourceType = sourceType,
+                Source = source,
+                Status = CvFileStatus.New,
+                ParsingStatus = ParsingProcessStatus.NotReadyForParsing,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
+            };
+            cvFile = _cvFilesRepository.Add(cvFile);
+            return cvFile.Id;
         }
 
-        public BaseInsertResult UploadCvFile(UploadCvFileCommand command)
+        #endregion
+
+        #region Private Methods
+
+        private CvFileEntity GetCvFileById(string fileId)
         {
-            if (command == null)
-                return null;
-            CvFileEntity fileEntity = new CvFileEntity();
-            fileEntity.Extension = command.Extension;
-            fileEntity.Source = command.Source;
-            fileEntity.SourceType = command.SourceType;
-            fileEntity.FileStreamName = MongoExtensions.Instance.UploadFile(command.Stream, command.FileName);
-            _cvFilesRepository.Add(fileEntity);
-            return new BaseInsertResult(true) { Id = fileEntity.Id };
+            return _cvFilesRepository.GetById(fileId);
         }
+
+        #endregion
     }
 }
