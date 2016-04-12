@@ -53,7 +53,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DBFacades", "DBFacades", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CvLocate.DBComponent.EndUserDBFacade", "DBComponent\DBFacades\CvLocate.DBComponent.EndUserDBFacade\CvLocate.DBComponent.EndUserDBFacade.csproj", "{9530F7AE-EA42-41A2-AD5D-5F043E9910D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CcLocate.DBComponent.CoreDBFacade", "DBComponent\DBFacades\CcLocate.DBComponent.CoreDBFacade\CcLocate.DBComponent.CoreDBFacade.csproj", "{A93301E7-482E-46DE-BD2E-5E77FD0C8B4D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CvLocate.DBComponent.CoreDBFacade", "DBComponent\DBFacades\CcLocate.DBComponent.CoreDBFacade\CvLocate.DBComponent.CoreDBFacade.csproj", "{A93301E7-482E-46DE-BD2E-5E77FD0C8B4D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CvLocate.DBComponent.FilesDBFacade", "DBComponent\DBFacades\CvLocate.DBComponent.FilesDBFacade\CvLocate.DBComponent.FilesDBFacade.csproj", "{859F0983-9D4C-4FBF-998C-FF8743BDA69B}"
 EndProject

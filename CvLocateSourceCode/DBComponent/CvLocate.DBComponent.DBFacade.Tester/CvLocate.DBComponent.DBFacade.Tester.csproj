@@ -69,9 +69,9 @@
       <Project>{53337976-55e2-42fd-bcf1-2d743907aefc}</Project>
       <Name>CvLocate.Common.DbFacadeInterface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DBFacades\CcLocate.DBComponent.CoreDBFacade\CcLocate.DBComponent.CoreDBFacade.csproj">
+    <ProjectReference Include="..\DBFacades\CcLocate.DBComponent.CoreDBFacade\CvLocate.DBComponent.CoreDBFacade.csproj">
       <Project>{a93301e7-482e-46de-bd2e-5e77fd0c8b4d}</Project>
-      <Name>CcLocate.DBComponent.CoreDBFacade</Name>
+      <Name>CvLocate.DBComponent.CoreDBFacade</Name>
     </ProjectReference>
     <ProjectReference Include="..\DBFacades\CvLocate.DBComponent.EmailDBFacade\CvLocate.DBComponent.EmailServerDBFacade.csproj">
       <Project>{704271a6-cba7-4952-9ab9-0584bf8aeb1b}</Project>

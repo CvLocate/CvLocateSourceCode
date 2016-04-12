@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CcLocate.DBComponent.CoreDBFacade")]
+[assembly: AssemblyTitle("CvLocate.DBComponent.CoreDBFacade")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("CcLocate.DBComponent.CoreDBFacade")]
+[assembly: AssemblyProduct("CvLocate.DBComponent.CoreDBFacade")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

@@ -52,9 +52,9 @@
       <Project>{9a6ffa4d-0b4b-494e-ad8f-c2d3647ea96e}</Project>
       <Name>CvLocate.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\DBComponent\DBFacades\CcLocate.DBComponent.CoreDBFacade\CcLocate.DBComponent.CoreDBFacade.csproj">
+    <ProjectReference Include="..\..\DBComponent\DBFacades\CcLocate.DBComponent.CoreDBFacade\CvLocate.DBComponent.CoreDBFacade.csproj">
       <Project>{a93301e7-482e-46de-bd2e-5e77fd0c8b4d}</Project>
-      <Name>CcLocate.DBComponent.CoreDBFacade</Name>
+      <Name>CvLocate.DBComponent.CoreDBFacade</Name>
     </ProjectReference>
     <ProjectReference Include="..\ParsingEngine\CvLocate.ParsingEngine\CvLocate.ParsingEngine.csproj">
       <Project>{6960007d-dec5-46d9-a45d-64cad85d3b67}</Project>

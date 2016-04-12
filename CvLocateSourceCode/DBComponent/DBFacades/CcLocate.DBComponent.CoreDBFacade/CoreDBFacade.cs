@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CcLocate.DBComponent.CoreDBFacade
+namespace CvLocate.DBComponent.CoreDBFacade
 {
     public class CoreDBFacade : ICoreDBFacade
     {

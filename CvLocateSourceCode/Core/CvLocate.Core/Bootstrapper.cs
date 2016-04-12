@@ -1,4 +1,4 @@
-﻿using CcLocate.DBComponent.CoreDBFacade;
+﻿using CvLocate.DBComponent.CoreDBFacade;
 using CvLocate.Common.DbFacadeInterface;
 using CvLocate.Common.Logging;
 using CvLocate.ParsingEngine;
