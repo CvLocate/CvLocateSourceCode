@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CvLocate.DBComponent.EmailServerDBFacade
 {
-    public class EmailServer : IEmailServerDBFacade
+    public class EmailServerDBFacade : IEmailServerDBFacade
     {
         public BaseInsertResult CreateCvFile(CreateCvFileCommand command)
         {

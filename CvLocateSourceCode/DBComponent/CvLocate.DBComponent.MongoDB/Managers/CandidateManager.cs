@@ -2,6 +2,7 @@
 using CvLocate.Common.EndUserDtoInterface.DTO;
 using CvLocate.Common.EndUserDtoInterface.Response;
 using CvLocate.DBComponent.DbInterface;
+using CvLocate.DBComponent.DbInterface.Exceptions;
 using CvLocate.DBComponent.MongoDB.Entities;
 using MongoRepository;
 using System;
@@ -37,14 +38,28 @@ namespace CvLocate.DBComponent.MongoDB.Managers
 
         #region Public Methods
 
-        public SignResponse SignUp(SignUpCommand command)
+        /// <summary>
+        /// Get candidate by email and password
+        /// </summary>
+        /// <param name="email">Email for check</param>
+        /// <param name="password">The password</param>
+        /// <returns>Founded id</returns>
+        public string GetCandidateByEmailAndPassword(string email, string password)
         {
-            throw new NotImplementedException();
+            CandidateEntity entity = _candidateRepository.FirstOrDefault(can => can.Email == email && can.Password == password);
+            if (entity == null)
+                throw new SignInException(email);
+            return entity.Id;
         }
 
-        public SignResponse SignIn(SigninCommand command)
+        /// <summary>
+        /// Check if email exists in candidates table
+        /// </summary>
+        /// <param name="email">Email for check</param>
+        /// <returns>If exists</returns>
+        public bool CandidateEmailExists(string email)
         {
-            return new SignResponse() { CanSignIn = false };
+            return _candidateRepository.Exists(can => can.Email == email);
         }
 
         public Candidate GetCandidateById(string id)

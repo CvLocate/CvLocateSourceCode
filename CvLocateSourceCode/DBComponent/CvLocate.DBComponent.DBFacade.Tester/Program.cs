@@ -7,7 +7,7 @@ using CvLocate.Common.EndUserDtoInterface.Command;
 using CvLocate.Common.EndUserDtoInterface.Response;
 using CvLocate.DBComponent.EmailServerDBFacade;
 using CvLocate.DBComponent.EndUserDBFacade;
-using CvLocate.DBComponent.FilesDBFacade;
+using CvLocate.DBComponent.CvFilesDBFacade;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,8 +31,8 @@ namespace CvLocate.DBComponent.DBFacade.Tester
 
         private static void RecruiterDBFacadeTester()
         {
-            Users userDbFacade = new Users();
-            Recruiters recruiterDbFacade = new Recruiters();
+            UserDBFacade userDbFacade = new UserDBFacade();
+            RecruiterDBFacade recruiterDbFacade = new RecruiterDBFacade();
 
             //SignResponse response = userDbFacade.SignIn(new SigninCommand() { Email = "rachelifff@gmail.com", Password = "1234567" });
             SignResponse response = userDbFacade.SignUp(new SignUpCommand() { Email = "nnn@gmail.com", Password = "1234567", UserType = UserType.Recruiter });
@@ -100,7 +100,7 @@ namespace CvLocate.DBComponent.DBFacade.Tester
 
         private static void CvFilesTester()
         {
-            EmailServer emailServer = new EmailServer();
+            EmailServerDBFacade.EmailServerDBFacade emailServer = new EmailServerDBFacade.EmailServerDBFacade();
             string id = emailServer.CreateCvFile(new CreateCvFileCommand() { Extension = Common.CommonDto.Enums.FileType.Docx, SourceType = CvSourceType.Email, Source = "rachelifishman1@gmail.com" }).Id;
             CvFilesScannerDBFacade cvFiles = new CvFilesScannerDBFacade();
 

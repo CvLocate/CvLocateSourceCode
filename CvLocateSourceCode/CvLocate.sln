@@ -55,7 +55,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CvLocate.DBComponent.EndUse
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CvLocate.DBComponent.CoreDBFacade", "DBComponent\DBFacades\CcLocate.DBComponent.CoreDBFacade\CvLocate.DBComponent.CoreDBFacade.csproj", "{A93301E7-482E-46DE-BD2E-5E77FD0C8B4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CvLocate.DBComponent.FilesDBFacade", "DBComponent\DBFacades\CvLocate.DBComponent.FilesDBFacade\CvLocate.DBComponent.FilesDBFacade.csproj", "{859F0983-9D4C-4FBF-998C-FF8743BDA69B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CvLocate.DBComponent.CvFilesDBFacade", "DBComponent\DBFacades\CvLocate.DBComponent.FilesDBFacade\CvLocate.DBComponent.CvFilesDBFacade.csproj", "{859F0983-9D4C-4FBF-998C-FF8743BDA69B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CvLocate.Common.CvFilesScannerDtoInterface", "Common\CvLocate.Common.CvFilesScannerDtoInterface\CvLocate.Common.CvFilesScannerDtoInterface.csproj", "{3263B227-652B-439C-BA95-4B3FEF0D4BB1}"
 EndProject

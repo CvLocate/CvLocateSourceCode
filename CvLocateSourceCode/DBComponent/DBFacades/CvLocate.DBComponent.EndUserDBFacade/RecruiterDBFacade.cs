@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CvLocate.DBComponent.EndUserDBFacade
 {
-    public class Recruiters : IRecruiterDBFacade
+    public class RecruiterDBFacade : IRecruiterDBFacade
     {
         public RecruiterGetJobsResponse RecruiterGetJobs(RecruiterGetJobsQuery query)
         {

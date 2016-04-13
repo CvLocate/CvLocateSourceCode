@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace CvLocate.DBComponent.DbInterface.Exceptions
 {
-    public class MongoEntityNotFoundException : Exception
+    public class MongoEntityNotFoundException : BaseMongoException
     {
         public MongoEntityNotFoundException(string entityId, string collectionName) :
             base("MongoEntity with id [" + entityId + "] not found in " + collectionName + " collection")
         {
 
         }
+
+        
     }
 }

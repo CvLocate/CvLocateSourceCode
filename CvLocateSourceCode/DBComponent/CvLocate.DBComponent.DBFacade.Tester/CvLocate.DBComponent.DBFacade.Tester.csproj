@@ -81,9 +81,9 @@
       <Project>{9530f7ae-ea42-41a2-ad5d-5f043e9910d3}</Project>
       <Name>CvLocate.DBComponent.EndUserDBFacade</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DBFacades\CvLocate.DBComponent.FilesDBFacade\CvLocate.DBComponent.FilesDBFacade.csproj">
+    <ProjectReference Include="..\DBFacades\CvLocate.DBComponent.FilesDBFacade\CvLocate.DBComponent.CvFilesDBFacade.csproj">
       <Project>{859f0983-9d4c-4fbf-998c-ff8743bda69b}</Project>
-      <Name>CvLocate.DBComponent.FilesDBFacade</Name>
+      <Name>CvLocate.DBComponent.CvFilesDBFacade</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

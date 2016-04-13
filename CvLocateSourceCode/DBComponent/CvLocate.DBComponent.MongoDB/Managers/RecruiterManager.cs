@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using CvLocate.Common.EndUserDtoInterface;
 using MongoDB.Bson;
 using CvLocate.Common.EndUserDtoInterface.Query;
+using CvLocate.DBComponent.DbInterface.Exceptions;
 
 namespace CvLocate.DBComponent.MongoDB.Managers
 {
@@ -46,46 +47,49 @@ namespace CvLocate.DBComponent.MongoDB.Managers
         /// </summary>
         /// <param name="email">Email for check</param>
         /// <returns>If exists</returns>
-        public bool CheckEmailNotExists(string email)
+        public bool RecruiterEmailExists(string email)
         {
             return _recruitersRepository.Exists(rec => rec.Email == email);
         }
 
-        public SignResponse CreateRecruiter(string email, string password)
+        /// <summary>
+        /// Create new record in Recruiters table
+        /// </summary>
+        /// <param name="email">Required - email of recuiter</param>
+        /// <param name="password">Required  - password</param>
+        /// <returns>New recruiter id</returns>
+        public string CreateRecruiter(string email, string password)
         {
-            //if (string.IsNullOrEmpty(email)|| string.IsNullOrEmpty(password))
-            //    return new SignResponse() { CanSignIn = false };
-            //if (_recruitersRepository.Exists(rec => rec.Email == command.Email))
-            //    return new SignResponse() { CanSignIn = false };
-            //RecruiterEntity newEntity = _recruitersRepository.Add(new RecruiterEntity()
-            // {
-            //     Email = command.Email,
-            //     Password = command.Password,
-            //     Gender = Gender.Unknown,
-            //     RegisterStatus = RecruiterRegisterStatus.Register,
-            //     SourceType = RecruiterSourceType.System,
-            //     CreatedAt = DateTime.Now,
-            //     UpdatedAt = DateTime.Now,
-            //     RegisterStatusHistory = new List<BaseStatusHistory<RecruiterRegisterStatus>>() { new BaseStatusHistory<RecruiterRegisterStatus>() { Status = RecruiterRegisterStatus.Register, Date = DateTime.Now } },
-            // });
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+                throw new RequiredFieldsNullOrEmptyException(new string[]{"email", "password"});
 
-            return new SignResponse()
-            {
-                CanSignIn = true,
-               // UserId = newEntity.Id,
-                UserType = CvLocate.Common.CommonDto.UserType.Recruiter
-            };
+            RecruiterEntity newEntity = _recruitersRepository.Add(new RecruiterEntity()
+             {
+                 Email = email,
+                 Password = password,
+                 Gender = Gender.Unknown,
+                 RegisterStatus = RecruiterRegisterStatus.Register,
+                 SourceType = RecruiterSourceType.System,
+                 CreatedAt = DateTime.Now,
+                 UpdatedAt = DateTime.Now,
+                 RegisterStatusHistory = new List<BaseStatusHistory<RecruiterRegisterStatus>>() { new BaseStatusHistory<RecruiterRegisterStatus>() { Status = RecruiterRegisterStatus.Register, Date = DateTime.Now } },
+             });
+
+            return newEntity.Id;
         }
 
-        public SignResponse SignIn(SigninCommand command)
+        /// <summary>
+        /// Get recruiter by email and password
+        /// </summary>
+        /// <param name="email">Email for check</param>
+        /// <param name="password">The password</param>
+        /// <returns>Founded id</returns>
+        public string GetRecruiterByEmailAndPassword(string email, string password)
         {
-            SignResponse cantSigninResponse = new SignResponse() { CanSignIn = false };
-            if (command == null || _recruitersRepository.Count() == 0)
-                return cantSigninResponse;
-            RecruiterEntity recuriter = _recruitersRepository.FirstOrDefault(rec => rec.Email == command.Email && rec.Password == command.Password);
-            if (recuriter == null)
-                return cantSigninResponse;
-            return new SignResponse() { CanSignIn = true, UserId = recuriter.Id, UserType = UserType.Recruiter };
+            RecruiterEntity entity = _recruitersRepository.FirstOrDefault(rec => rec.Email == email && rec.Password == password);
+            if (entity == null)
+                throw new SignInException(email);
+            return entity.Id;
         }
 
         public UpdateRecruiterProfileResponse UpdateRecruiterProfile(UpdateRecruiterProfileCommand command)
@@ -152,11 +156,5 @@ namespace CvLocate.DBComponent.MongoDB.Managers
         }
 
         #endregion
-
-
-        public SignResponse SignUp(SignUpCommand command)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

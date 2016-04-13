@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CvLocate.DBComponent.FilesDBFacade
+namespace CvLocate.DBComponent.CvFilesDBFacade
 {
     public class CvFilesScannerDBFacade : ICvFilesScannerDBFacade
     {

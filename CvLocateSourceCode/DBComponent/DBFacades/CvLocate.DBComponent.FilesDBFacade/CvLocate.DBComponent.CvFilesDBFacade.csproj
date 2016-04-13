@@ -7,8 +7,8 @@
     <ProjectGuid>{859F0983-9D4C-4FBF-998C-FF8743BDA69B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CvLocate.DBComponent.FilesDBFacade</RootNamespace>
-    <AssemblyName>CvLocate.DBComponent.FilesDBFacade</AssemblyName>
+    <RootNamespace>CvLocate.DBComponent.CvFilesDBFacade</RootNamespace>
+    <AssemblyName>CvLocate.DBComponent.CvFilesDBFacade</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

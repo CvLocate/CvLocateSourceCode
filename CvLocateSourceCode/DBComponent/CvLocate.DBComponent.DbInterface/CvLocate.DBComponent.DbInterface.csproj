@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\BaseMongoException.cs" />
     <Compile Include="Exceptions\MongoEntityNotFoundException.cs" />
-    <Compile Include="Exceptions\RequiredFieldsNullOrEmptyExcepstion.cs" />
+    <Compile Include="Exceptions\RequiredFieldsNullOrEmptyException.cs" />
+    <Compile Include="Exceptions\SignInException.cs" />
     <Compile Include="ICandidateManager.cs" />
     <Compile Include="ICvFilesManager.cs" />
     <Compile Include="IFilesManager.cs" />
