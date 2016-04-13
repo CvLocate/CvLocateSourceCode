@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CvLocate.DBComponent.DbInterface
+namespace CvLocate.DBComponent.DbInterface.Managers
 {
     public interface IJobManager
     {

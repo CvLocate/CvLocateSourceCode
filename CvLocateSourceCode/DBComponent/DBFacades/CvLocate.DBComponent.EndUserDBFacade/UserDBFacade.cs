@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CvLocate.DBComponent.MongoDB.Managers;
-using CvLocate.DBComponent.DbInterface;
+using CvLocate.DBComponent.DbInterface.Managers;
 
 namespace CvLocate.DBComponent.EndUserDBFacade
 {

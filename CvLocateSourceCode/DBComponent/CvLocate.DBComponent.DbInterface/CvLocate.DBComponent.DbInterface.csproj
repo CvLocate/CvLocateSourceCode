@@ -40,15 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBEntities\CvFileDBEntity.cs" />
     <Compile Include="Exceptions\BaseMongoException.cs" />
     <Compile Include="Exceptions\MongoEntityNotFoundException.cs" />
     <Compile Include="Exceptions\RequiredFieldsNullOrEmptyException.cs" />
     <Compile Include="Exceptions\SignInException.cs" />
-    <Compile Include="ICandidateManager.cs" />
-    <Compile Include="ICvFilesManager.cs" />
-    <Compile Include="IFilesManager.cs" />
-    <Compile Include="IJobManager.cs" />
-    <Compile Include="IRecruiterManager.cs" />
+    <Compile Include="Managers\ICandidateManager.cs" />
+    <Compile Include="Managers\ICvFilesManager.cs" />
+    <Compile Include="Managers\IFilesManager.cs" />
+    <Compile Include="Managers\IJobManager.cs" />
+    <Compile Include="Managers\IRecruiterManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +70,7 @@
       <Name>CvLocate.Common.EndUserDtoInterface</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

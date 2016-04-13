@@ -3,6 +3,7 @@ using CvLocate.Common.EndUserDtoInterface.DTO;
 using CvLocate.Common.EndUserDtoInterface.Response;
 using CvLocate.DBComponent.DbInterface;
 using CvLocate.DBComponent.DbInterface.Exceptions;
+using CvLocate.DBComponent.DbInterface.Managers;
 using CvLocate.DBComponent.MongoDB.Entities;
 using MongoRepository;
 using System;

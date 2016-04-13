@@ -15,6 +15,8 @@ using CvLocate.Common.CvFilesScannerDtoInterface.Command;
 using CvLocate.Common.CommonDto;
 using CvLocate.Common.CommonDto.Enums;
 using CvLocate.DBComponent.DbInterface.Exceptions;
+using CvLocate.DBComponent.DbInterface.Managers;
+using CvLocate.DBComponent.DbInterface.DBEntities;
 
 namespace CvLocate.DBComponent.MongoDB.Managers
 {
@@ -72,17 +74,19 @@ namespace CvLocate.DBComponent.MongoDB.Managers
         /// </summary>
         /// <param name="cvFileId">CvFile id</param>
         /// <param name="fileId">File id from Files table</param>
-        public void UpdateCvFileUploaded(string cvFileId, string fileId)
+        public void UpdateCvFileUploaded(CvFileDBEntity cvFile)
         {
-            CvFileEntity cvFile = GetCvFileById(cvFileId);
             if (cvFile == null)
-                throw new MongoEntityNotFoundException(cvFileId, "CvFiles");
+                throw new BaseMongoException("CvFile is null");
+            CvFileEntity cvFileEntity = GetCvFileById(cvFile.CvFileId);
+            if (cvFileEntity == null)
+                throw new MongoEntityNotFoundException(cvFile.CvFileId, "CvFiles");
 
-            cvFile.FileId = fileId;
-            cvFile.Status = CvFileStatus.Scanned;
-            cvFile.ParsingStatus = ParsingProcessStatus.WaitingForParsing;
-            cvFile.UpdatedAt = DateTime.Now;
-            _cvFilesRepository.Update(cvFile);
+            AutoMapper.Mapper.CreateMap<CvFileDBEntity, CvFileEntity>();
+            cvFileEntity = AutoMapper.Mapper.Map(cvFile, cvFileEntity);
+            
+            cvFileEntity.UpdatedAt = DateTime.Now;
+            _cvFilesRepository.Update(cvFileEntity);
         }
 
         /// <summary>

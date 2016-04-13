@@ -14,6 +14,7 @@ using CvLocate.Common.EndUserDtoInterface;
 using MongoDB.Bson;
 using CvLocate.Common.EndUserDtoInterface.Query;
 using CvLocate.DBComponent.DbInterface.Exceptions;
+using CvLocate.DBComponent.DbInterface.Managers;
 
 namespace CvLocate.DBComponent.MongoDB.Managers
 {

@@ -2,7 +2,7 @@
 using CvLocate.Common.EndUserDtoInterface.Command;
 using CvLocate.Common.EndUserDtoInterface.Query;
 using CvLocate.Common.EndUserDtoInterface.Response;
-using CvLocate.DBComponent.DbInterface;
+using CvLocate.DBComponent.DbInterface.Managers;
 using CvLocate.DBComponent.MongoDB.Managers;
 using System;
 using System.Collections.Generic;
@@ -14,6 +14,8 @@ namespace CvLocate.DBComponent.EndUserDBFacade
 {
     public class RecruiterDBFacade : IRecruiterDBFacade
     {
+
+
         public RecruiterGetJobsResponse RecruiterGetJobs(RecruiterGetJobsQuery query)
         {
             if (query == null || string.IsNullOrEmpty(query.RecruiterId))

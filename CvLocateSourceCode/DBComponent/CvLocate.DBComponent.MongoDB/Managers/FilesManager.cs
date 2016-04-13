@@ -1,4 +1,4 @@
-﻿using CvLocate.DBComponent.DbInterface;
+﻿using CvLocate.DBComponent.DbInterface.Managers;
 using CvLocate.DBComponent.MongoDB.Entities;
 using MongoRepository;
 using System;

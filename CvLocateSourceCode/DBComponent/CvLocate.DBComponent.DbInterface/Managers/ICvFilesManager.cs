@@ -8,17 +8,17 @@ using CvLocate.Common.CommonDto.Results;
 using CvLocate.Common.EmailServerDtoInterface.Command;
 using CvLocate.Common.CommonDto;
 using CvLocate.Common.CommonDto.Enums;
+using CvLocate.DBComponent.DbInterface.DBEntities;
 
-namespace CvLocate.DBComponent.DbInterface
+namespace CvLocate.DBComponent.DbInterface.Managers
 {
     public interface ICvFilesManager
     {
         /// <summary>
         /// Update existing file to uploaded state
         /// </summary>
-        /// <param name="cvFileId">CvFile id</param>
-        /// <param name="fileId">File id from Files table</param>
-        void UpdateCvFileUploaded(string cvFileId, string fileId);
+        /// <param name="cvFile">CvFile with parameters for update</param>
+        void UpdateCvFileUploaded(CvFileDBEntity cvFile);
 
         /// <summary>
         /// Check if CvFile exists
