@@ -12,6 +12,7 @@ using CvLocate.Common.CvFilesScannerDtoInterface.Command;
 using System.IO;
 using CvLocate.Common.CvFilesScannerDtoInterface.Result;
 using CvLocate.Common.CommonDto;
+using SimpleInjector;
 
 namespace CvLocate.CvFilesScanner
 {
@@ -22,20 +23,20 @@ namespace CvLocate.CvFilesScanner
         ICvLocateLogger _logger;
         IScannerDataWrapper _dataWrapper;
         ICvFilesFilesListener _cvFilesListener;
-        ICvFileScanner _cvFileScanner;
+        Container _container;
 
         List<FileType> _supportedFileTypes;
         #endregion
 
         #region CTOR
 
-        public CvFilesScannerManager(ICvFilesFilesListener cvFilesListener, IScannerDataWrapper dataWrapper,
-            ICvLocateLogger logger, ICvFileScanner cvFileScanner)
+        public CvFilesScannerManager(Container container,ICvFilesFilesListener cvFilesListener, IScannerDataWrapper dataWrapper,
+            ICvLocateLogger logger)
         {
             this._logger = logger;
             this._dataWrapper = dataWrapper;
             this._cvFilesListener = cvFilesListener;
-            this._cvFileScanner = cvFileScanner;
+            this._container = container;
         }
 
         #endregion
@@ -86,8 +87,8 @@ namespace CvLocate.CvFilesScanner
                 {
                     return;
                 }
-
-                ScanResult scanResult = _cvFileScanner.Scan(filePath, (FileType)fileType);
+               ICvFileScanner scanner = this._container.GetInstance<ICvFileScanner>();
+               ScanResult scanResult = scanner.Scan(filePath, (FileType)fileType);
                 if (scanResult.Succeed)
                 {
                     ScanSucceed(filePath, scanResult);

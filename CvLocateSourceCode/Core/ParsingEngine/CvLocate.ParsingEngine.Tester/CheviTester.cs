@@ -1,6 +1,6 @@
 ﻿using CvLocate.Common.DbFacadeInterface;
 using CvLocate.Common.Logging;
-
+using SimpleInjector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,13 +13,15 @@ namespace CvLocate.ParsingEngine.Tester
     {
         public static void TestParsingEngineManager()
         {
-            ICvLocateLogger parsingEngineLogger = new CvLocateLogger("parsingEngineLogger");
-            ICvParser cvParser = new MockCvParser(parsingEngineLogger);
-            ICoreDBFacade coreDbFacade = new MockCoreDBFacade();
-            IParsingEngineDataWrapper dataWrapper = new ParsingEngineDataWrapper(coreDbFacade);
-            IParsingQueueManager parsingQueueManager = new ParsingQueueManager(dataWrapper);
+            var container = new Container();
+            container.RegisterSingleton<ICvLocateLogger>(new CvLocateLogger("parsingEngineLogger"));
+            container.Register<ICoreDBFacade, MockCoreDBFacade>(Lifestyle.Singleton);
+            container.Register<IParsingEngineDataWrapper, ParsingEngineDataWrapper>(Lifestyle.Singleton);
+            container.Register<IParsingQueueManager, ParsingQueueManager>(Lifestyle.Singleton);
+            container.Register<ICvParser, MockCvParser>(Lifestyle.Transient);
+            container.Register<IParsingEngineManager, ParsingEngineManager>(Lifestyle.Singleton);
 
-            ParsingEngineManager parsingManager = new ParsingEngineManager(dataWrapper, parsingQueueManager, cvParser, parsingEngineLogger);
+            IParsingEngineManager parsingManager = container.GetInstance<IParsingEngineManager>();
             parsingManager.Initialize();
         }
     }

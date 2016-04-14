@@ -11,20 +11,19 @@ using CvLocate.Common.CoreDtoInterface.Query;
 using CvLocate.Common.CoreDtoInterface.Enums;
 using CvLocate.Common.CoreDtoInterface.Result;
 using CvLocate.Common.Logging;
+using SimpleInjector;
 
 
 namespace CvLocate.ParsingEngine
 {
     public class ParsingEngineManager : IParsingEngineManager
     {
-        //todo add injection and unity - singleton
-
         #region Members
 
         IParsingEngineDataWrapper _dataWrapper;
         IParsingQueueManager _parsingQueueManager;
-        ICvParser _cvParser;
         ICvLocateLogger _logger;
+        Container _container;
 
         Task _parsingProcessTask; //todo replace to list of tasks for best performance
         Task _parsingProcessManagerTask;
@@ -36,13 +35,13 @@ namespace CvLocate.ParsingEngine
         #endregion
 
         #region ctor
-        public ParsingEngineManager(IParsingEngineDataWrapper dataWrapper, IParsingQueueManager parsingQueueManager
-            , ICvParser cvParser, ICvLocateLogger logger)
+        public ParsingEngineManager(Container container,IParsingEngineDataWrapper dataWrapper, IParsingQueueManager parsingQueueManager
+            , ICvLocateLogger logger)
         {
             _dataWrapper = dataWrapper;
             _parsingQueueManager = parsingQueueManager;
-            _cvParser = cvParser;
             _logger = logger;
+            _container = container;
         }
         #endregion
 
@@ -151,7 +150,9 @@ namespace CvLocate.ParsingEngine
             {
                 this._logger.DebugFormat("CV file {0}: Start parsing process. Details:\n{1}", candidateCvFile.CvFile.Id, candidateCvFile);
 
-                CvParsedData parsedCv = _cvParser.ParseCv(candidateCvFile.CvFile);
+                ICvParser cvParser = this._container.GetInstance<ICvParser>();
+
+                CvParsedData parsedCv = cvParser.ParseCv(candidateCvFile.CvFile);
 
                 SaveResultOfCandidateParsingCommand saveCommand = BuildSaveParsingCommand(candidateCvFile, parsedCv);
 

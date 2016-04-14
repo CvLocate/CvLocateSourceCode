@@ -7,22 +7,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SimpleInjector;
 
 namespace CvLocate.Core
 {
     public class Bootstrapper
     {
-        ParsingEngineManager _parsingManager = null;
+        IParsingEngineManager _parsingManager = null;
 
         public void InitializeCvLocateCore()
         {
-            ICvLocateLogger parsingEngineLogger = new CvLocateLogger("parsingEngineLogger");
-            ICvParser cvParser = new CvParser(parsingEngineLogger);
-            ICoreDBFacade coreDbFacade = new CoreDBFacade();
-            IParsingEngineDataWrapper dataWrapper = new ParsingEngineDataWrapper(coreDbFacade);
-            IParsingQueueManager parsingQueueManager = new ParsingQueueManager(dataWrapper);
+            var container = new Container();
+            container.RegisterSingleton<ICvLocateLogger>(new CvLocateLogger("parsingEngineLogger"));
+            container.Register<ICoreDBFacade, CoreDBFacade>(Lifestyle.Singleton);
+            container.Register<IParsingEngineDataWrapper, ParsingEngineDataWrapper>(Lifestyle.Singleton);
+            container.Register<IParsingQueueManager, ParsingQueueManager>(Lifestyle.Singleton);
+            container.Register<ICvParser, CvParser>(Lifestyle.Transient);
+            container.Register<IParsingEngineManager, ParsingEngineManager>(Lifestyle.Singleton);
 
-            this._parsingManager = new ParsingEngineManager(dataWrapper, parsingQueueManager, cvParser, parsingEngineLogger);
+            this._parsingManager = container.GetInstance<IParsingEngineManager>();
             this._parsingManager.Initialize();
         }
 
