@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using CvLocate.Common.CommonDto;
 using CvLocate.Common.EndUserDtoInterface.DTO;
 using CvLocate.Common.CommonDto.Enums;
+using CvLocate.Common.CommonDto.Entities;
 
 namespace CvLocate.DBComponent.MongoDB.Entities
 {
@@ -24,7 +25,7 @@ namespace CvLocate.DBComponent.MongoDB.Entities
         public string StatusReasonDetails { get; set; }
         public ParsingProcessStatus ParsingStatus { get; set; }
         public string Text { get; set; }
-        public string FileEncoding { get; set; }
+        public TextEncoding FileEncoding { get; set; }
         public List<string> SeperatedTexts { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
