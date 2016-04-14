@@ -177,11 +177,10 @@ namespace CvLocate.ParsingEngine
             SaveParsedCvFileCommand saveParsedCvFileCommand = new SaveParsedCvFileCommand();
             saveParsedCvFileCommand.CvFile = new CvFile(candidateCvFileForParsing.CvFile); ;
             saveParsedCvFileCommand.SeperatedTexts = parsedCvData.SeperatedTexts;
-            saveParsedCvFileCommand.Text = parsedCvData.Text;
 
 
             List<BaseCommonCommand> moreCommands = null;
-            if (string.IsNullOrWhiteSpace(parsedCvData.Text) || parsedCvData.SeperatedTexts.Count == 0) //parsing failed
+            if (parsedCvData.SeperatedTexts.Count == 0) //parsing failed
             {
                 moreCommands = ParsingCommandsForFailedParsing(parsedCvFile, parsedCvData, relatedCandidateOfParsedCvFile, saveParsedCvFileCommand);
             }
@@ -327,7 +326,8 @@ namespace CvLocate.ParsingEngine
                 CVFileId = parsedCvFile.Id,
                 Name = parsedCvData.Name,
                 MatchingStatus = MatchingProcessStatus.WaitingForMatching,
-                Email = existingCandidateWithSameEmail.Candidate.Email
+                Email = existingCandidateWithSameEmail.Candidate.Email,
+                CVFileImage = parsedCvFile.FileImage
             };
 
 
@@ -369,7 +369,8 @@ namespace CvLocate.ParsingEngine
                 Name = string.IsNullOrWhiteSpace(existingCandidateWithSameEmail.Candidate.Name) ? parsedCvData.Name : existingCandidateWithSameEmail.Candidate.Name,
                 MatchingStatus = MatchingProcessStatus.WaitingForMatching,
                 Email = existingCandidateWithSameEmail.Candidate.Email,
-                CVFileId = existingCandidateWithSameEmail.Candidate.CVFileId
+                CVFileId = existingCandidateWithSameEmail.Candidate.CVFileId,
+                CVFileImage = parsedCvFile.FileImage
             };
             this._logger.DebugFormat("CV file {0}: Add 'SaveCandidateAfterParsingCommand' command: {1}", parsedCvFile.Id, saveCandiateAfterParsingCommand);
             return new List<BaseCommonCommand>() { saveCandiateAfterParsingCommand };
@@ -387,7 +388,8 @@ namespace CvLocate.ParsingEngine
                 CVFileId = parsedCvFile.Id,
                 Email = parsedCvData.Email,
                 Name = parsedCvData.Name,
-                MatchingStatus = MatchingProcessStatus.WaitingForMatching
+                MatchingStatus = MatchingProcessStatus.WaitingForMatching,
+                CVFileImage = parsedCvFile.FileImage
             };
             this._logger.DebugFormat("CV file {0}: Add 'SaveCandidateAfterParsingCommand' command: {1}", parsedCvFile.Id, saveCandiateAfterParsingCommand);
             return new List<BaseCommonCommand>() { saveCandiateAfterParsingCommand };
@@ -422,7 +424,8 @@ namespace CvLocate.ParsingEngine
                 MatchingStatus = MatchingProcessStatus.WaitingForMatching,
                 Name = string.IsNullOrWhiteSpace(relatedCandidateOfParsedCvFile.Name) ? parsedCvData.Name : relatedCandidateOfParsedCvFile.Name,
                 Email = relatedCandidateOfParsedCvFile.Email,
-                CVFileId = relatedCandidateOfParsedCvFile.CVFileId
+                CVFileId = relatedCandidateOfParsedCvFile.CVFileId,
+                CVFileImage = parsedCvFile.FileImage
             };
 
             this._logger.DebugFormat("CV file {0}: Add 'SaveCandidateAfterParsingCommand' command: {1}", parsedCvFile.Id, saveCandiateAfterParsingCommand);

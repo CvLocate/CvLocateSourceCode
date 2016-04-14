@@ -30,7 +30,7 @@ namespace CvLocate.CvFilesScanner
         #region CTOR
 
         public CvFilesScannerManager(ICvFilesFilesListener cvFilesListener, IScannerDataWrapper dataWrapper,
-            ICvLocateLogger logger,ICvFileScanner cvFileScanner)
+            ICvLocateLogger logger, ICvFileScanner cvFileScanner)
         {
             this._logger = logger;
             this._dataWrapper = dataWrapper;
@@ -46,7 +46,7 @@ namespace CvLocate.CvFilesScanner
 
         public void Initialize()
         {
-            this._logger.Info("Initilaize CV files listener");
+            this._logger.Info("Initilaize CV Files Scanner Manager");
 
             _supportedFileTypes = _dataWrapper.GetSupportedFileTypes().ToList();
             _cvFilesListener.OnNewFileCreated += _cvFilesListener_OnNewFileCreated;
@@ -55,7 +55,7 @@ namespace CvLocate.CvFilesScanner
 
         public void Stop()
         {
-            this._logger.Info("Stop CV files listener");
+            this._logger.Info("Stop CV Files Scanner Manager");
             if (this._cvFilesListener != null)
             {
                 this._cvFilesListener.Stop();
@@ -71,47 +71,49 @@ namespace CvLocate.CvFilesScanner
 
         void _cvFilesListener_OnNewFileCreated(object sender, FileCreatedEventArgs e)
         {
-            try
-            {
-                NewCVFileCreated(e.FilePath);
-            }
-            catch (Exception ex)
-            {
-                this._logger.Error(ex.ToString());
-            }
+
+            NewCVFileCreated(e.FilePath);
+
         }
 
         private void NewCVFileCreated(string filePath)
         {
-            _logger.DebugFormat("New file is found in scanner server: {0}", filePath);
-            FileType? fileType = filePath.GetFileType();
-            if (!IsFileTypeSupported(filePath,fileType))
+            try
             {
-                return;
-            }
+                _logger.DebugFormat("New file is found in scanner server: {0}", filePath);
+                FileType? fileType = filePath.GetFileType();
+                if (!IsFileTypeSupported(filePath, fileType))
+                {
+                    return;
+                }
 
-            ScanResult scanResult = _cvFileScanner.Scan(filePath,(FileType)fileType);
-            if (scanResult.Succeed)
-            {
-                ScanSucceed(filePath, scanResult);
-            }
-            else
-            {
-                ScanFailed(filePath, scanResult);
-            }
+                ScanResult scanResult = _cvFileScanner.Scan(filePath, (FileType)fileType);
+                if (scanResult.Succeed)
+                {
+                    ScanSucceed(filePath, scanResult);
+                }
+                else
+                {
+                    ScanFailed(filePath, scanResult);
+                }
 
+            }
+            catch (Exception ex)
+            {
+                this._logger.ErrorFormat("File {0}: Failed in scanner process. Original Error: {1}", filePath, ex.ToString());
+            }
         }
 
         private void ScanFailed(string filePath, ScanResult scanResult)
         {
-            this._logger.DebugFormat("CV file {0}: scanning process is failed with reason: {1}, so delete this file record from DB", filePath,scanResult.ErrorMessage);
+            this._logger.DebugFormat("CV file {0}: scanning process is failed with reason: {1}, so delete this file record from DB", filePath, scanResult.ErrorMessage);
             DeleteScannedCvFileCommand command = new DeleteScannedCvFileCommand()
             {
                 CvFileId = Path.GetFileNameWithoutExtension(filePath),
                 StatusReasonDetails = scanResult.ErrorMessage,
                 StatusReason = scanResult.IsSafeFile == false ? CvStatusReason.NotSafeFile : CvStatusReason.ScanningFailed
             };
-            BaseResult result= _dataWrapper.DeleteScannedCvFile(command);
+            BaseResult result = _dataWrapper.DeleteScannedCvFile(command);
             string moveFileTo = null;
             if (result.Success)
             {
@@ -129,7 +131,7 @@ namespace CvLocate.CvFilesScanner
             MoveFile(filePath, moveFileTo);
         }
 
-       
+
 
         private void ScanSucceed(string filePath, ScanResult scanResult)
         {
@@ -162,7 +164,16 @@ namespace CvLocate.CvFilesScanner
         {
             try
             {
-                File.Move(filePath, Path.Combine(targetPath, filePath));
+                string targetFullPath=Path.Combine(targetPath,Path.GetFileName(filePath));
+                File.Move(filePath,targetFullPath );
+                if (File.Exists(targetFullPath))
+                {
+                    this._logger.DebugFormat("File {0} is moved to {1}", filePath, targetPath);
+                }
+                else
+                {
+                    this._logger.ErrorFormat("File {0} is failed to moved to {1}", filePath, targetPath);
+                }
             }
             catch (Exception ex)
             {
@@ -174,18 +185,20 @@ namespace CvLocate.CvFilesScanner
             try
             {
                 File.Delete(filePath);
+                this._logger.DebugFormat("File {0} is deleted successfuly", filePath);
             }
             catch (Exception ex)
             {
-               this._logger.ErrorFormat("File {0} failed to be deleted. Origional error: {1}", filePath, ex.Message);
+                this._logger.ErrorFormat("File {0} failed to be deleted. Origional error: {1}", filePath, ex.Message);
             }
         }
 
-        private bool IsFileTypeSupported(string filePath,FileType? fileType)
+        private bool IsFileTypeSupported(string filePath, FileType? fileType)
         {
             if (fileType == null || !_supportedFileTypes.Contains((FileType)fileType))
             {
                 this._logger.WarnFormat("File {0} is of type that isn't supported by system", filePath);
+                MoveFile(filePath, Properties.Settings.Default.ArchiveDirectoryForUnsupportedFiles);
                 return false;
             }
             return true;

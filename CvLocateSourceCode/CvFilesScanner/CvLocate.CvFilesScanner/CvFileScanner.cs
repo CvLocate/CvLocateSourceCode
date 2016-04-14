@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CvLocate.Common.Utils;
+using DocumentConverter;
 //using DocumentConverter;
 
 namespace CvLocate.CvFilesScanner
@@ -28,7 +29,7 @@ namespace CvLocate.CvFilesScanner
         {
             this._filePath = filePath;
             this._fileType = fileType;
-            this._result = new ScanResult();
+            this._result = new ScanResult() { IsSafeFile = true };
             try
             {
                 ExtractText();//todo for pdf file 
@@ -52,10 +53,10 @@ namespace CvLocate.CvFilesScanner
 
         }
 
-       
+
         private void FindEncoding()
         {
-            this._result.Encoding = "utf-8";
+            this._result.Encoding = new Common.CommonDto.Entities.TextEncoding() { EncodingName = "utf-8", Zone = "Israel" };
         }
 
         private void FillStream()
@@ -74,7 +75,7 @@ namespace CvLocate.CvFilesScanner
         {
             try
             {
-               
+
             }
             catch (Exception ex)
             {
@@ -84,30 +85,28 @@ namespace CvLocate.CvFilesScanner
 
         private void ScanText()
         {
-            try
+            this._result.IsSafeFile = true;
+            if (!this._result.IsSafeFile)
             {
-                this._result.IsSafeFile = true;
+                throw new Exception(string.Format("File {0} is not a safe file", this._filePath));
             }
-            catch (Exception ex)
-            {
-                throw new Exception("Failed to scan file", ex);
-            }
+
         }
 
         private void ExtractText()
         {
             try
             {
-                //IDocumentConverter converter = this._documentConverterFactory.GetDocumentConverter((FileType)this._fileType);
-                //if (converter == null)
-                //{
-                //    throw new Exception(string.Format("Cannot find converter for file type {0}", this._fileType));
-                //}
-                //this._result.Text = converter.ConvertFileToText(this._filePath);
-                //if (string.IsNullOrWhiteSpace(this._result.Text))
-                //{
-                //    throw new Exception("File is empty");
-                //}
+                IDocumentConverter converter = this._documentConverterFactory.GetDocumentConverter((FileType)this._fileType);
+                if (converter == null)
+                {
+                    throw new Exception(string.Format("Cannot find converter for file type {0}", this._fileType));
+                }
+                this._result.Text = converter.ConvertFileToText(this._filePath);
+                if (string.IsNullOrWhiteSpace(this._result.Text))
+                {
+                    throw new Exception("File is empty");
+                }
             }
             catch (Exception ex)
             {

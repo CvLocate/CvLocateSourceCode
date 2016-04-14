@@ -8,9 +8,12 @@ using System.Threading.Tasks;
 
 namespace CvLocate.ParsingEngine
 {
-    public class CvParser:ICvParser
+    public class CvParser : ICvParser
     {
         ICvLocateLogger _logger;
+        CvFileForParsing _cvFile;
+        CvParsedData _cvParsedData;
+
         public CvParser(ICvLocateLogger logger)
         {
             _logger = logger;
@@ -20,39 +23,33 @@ namespace CvLocate.ParsingEngine
         {
             _logger.DebugFormat("CV file {0}: Start parsing.", cvFile.Id);
 
-            string cvText = ExtractText(cvFile.Stream);
-            List<string> seperatedCvTexts = SeperateText(cvText);
+            this._cvFile = cvFile;
+            this._cvParsedData = new CvParsedData();
 
-            CvParsedData cvParsedData = new CvParsedData()
-            {
-                Text = cvText,
-                SeperatedTexts=seperatedCvTexts
-            };
 
-            ExtractMoreData(cvParsedData);
+            SeperateText();
 
-            this._logger.DebugFormat("CV file {0}: Parsing result: {1}", cvFile.Id, cvParsedData);
+            ExtractMoreData();
 
-            return cvParsedData;
+            this._logger.DebugFormat("CV file {0}: Parsing result: {1}", cvFile.Id, this._cvParsedData);
+
+            return this._cvParsedData;
         }
 
-        private void ExtractMoreData(CvParsedData cvParsedData)
+        private void ExtractMoreData()
         {
-            cvParsedData.Name = "Moshe";
-            cvParsedData.Email = "moshe@gmail.com";
+            this._cvParsedData.Name = "Moshe";
+            this._cvParsedData.Email = "moshe@gmail.com";
         }
 
-        private List<string> SeperateText(string cvText)
+        private void SeperateText()
         {
-            return new List<string>()
+            this._cvParsedData.SeperatedTexts = new List<string>()
             {
                 "bla","lab","bla"
             };
         }
 
-        private string ExtractText(byte[] fileStream)
-        {
-            return "blabla";
-        }
+
     }
 }

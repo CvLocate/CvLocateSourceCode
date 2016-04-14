@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CvLocate.Common.CommonDto.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,6 @@ namespace CvLocate.CvFilesScanner.Entities
         public string Text { get; set; }
         public byte[] Image { get; set; }
         public byte[] Stream { get; set; }
-        public string Encoding { get; set; }
+        public TextEncoding Encoding { get; set; }
     }
 }
