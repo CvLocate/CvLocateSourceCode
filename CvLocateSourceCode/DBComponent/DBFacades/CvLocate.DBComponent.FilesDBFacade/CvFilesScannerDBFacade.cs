@@ -38,39 +38,53 @@ namespace CvLocate.DBComponent.CvFilesDBFacade
 
         public BaseResult UploadScannedCvFile(UploadScannedCvFileCommand command)
         {
-            if (command == null)
-                return new BaseResult(false) { ErrorMessage = "Command cannot be null" };
-            if (command.Stream == null)
-                return new BaseResult(false) { ErrorMessage = "Stream cannot be null" };
+            try
+            {
+                if (command == null)
+                    return new BaseResult(false) { ErrorMessage = "Command cannot be null" };
+                if (command.Stream == null)
+                    return new BaseResult(false) { ErrorMessage = "Stream cannot be null" };
 
-            if (!_cvFilesManager.CvFileExists(command.CvFileId))
-                return new BaseResult(false) { ErrorMessage = "CvFile not found" };
+                if (!_cvFilesManager.CvFileExists(command.CvFileId))
+                    return new BaseResult(false) { ErrorMessage = "CvFile not found" };
 
-            //upload stream to Files table
-            string fileId = _filesManager.UploadFile(command.Stream);
+                //upload stream to Files table
+                string fileId = _filesManager.UploadFile(command.Stream);
 
-            //convert from UploadScannedCvFileCommand to CvFileDBEntity
-            Mapper.CreateMap<UploadScannedCvFileCommand, CvFileDBEntity>();
-            CvFileDBEntity cvFile = Mapper.Map<UploadScannedCvFileCommand, CvFileDBEntity>(command);
-            
-            //update other fields
-            cvFile.FileId = fileId;
-            cvFile.Status = CvFileStatus.Scanned;
-            cvFile.ParsingStatus = ParsingProcessStatus.WaitingForParsing;
+                //convert from UploadScannedCvFileCommand to CvFileDBEntity
+                Mapper.CreateMap<UploadScannedCvFileCommand, CvFileDBEntity>();
+                CvFileDBEntity cvFile = Mapper.Map<UploadScannedCvFileCommand, CvFileDBEntity>(command);
 
-            _cvFilesManager.UpdateCvFileUploaded(cvFile);
+                //update other fields
+                cvFile.FileId = fileId;
+                cvFile.Status = CvFileStatus.Scanned;
+                cvFile.ParsingStatus = ParsingProcessStatus.WaitingForParsing;
 
-            return new BaseResult(true);
+                _cvFilesManager.UpdateCvFileUploaded(cvFile);
+
+                return new BaseResult(true);
+            }
+            catch (Exception ex)
+            {
+                return new BaseResult(false) { ErrorMessage = "Failed to upload scanned file. file id: " + command.CvFileId + ". Orginal error: " + ex.ToString() };
+            }
         }
 
         public BaseResult DeleteScannedCvFile(DeleteScannedCvFileCommand command)
         {
-            if (command == null)
-                return new BaseResult(false) { ErrorMessage = "Command cannot be null" };
-            if (!_cvFilesManager.CvFileExists(command.CvFileId))
-                return new BaseResult(false) { ErrorMessage = "CvFile not found" };
-            _cvFilesManager.UpdateCvFileDeleted(command.CvFileId, command.StatusReason, command.StatusReasonDetails);
-            return new BaseResult(true);
+            try
+            {
+                if (command == null)
+                    return new BaseResult(false) { ErrorMessage = "Command cannot be null" };
+                if (!_cvFilesManager.CvFileExists(command.CvFileId))
+                    return new BaseResult(false) { ErrorMessage = "CvFile not found" };
+                _cvFilesManager.UpdateCvFileDeleted(command.CvFileId, command.StatusReason, command.StatusReasonDetails);
+                return new BaseResult(true);
+            }
+            catch (Exception ex)
+            {
+                return new BaseResult(false) { ErrorMessage = "Failed to delete scanned cv file. file id: " + command.CvFileId + ". Orginal error: " + ex.ToString() };
+            }
         }
 
         #endregion

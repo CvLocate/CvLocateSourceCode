@@ -33,11 +33,18 @@ namespace CvLocate.DBComponent.EmailServerDBFacade
 
         public BaseInsertResult CreateCvFile(CreateCvFileCommand command)
         {
-            if (command == null)
-                return new BaseInsertResult(false) { ErrorMessage = "Command cannot be null" };
-            
-            string newId = _cvFilesManager.CreateCvFile(command.Extension, command.SourceType, command.Source);
-            return new BaseInsertResult(true) { Id = newId };
+            try
+            {
+                if (command == null)
+                    return new BaseInsertResult(false) { ErrorMessage = "Command cannot be null" };
+
+                string newId = _cvFilesManager.CreateCvFile(command.Extension, command.SourceType, command.Source);
+                return new BaseInsertResult(true) { Id = newId };
+            }
+            catch (Exception ex)
+            {
+                return new BaseInsertResult(false) { ErrorMessage = "Failed too create new cv file. Orginal error: " + ex.ToString() };
+            }
         }
 
         #endregion
