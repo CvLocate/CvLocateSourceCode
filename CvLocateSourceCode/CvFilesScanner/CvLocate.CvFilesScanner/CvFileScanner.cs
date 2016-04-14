@@ -16,7 +16,7 @@ namespace CvLocate.CvFilesScanner
     {
         string _filePath;
         ScanResult _result;
-        FileType? _fileType;
+        FileType _fileType;
         IDocumentConverterFactory _documentConverterFactory;
 
         public CvFileScanner(IDocumentConverterFactory documentConverterFactory)
@@ -24,43 +24,35 @@ namespace CvLocate.CvFilesScanner
             this._documentConverterFactory = documentConverterFactory;
         }
 
-        //public ScanResult Scan(string filePath)
-        //{
-        //    this._filePath = filePath;
-        //    this._result = new ScanResult() { Succeed = true };
-        //    try
-        //    {
-        //        FindFileType();
-        //        ExtractText();//todo for pdf file by zvi
-        //        FindEncoding();//todo by zvi
-        //        ScanText();//todo by zvi
-        //        FillStream();
-        //        CreateImage();//todo by zvi
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        this._result.Succeed = false;
-        //        this._result.ErrorMessage = ex.Message;
-        //        if (ex.InnerException != null)
-        //        {
-        //            this._result.ErrorMessage += string.Format(" Origional Exception: {0}", ex.InnerException.ToString());
-        //        }
-        //    }
-
-        //    return this._result;
-
-        //}
-
-        private void FindFileType()
+        public ScanResult Scan(string filePath, FileType fileType)
         {
-            FileInfo file = new FileInfo(this._filePath);
-            this._fileType = file.GetFileType();
-            if (this._fileType == null)
+            this._filePath = filePath;
+            this._fileType = fileType;
+            this._result = new ScanResult();
+            try
             {
-                throw new Exception(string.Format("File type {0} is not supported", file.Extension));
+                ExtractText();//todo for pdf file 
+                FindEncoding();//todo by zvi
+                ScanText();//todo by zvi
+                FillStream();
+                CreateImage();//todo by zvi
+                this._result.Succeed = true;
             }
+            catch (Exception ex)
+            {
+                this._result.Succeed = false;
+                this._result.ErrorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    this._result.ErrorMessage += string.Format(" Origional Exception: {0}", ex.InnerException.ToString());
+                }
+            }
+
+            return this._result;
+
         }
 
+       
         private void FindEncoding()
         {
             this._result.Encoding = "utf-8";

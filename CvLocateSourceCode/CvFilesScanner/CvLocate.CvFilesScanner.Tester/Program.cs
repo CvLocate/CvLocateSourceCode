@@ -10,6 +10,15 @@ namespace CvLocate.CvFilesScanner.Tester
     {
         static void Main(string[] args)
         {
+            try
+            {
+                Bootstrapper bootstrap = new Bootstrapper();
+                bootstrap.Initialize();
+            }
+            catch (Exception ex)
+            {
+                
+            }
         }
     }
 }

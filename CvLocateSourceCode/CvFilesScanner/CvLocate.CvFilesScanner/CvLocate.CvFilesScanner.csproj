@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="CvFileScanner.cs" />
     <Compile Include="CvFilesListener.cs" />
     <Compile Include="CvFilesScannerManager.cs" />
@@ -64,6 +65,14 @@
       <Project>{7e682acb-3652-4537-a375-f7dee4cf8446}</Project>
       <Name>CvLocate.Common.CommonDto</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Common\CvLocate.Common.CvFilesScannerDtoInterface\CvLocate.Common.CvFilesScannerDtoInterface.csproj">
+      <Project>{3263b227-652b-439c-ba95-4b3fef0d4bb1}</Project>
+      <Name>CvLocate.Common.CvFilesScannerDtoInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\CvLocate.Common.DbFacadeInterface\CvLocate.Common.DbFacadeInterface.csproj">
+      <Project>{53337976-55e2-42fd-bcf1-2d743907aefc}</Project>
+      <Name>CvLocate.Common.DbFacadeInterface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Common\CvLocate.Common\CvLocate.Common.csproj">
       <Project>{9a6ffa4d-0b4b-494e-ad8f-c2d3647ea96e}</Project>
       <Name>CvLocate.Common</Name>
@@ -71,6 +80,10 @@
     <ProjectReference Include="..\..\Common\DocumentConverter\DocumentConverter.csproj">
       <Project>{021ed6ee-40f4-4562-925d-092874bf29e9}</Project>
       <Name>DocumentConverter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DBComponent\DBFacades\CvLocate.DBComponent.FilesDBFacade\CvLocate.DBComponent.CvFilesDBFacade.csproj">
+      <Project>{859f0983-9d4c-4fbf-998c-ff8743bda69b}</Project>
+      <Name>CvLocate.DBComponent.CvFilesDBFacade</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

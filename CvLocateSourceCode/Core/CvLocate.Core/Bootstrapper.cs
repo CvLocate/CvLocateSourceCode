@@ -12,7 +12,7 @@ namespace CvLocate.Core
 {
     public class Bootstrapper
     {
-        ParsingEngineManager parsingManager = null;
+        ParsingEngineManager _parsingManager = null;
 
         public void InitializeCvLocateCore()
         {
@@ -22,15 +22,15 @@ namespace CvLocate.Core
             IParsingEngineDataWrapper dataWrapper = new ParsingEngineDataWrapper(coreDbFacade);
             IParsingQueueManager parsingQueueManager = new ParsingQueueManager(dataWrapper);
 
-            ParsingEngineManager parsingManager = new ParsingEngineManager(dataWrapper, parsingQueueManager, cvParser, parsingEngineLogger);
-            parsingManager.Initialize();
+            this._parsingManager = new ParsingEngineManager(dataWrapper, parsingQueueManager, cvParser, parsingEngineLogger);
+            this._parsingManager.Initialize();
         }
 
         public void Stop()
         {
-            if (parsingManager != null)
+            if (this._parsingManager != null)
             {
-                parsingManager.Stop();
+                this._parsingManager.Stop();
             }
         }
     }

@@ -31,5 +31,41 @@ namespace CvLocate.CvFilesScanner.Properties {
                 return ((string)(this["CvFilesDirectory"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ArchiveDirectoryForFailedScanFiles {
+            get {
+                return ((string)(this["ArchiveDirectoryForFailedScanFiles"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ArchiveDirectoryForFailedUploadFiles {
+            get {
+                return ((string)(this["ArchiveDirectoryForFailedUploadFiles"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ArchiveDirectoryForUnsafeFiles {
+            get {
+                return ((string)(this["ArchiveDirectoryForUnsafeFiles"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ArchiveDirectoryForFailedDeletedFiles {
+            get {
+                return ((string)(this["ArchiveDirectoryForFailedDeletedFiles"]));
+            }
+        }
     }
 }

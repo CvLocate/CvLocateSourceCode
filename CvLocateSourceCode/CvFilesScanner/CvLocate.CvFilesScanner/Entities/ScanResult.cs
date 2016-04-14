@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CvLocate.CvFilesScanner.Entities
 {
-    internal class ScanResult
+    public class ScanResult
     {
         public bool Succeed { get; set; }
         public bool IsSafeFile { get; set; }

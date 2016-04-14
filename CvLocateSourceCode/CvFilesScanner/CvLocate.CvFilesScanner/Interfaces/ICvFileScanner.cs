@@ -1,4 +1,5 @@
-﻿using CvLocate.CvFilesScanner.Entities;
+﻿using CvLocate.Common.CommonDto.Enums;
+using CvLocate.CvFilesScanner.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace CvLocate.CvFilesScanner.Interfaces
 {
     public interface ICvFileScanner
     {
-        //ScanResult Scan(string filePath); 
+        ScanResult Scan(string filePath, FileType fileType); 
     }
 }

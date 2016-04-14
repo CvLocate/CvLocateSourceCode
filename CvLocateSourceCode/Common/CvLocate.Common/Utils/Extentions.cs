@@ -19,10 +19,10 @@ namespace CvLocate.Common.Utils
             }
             return result.TrimStart(',');
         }
-        public static FileType? GetFileType(this FileInfo file)
+        public static FileType? GetFileType(this string filePath)
         {
             FileType? fileType = null;
-            switch (file.Extension.ToLower())
+            switch (Path.GetExtension(filePath).ToLower())
             {
                 case ".docx":
                     fileType = FileType.Docx;

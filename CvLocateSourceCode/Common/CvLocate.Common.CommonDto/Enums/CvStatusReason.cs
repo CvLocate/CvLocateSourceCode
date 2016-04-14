@@ -13,6 +13,8 @@ namespace CvLocate.Common.CommonDto
         ParsingFailed,
         OtherEmailThenCandidate,
         ReplacedByCandidate,
-        CannotParseEmail
+        CannotParseEmail,
+        NotSafeFile,
+        ScanningFailed
     }
 }
