@@ -13,17 +13,17 @@ namespace CvLocate.EmailListener.Tester
     {
         static void Main(string[] args)
         {
-            EmailListener.Classes.EmailListener listener = new Classes.EmailListener();
+            EmailListener.Classes.EmailListenerManager listener = new Classes.EmailListenerManager();
             List<MaillListenerDefinition> mailListener = new List<MaillListenerDefinition>();
             mailListener.Add(new MaillListenerDefinition()
             {
                 ActionDefinition = new SaveAttachmentsActionDefinition(@"F:\Attachments"),
-                EmailServer = new EmailServer() { Host = "imap.gmail.com", Port = 993, UserName = "cvlocatetest@gmail.com", Password = "cvlocate1qazx" }
+                EmailServer = new MailBox() { Host = "imap.gmail.com", Port = 993, UserName = "cvlocatetest@gmail.com", Password = "cvlocate1qazx" }
 
             });
 
 
-            listener.Initialize(mailListener, new CvLocateLogger());
+            listener.AddListener(mailListener, new CvLocateLogger());
             Console.ReadLine();
         }
     }

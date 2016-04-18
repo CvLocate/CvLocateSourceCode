@@ -1,0 +1,64 @@
+﻿STEP 1:
+<form data-ng-controller="signUp as vm">
+    <!--email-->
+    <div class="form-group">
+        <label><b>email</b></label>
+        <input type="email"
+               name="email"
+               ng-model="vm.signUpStep1.email"
+               class="form-control k-textbox"
+               required="required"
+               placeholder="email" />
+        <div ng-messages="signForm.email.$error" ng-if='signForm.userName.$dirty||signForm.$submitted==true'>
+            <div ng-message when="required">
+                {{::resources.requiredFieldValidation}}
+            </div>
+            <div ng-message when="email">
+                {{::resources.emailValidation}}
+            </div>
+            <div ng-message when="EmailExists">
+                {{::resources.emailExistsValidation}}
+            </div>
+        </div>
+    </div>
+
+    <!--password-->
+    <div class="form-group">
+        <label>password</label>
+        <input type="password"
+               name="password"
+               data-ng-model="vm.signUpStep1.password"
+               class="form-control k-textbox"
+               placeholder="password"
+               ng-maxlength="10"
+               required />
+        <a href="" ng-click="vm.forgotPassword(loginForm)" ng-disabled="forgotPasswordisLoading">{{::resources.forgotMyPassword}}</a>
+    </div>
+
+    <!--Reenter password-->
+    <div class="form-group">
+        <label>Reenter password</label>
+        <input type="password"
+               name="password"
+               data-ng-model="vm.password"
+               class="form-control k-textbox"
+               placeholder="Reenter password"
+               ng-maxlength="10"
+               required />
+        <a href="" ng-click="vm.forgotPassword(loginForm)" ng-disabled="forgotPasswordisLoading">{{::resources.forgotMyPassword}}</a>
+    </div>
+
+   
+
+    <!--Registration type-->
+    <div class="form-group">
+        <label><b>Registration type</b></label><br/>
+        <select name="RegistrationType"
+                ng-model="vm.signUpStep1.userType"
+                ng-options="value.id as vm.resourceManager.getString(value.resourceKey) for (name, value) in vm.enums.userTypeEnum "></select>
+    </div>
+    <br/>
+    <br/>
+    <button ng-click="vm.nextStep()">NEXT</button>
+    <!--usertype.id as usertype.description for usertype in vm.enums.userTypeEnum track by usertype.id-->
+</form>

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CvLocate.EmailListener.Classes
+namespace CvLocate.EmailListener
 {
     public abstract class MailActionDefinition : IMailActionDefinition
     {

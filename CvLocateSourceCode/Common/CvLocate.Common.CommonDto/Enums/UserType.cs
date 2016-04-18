@@ -8,7 +8,7 @@ namespace CvLocate.Common.CommonDto
 {
     public enum UserType
     {
-        Recruiter,
-        JobSeeker
+        Recruiter=1,
+        JobSeeker=2
     }
 }

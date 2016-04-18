@@ -46,22 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\EmailListenerManager.cs" />
     <Compile Include="Classes\EmailListener.cs" />
-    <Compile Include="Classes\EmailOperations.cs" />
-    <Compile Include="Classes\EmailServer.cs" />
+    <Compile Include="Classes\Extensions.cs" />
+    <Compile Include="Classes\MailActionsExecuter.cs" />
+    <Compile Include="Classes\MailBox.cs" />
     <Compile Include="Classes\MailAction.cs" />
     <Compile Include="Classes\MailActionDefinition.cs" />
     <Compile Include="Classes\MailActionFactory.cs" />
     <Compile Include="Classes\MailActionResult.cs" />
-    <Compile Include="Classes\MaillListenerDefinition.cs" />
+    <Compile Include="Classes\NewMailRecievedEventArgs.cs" />
     <Compile Include="Classes\SaveAttachmentsActionDefinition.cs" />
     <Compile Include="Classes\SaveAttachmentsMailAction.cs" />
     <Compile Include="Enums\ActionType.cs" />
     <Compile Include="Interfaces\IEmailListener.cs" />
-    <Compile Include="Interfaces\IEmailServer.cs" />
+    <Compile Include="Interfaces\IEmailListenerManager.cs" />
     <Compile Include="Interfaces\IMailAction.cs" />
     <Compile Include="Interfaces\IMailActionDefinition.cs" />
-    <Compile Include="Interfaces\IMaillListenerDefinition.cs" />
+    <Compile Include="Interfaces\IMailActionFactory.cs" />
+    <Compile Include="Interfaces\IMailActionsExecuter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,63 @@
+﻿STEP 2:
+<form name="signUpStep2" data-ng-controller="signUp as vm">
+    <div>
+        <!--First Name-->
+        <div class="form-group">
+            <label><b>First Name</b></label>
+            <input type="FirstName"
+                   name="FirstName"
+                   ng-model="vm.currentUser.email"
+                   class="form-control k-textbox"
+                   required="required"
+                   placeholder="First Name" />
+        </div>
+
+        <!--Last Name-->
+        <div class="form-group">
+            <label><b>Last Name</b></label>
+            <input type="LastName"
+                   name="LastName"
+                   ng-model="vm.currentUser.email"
+                   class="form-control k-textbox"
+                   required
+                   placeholder="Last Name" />
+        </div>
+
+        <!--Company Name-->
+        <div class="form-group">
+            <label><b>Company Name</b></label>
+            <input type="CompanyName"
+                   name="CompanyName"
+                   ng-model="vm.currentUser.email"
+                   class="form-control k-textbox"
+                   required="required"
+                   placeholder="Company Name" />
+        </div>
+
+        <!--Image--> 
+        <div class="form-group">
+            <label><b>Image</b></label>
+            <input type="file" file-dialog />
+            <!--<input type="Image"
+                   name="Image"
+                   ng-model="vm.currentUser.email"
+                   class="form-control k-textbox"
+                   required="required"
+                   placeholder="Image" />-->
+        </div>
+
+        <!--Gender--> 
+        <div class="form-group">
+            <label><b>Gender</b></label>
+            <input type="Gender"
+                   name="Gender"
+                   ng-model="vm.currentUser.email"
+                   class="form-control k-textbox"
+                   required="required"
+                   placeholder="Gender" />
+        </div>
+        
+        <!--TODO -save To DB-->
+        <button ng-click="vm.sa">NEXT</button>
+    </div>
+</form>

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CvLocate.DBComponent.MongoDB.Managers;
 using CvLocate.DBComponent.DbInterface.Managers;
+using CvLocate.Common.EndUserDTO.Enums;
 
 namespace CvLocate.DBComponent.EndUserDBFacade
 {
@@ -25,7 +26,7 @@ namespace CvLocate.DBComponent.EndUserDBFacade
                         IRecruiterManager recManager = RecruiterManager.Instance;
                         //check email not exists
                         if (recManager.RecruiterEmailExists(command.Email))
-                            return new SignResponse() { CanSignIn = false, ErrorMessage = "There is such email in this table" };
+                            return new SignResponse() { CanSignIn = false, Error = EndUserError.EmailAlreadyExists, ErrorMessage = "This email already exists in system" };
                         //create new recruiter and get new recruiter id
                         string newRecId = recManager.CreateRecruiter(command.Email, command.Password);
                         return new SignResponse() { CanSignIn = true, UserId = newRecId, UserType = UserType.Recruiter };
@@ -39,8 +40,8 @@ namespace CvLocate.DBComponent.EndUserDBFacade
         public SignResponse SignIn(SigninCommand command)
         {
             if (command == null)
-                return new SignResponse() { CanSignIn = false, ErrorMessage = "Command cannot be null" };
-            
+                return new SignResponse() { CanSignIn = false, Error = EndUserError.UnknownError, ErrorMessage = "Command cannot be null" };
+
             IRecruiterManager recManager = RecruiterManager.Instance;
             if (recManager.RecruiterEmailExists(command.Email))
             {
@@ -55,7 +56,7 @@ namespace CvLocate.DBComponent.EndUserDBFacade
                 return new SignResponse() { CanSignIn = true, UserId = id, UserType = UserType.JobSeeker };
             }
 
-            return new SignResponse() { CanSignIn = false, ErrorMessage = "Cannot find entity with such email and password" };
+            return new SignResponse() { CanSignIn = false, Error = EndUserError.EmailPasswordNotFound, ErrorMessage = "Cannot find user with such email and password" };
         }
     }
 }

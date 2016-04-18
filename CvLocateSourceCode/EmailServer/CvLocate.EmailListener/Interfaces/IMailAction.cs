@@ -1,4 +1,4 @@
-﻿using CvLocate.EmailListener.Classes;
+﻿using CvLocate.EmailListener;
 using System;
 using System.Collections.Generic;
 using System.Linq;

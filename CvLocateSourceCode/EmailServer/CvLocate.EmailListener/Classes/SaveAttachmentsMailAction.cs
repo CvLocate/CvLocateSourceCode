@@ -9,7 +9,7 @@ using System.Net.Mail;
 using System.IO;
 
 
-namespace CvLocate.EmailListener.Classes
+namespace CvLocate.EmailListener
 {
     public class SaveAttachmentsMailAction : MailAction
     {
@@ -22,8 +22,8 @@ namespace CvLocate.EmailListener.Classes
 
         public override void DoAction()
         {
-            EmailOperations.Instance.NewMailReceived += Instance_NewMailReceived;
-            EmailOperations.Instance.Connect(Email);
+            EmailListener.Instance.NewMailReceived += Instance_NewMailReceived;
+            EmailListener.Instance.Connect(Email);
         }
 
         void Instance_NewMailReceived(MailMessage message)

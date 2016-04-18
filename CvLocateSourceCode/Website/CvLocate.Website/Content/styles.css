@@ -1,0 +1,1027 @@
+﻿/*#region Override background color theme */
+
+/*For Bootstrap 3*/
+.nav, .pagination, .carousel, .panel-title a
+{
+    cursor: pointer;
+}
+
+
+body
+{
+    background-color: #FFF;
+}
+
+.navbar-inverse
+{
+    background-color: #333;
+}
+
+.sidebar-widget form
+{
+    margin: 0em -1em;
+}
+
+.sidebar .navi > li > a
+{
+    background-color: #333 !important;
+}
+
+.sidebar .navi li ul li a
+{
+    color: #fff;
+}
+
+    .sidebar .navi li ul li a:hover
+    {
+        color: #52b9e9;
+    }
+
+    .sidebar .navi li ul li a:disabled
+    {
+        color: #999;
+    }
+
+.navbar-inverse .btn-navbar
+{
+    background-color: #333;
+}
+
+    .navbar-inverse .btn-navbar:hover
+    {
+        background-color: #333;
+    }
+
+.sidebar
+{
+    margin-top: -2px;
+}
+
+    .sidebar .sidebar-inner
+    {
+        background-color: #333;
+    }
+
+.sidebar-filler
+{
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #333;
+    width: 230px;
+}
+
+/*#endregion */
+
+/* #region Main Styles */
+
+.ng-cloak
+{
+    display: none !important;
+}
+
+select > option
+{
+    color: black;
+}
+
+input.form-control,
+select.form-control,
+textarea.form-control
+{
+    /*width: 205px;*/
+    width: 60%;
+    display: inline;
+    display: block;
+}
+
+.widget .padd
+{
+    /*margin-bottom: 0;*/
+    /*padding: 1em 0;*/
+    height: 12em;
+}
+
+    .widget .padd.padd-tight
+    {
+        padding: 6px;
+    }
+
+.list-flow.list-flow-tight
+{
+    width: 90px;
+}
+
+
+.map
+{
+    height: 228px;
+}
+
+.btn > i
+{
+    margin-right: 8px;
+}
+
+.btn
+{
+    margin-right: 4px;
+    margin-left: 4px;
+}
+
+    .btn.btn-notext > i
+    {
+        margin-right: 0;
+    }
+
+.btn-group
+{
+    margin: .2em;
+}
+
+
+small
+{
+    font-size: 14px;
+}
+
+.text-subtle
+{
+    color: #b7b7b7;
+}
+
+.page-title-subtle
+{
+    color: white;
+}
+
+.page-title
+{
+    color: #EEE;
+    margin-right: 12px;
+}
+
+.right
+{
+    clear: right;
+    float: right;
+}
+
+.widget-content .padd:hover
+{
+    cursor: pointer;
+    color: white;
+    background-color: #52b9e9;
+}
+
+    .widget-content .padd:hover *
+    {
+        color: white;
+    }
+
+.list-flow
+{
+    margin: 6px;
+    float: left;
+    width: 110px;
+    height: 120px;
+    border-bottom: solid 0 transparent;
+    padding: 1.5% .5%;
+}
+
+.name-stack h5
+{
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    line-height: 18px !important;
+}
+
+
+.search-query
+{
+    margin: 2px auto 8px auto !important;
+}
+
+.fa-search
+{
+    color: #FFFFFF;
+}
+
+.form-search
+{
+    min-height: 2em;
+}
+
+.input-group[class*="col-"]
+{
+    width: 80%;
+    margin: 0 1.5em;
+}
+
+.user .user-pic
+{
+    display: block;
+    margin: auto;
+}
+
+.user .user-details
+{
+    margin-left: 100px;
+    margin-right: 10px;
+}
+
+.widget-content
+{
+    padding: 1em;
+    margin: 0;
+}
+
+.stacked
+{
+    float: none !important;
+    display: block;
+    margin: auto;
+}
+
+.navbar .navbar-brand
+{
+    background: url(/content/images/icon.png) no-repeat left center !important;
+    margin: 0 1em;
+}
+
+.navbar .brand-title
+{
+    margin-left: 2em;
+    color: #FFFFFF;
+}
+
+.navbar-logo img
+{
+    height: 20px;
+}
+
+.today-datas li
+{
+    padding: 20px 14px;
+}
+
+/*#region Splash */
+#splash-page
+{
+    z-index: 99999 !important;
+}
+
+    #splash-page .bar
+    {
+        width: 100%;
+    }
+
+.page-splash
+{
+    z-index: 99999 !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    opacity: .9;
+    pointer-events: auto;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: opacity 0.3s linear;
+    -moz-transition: opacity 0.3s linear;
+    -o-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;
+}
+
+.page-splash-message
+{
+    text-align: center;
+    margin: 20% auto 0 auto;
+    font-size: 400%;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    -webkit-text-shadow: 2px 2px #000000;
+    text-shadow: 2px 2px #000000;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.15);
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #F58A00;
+    padding: 0;
+}
+
+    .page-splash-message.page-splash-message-subtle
+    {
+        margin: 30% auto 0 auto;
+        font-size: 200%;
+    }
+
+.fa-asterisk.fa-asterisk-large
+{
+    font-size: 180%;
+    vertical-align: middle;
+    color: #F58A00;
+}
+
+.fa-asterisk.fa-asterisk-alert
+{
+    color: #F58A00;
+}
+
+.fa-asterisk-inline
+{
+    padding: 0 4px 0 0;
+}
+
+
+.progress,
+.page-progress-bar
+{
+    margin: 30px 10% !important;
+}
+
+.spinner
+{
+    margin: 20% auto 0 auto;
+    left: auto;
+    top: auto !important;
+}
+/*#endregion*/
+
+table th > a
+{
+    font-weight: bold;
+}
+
+.table-hover tbody tr:hover > td,
+.table-hover tbody tr:hover > th
+{
+    cursor: pointer;
+}
+
+
+.widget-content.referrer
+{
+    border-width: 0;
+}
+
+a
+{
+    cursor: pointer;
+}
+
+/* #endregion */
+
+/*#region wrapper for angular ng-include and ng-view animations*/
+.view-container
+{
+    position: relative;
+    overflow: hidden;
+}
+/*#endregion */
+
+/*#region Angular ng-include, ng-view, ng-repeat shuffle animations*/
+
+.shuffle-animation.ng-enter,
+.shuffle-animation.ng-leave
+{
+    position: relative;
+}
+
+.shuffle-animation.ng-enter
+{
+    -moz-transition: ease-out all 0.3s 0.4s;
+    -o-transition: ease-out all 0.3s 0.4s;
+    -webkit-transition: ease-out all 0.3s 0.4s;
+    transition: ease-out all 0.3s 0.4s;
+    left: 2em;
+    opacity: 0;
+}
+
+    .shuffle-animation.ng-enter.ng-enter-active
+    {
+        left: 0;
+        opacity: 1;
+    }
+
+.shuffle-animation.ng-leave
+{
+    -moz-transition: 0.3s ease-out all;
+    -o-transition: 0.3s ease-out all;
+    -webkit-transition: 0.3s ease-out all;
+    transition: 0.3s ease-out all;
+    left: 0;
+    opacity: 1;
+}
+
+    .shuffle-animation.ng-leave.ng-leave-active
+    {
+        left: 2em;
+        opacity: 0;
+    }
+/*#endregion*/
+
+/*#region Angular ng-include, ng-view, ng-repeat fader animation */
+.fader-animation.ng-enter,
+.fader-animation.ng-leave,
+.fader-animation.ng-move
+{
+    position: relative;
+}
+
+.fader-animation.ng-enter,
+.fader-animation.ng-leave
+{
+    -webkit-transition: cubic-bezier(0.250, 0.460, 0.450, 0.940) all 0.5s;
+    -moz-transition: cubic-bezier(0.250, 0.460, 0.450, 0.940) all 0.5s;
+    -o-transition: cubic-bezier(0.250, 0.460, 0.450, 0.940) all 0.5s;
+    transition: cubic-bezier(0.250, 0.460, 0.450, 0.940) all 0.5s;
+    opacity: 1;
+}
+
+    .fader-animation.ng-enter,
+    .fader-animation.ng-leave.ng-leave-active
+    {
+        opacity: 0;
+    }
+
+        .fader-animation.ng-enter.ng-enter-active
+        {
+            opacity: 1;
+        }
+
+.fader-animation.ng-move
+{
+    opacity: 0.5;
+}
+
+    .fader-animation.ng-move.ng-move-active
+    {
+        opacity: 1;
+    }
+
+/*#endregion*/
+
+/*#region Angular ng-show dissolve animation */
+.dissolve-animation.ng-hide-remove
+{
+    display: inline!important;
+}
+
+.dissolve-animation.ng-hide-remove,
+.dissolve-animation.ng-hide-add
+{
+    -webkit-transition: 0.8s linear all;
+    -moz-transition: 0.8s linear all;
+    -o-transition: 0.8s linear all;
+    transition: 0.8s linear all;
+}
+
+    .dissolve-animation.ng-hide-remove.ng-hide-remove-active,
+    .dissolve-animation.ng-hide-add
+    {
+        opacity: 1;
+    }
+
+        .dissolve-animation.ng-hide-add.ng-hide-add-active,
+        .dissolve-animation.ng-hide-remove
+        {
+            opacity: 0;
+        }
+/*#endregion */
+
+/*#region toastr */
+#toast-container.toast-top-full-width > div, #toast-container.toast-bottom-full-width > div
+{
+    margin: 4px auto;
+}
+/*#endregion */
+
+/*#region Responsive */
+
+@media (max-width: 979px)
+{
+    .sidebar-filler
+    {
+        width: 200px;
+    }
+
+    .nav-collapse
+    {
+        clear: none;
+    }
+
+        .nav-collapse .nav > li
+        {
+            float: left;
+        }
+
+    .navbar .btn-navbar
+    {
+        display: none;
+    }
+
+    .nav-collapse,
+    .nav-collapse.collapse
+    {
+        height: inherit;
+        overflow: inherit;
+    }
+
+    .page-splash-message
+    {
+        font-size: 300%;
+    }
+
+    .btn-group.pull-right
+    {
+        float: none !important;
+        display: block;
+    }
+}
+
+@media (max-width: 767px)
+{
+    .sidebar-filler
+    {
+        display: none;
+    }
+
+    .nav-collapse
+    {
+        clear: both;
+    }
+
+        .nav-collapse .nav > li
+        {
+            float: none;
+        }
+
+    .navbar .btn-navbar
+    {
+        display: block;
+    }
+
+    .nav-collapse,
+    .nav-collapse.collapse
+    {
+        height: 0;
+        overflow: hidden;
+    }
+
+    .page-splash-message
+    {
+        font-size: 200%;
+        margin: 40% auto 0 auto;
+    }
+
+        .page-splash-message.page-splash-message-subtle
+        {
+            font-size: 150%;
+        }
+
+    .sidebar .sidebar-inner
+    {
+        height: inherit;
+    }
+}
+
+@media (max-width: 320px)
+{
+    .today-datas li
+    {
+        padding: 1em .5em;
+        line-height: 1em;
+    }
+
+        .today-datas li i
+        {
+            font-size: 2em;
+        }
+
+        .today-datas li .datas-text span
+        {
+            font-size: 1em;
+        }
+
+    .btn
+    {
+        margin: .2em;
+        width: 7em;
+    }
+
+    .btn-group > .btn
+    {
+        display: block;
+        width: 7em;
+    }
+
+    .btn-group.pull-right
+    {
+        margin: .2em 0;
+    }
+
+    input,
+    select
+    {
+        width: 85% !important;
+    }
+
+    textarea
+    {
+        width: 80%;
+    }
+
+    .img-polaroid.user-pic
+    {
+        width: 5em;
+    }
+
+    .user .user-details
+    {
+        margin-left: 7em;
+        margin-right: .5em;
+    }
+
+    h3
+    {
+        font-size: 1.5em !important;
+        line-height: 1.2em !important;
+    }
+}
+
+/*#endregion */
+
+.card
+{
+    background-color: #fff;
+    border: 1px solid #d4d4d4;
+    height: 120px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.cardHeader
+{
+    border: 1px solid #d4d4d4;
+    font-size: 14pt;
+    color: white;
+    padding: 5px;
+    width: 100%;
+}
+
+.cardBodyLeft
+{
+    margin-top: -5px;
+}
+
+.cardImage
+{
+    height: 70px;
+    margin-top: 10px;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng.ng-cloak
+{
+    display: none;
+}
+/*#region validation */
+.novalidate
+{
+    border-left: none !important;
+}
+
+input.ng-invalid, select.ng-invalid, input.ng-invalid-required, select.ng-invalid.required
+{
+    border-left: 5px solid #E03930;
+}
+
+input.ng-valid, select.ng-valid, input.ng-valid-required, select.ng-valid.required
+{
+    border-left: 5px solid #57A83F;
+}
+
+.errorMessage
+{
+    position: absolute;
+    padding: 5px;
+    background-color: #E03930;
+    color: white;
+    top: 0px;
+    left: 270px;
+}
+
+/*#endregion */
+
+
+.k-link
+{
+    text-align: center;
+}
+
+
+table.k-scheduler-timelineMonthview tr:first-child table.k-scheduler-table tr:nth-of-type(2)
+{
+    display: none;
+}
+
+
+.k-clinic
+{
+    display: inline-block;
+    height: 100%;
+    border-right-color: #e7e7e7;
+    border-right-style: solid;
+    border-right-width: 1px;
+    /*text-align: right;
+    width: 50%;*/
+    padding-right: 5px;
+    font-size: 12px;
+}
+
+.k-room
+{
+    display: inline-block;
+    height: 100%;
+    /* word-wrap: break-word;
+    width: 50%;*/
+    font-size: 12px;
+}
+
+
+.event-template
+{
+    text-align: center;
+    height: 100%;
+    line-height: 16px;
+    color: black;
+}
+
+.event-not-assigned
+{
+    background: red 0 -257px none repeat-x;
+}
+
+.event-assigned
+{
+    background: #0187cb 0 -257px none repeat-x;
+}
+
+
+.k-scheduler-content
+{
+    overflow-y: scroll !important;
+}
+
+.edit-event-title
+{
+    font-size: 14px;
+}
+
+.k-scheduler-header table.k-scheduler-table th.k-slot-cell
+{
+    padding: 0px;
+}
+
+    .k-scheduler-header table.k-scheduler-table th.k-slot-cell div.headerWeekAndDayName
+    {
+        color: white;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+        -moz-box-shadow: 1px 1px 5px 1px black;
+        -webkit-box-shadow: 1px 1px 5px 1px black;
+        box-shadow: 1px 1px 5px 1px black;
+    }
+
+.headerWeekAndDayName_Dark
+{
+    background: #512DA9;
+}
+
+.headerWeekAndDayName_Bright
+{
+    background: #B39CDB;
+}
+
+.k-scheduler-header table.k-scheduler-table th.k-slot-cell div.dayNum
+{
+    padding: 5px 0px;
+    background: #F2F2F2;
+}
+
+.k-more-events, .k-event, .k-task-single, .k-task-complete, .k-event .k-link
+{
+    -moz-box-shadow: -1px 1px 4px -1px black;
+    -webkit-box-shadow: -1px 1px 4px -1px black;
+    box-shadow: -1px 1px 4px -1px black;
+}
+
+.k-scheduler-table td, .k-scheduler-table th
+{
+    height: 4.9em;
+}
+
+.k-popup-edit-form div
+{
+    margin: 5px;
+}
+
+.k-popup-edit-form .lblTitle
+{
+    /* width: 100px;*/
+}
+
+.k-popup-edit-form .editorInput ,.k-popup-edit-form .errorValidationMsg
+{
+    padding: 0px;
+    margin: 0px;
+    float: none;
+}
+
+.k-edit-form-container .col-xs-1,
+.k-edit-form-container .col-sm-1,
+.k-edit-form-container .col-xs-2,
+.k-edit-form-container .col-sm-2,
+.k-edit-form-container .col-xs-3,
+.k-edit-form-container .col-sm-3,
+.k-edit-form-container .col-xs-4,
+.k-edit-form-container .col-sm-4,
+.k-edit-form-container .col-xs-6,
+.k-edit-form-container .col-sm-6,
+.k-edit-form-container .col-xs-7,
+.k-edit-form-container .col-sm-7,
+.k-edit-form-container .col-xs-8,
+.k-edit-form-container .col-sm-8,
+.k-edit-form-container .col-md-12
+{
+    padding: 0px;
+    margin: 0px;
+}
+
+.k-scheduler-times th.k-slot-cell
+{
+    padding: 0px;
+}
+
+    .k-scheduler-times th.k-slot-cell .k-group-header
+    {
+        display: inline-block;
+        height: 100%;
+    }
+
+
+
+
+
+.k-scheduler-times .k-clinic, .k-scheduler-times .k-room
+{
+    width: 100px;
+    text-align: left;
+    white-space: normal;
+    vertical-align: top;
+}
+
+.k-group-header
+{
+    float: left;
+    width: 100%;
+}
+
+.k-scheduler-edit-form label + input
+{
+    margin-left: 0px !important;
+}
+
+
+
+.k-edit-form-container div.row p
+{
+    min-height: 36px;
+}
+
+.k-widget.k-tooltip
+{
+    border: 3px solid #512DA9 !important;
+    background-color: white !important;
+    color: black !important;
+    max-width: 200px;
+}
+
+.k-event-actions
+{
+    display: none;
+}
+
+.IsRequiredBorder
+{
+    border: 2px solid black;
+    width: 96%;
+    height: 92%;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+#editorForm .k-tooltip-validation
+{
+     display: none !important;
+}
+
+.errorValidationMsg
+{
+    color:red;
+}
+
+/*.k-event, .k-task-complete
+{
+    border-color: black !important;
+}*/
+
+.cardBodyRight
+{
+    padding-top: 15px;
+  padding-left: 5px;
+}
+
+.navbarTop {
+  background-color: #D1C4E9 !important;
+  border-color: #D1C4E9 !important;
+}
+
+.navbarBottom {
+  background-color: #300750 !important;
+  border-color: #300750 !important;
+}
+
+/** css to Chrome **/
+@media screen and (-webkit-min-device-pixel-ratio:0)
+{
+    .k-scheduler-times th.k-slot-cell
+    {
+        height: 100%;
+        display: inline-table;
+    }
+}
+
+/*******/
+
+/** Mobile Screen **/
+@media (max-width: 767px)
+{
+    .k-widget.k-window
+    {
+        width: 99%;
+    }
+
+    .k-popup-edit-form.k-scheduler-edit-form.k-window-content.k-content.ng-scope
+    {
+        width: 100%;
+    }
+
+    .col-xs-56p
+    {
+        width: 56%;
+    }
+
+     .col-xs-57p
+    {
+        width: 57% !important;
+    }
+    .col-xs-66p
+    {
+        width: 66% !important;
+    }
+
+}
+/******/
+
+@media (max-width: 560px)
+{
+    .k-popup-edit-form.k-scheduler-edit-form.k-window-content.k-content.ng-scope .k-edit-form-container
+    {
+        width: 98%;
+    }
+}
+
+@media (min-width: 767px)
+{
+    .k-edit-form-container .TraineeLbl
+    {
+        padding-left: 10px;
+        padding-right: 20px;
+    }
+
+    .col-sm-81p
+    {
+        width: 81% !important;
+    }
+}
+/******/
+
+
