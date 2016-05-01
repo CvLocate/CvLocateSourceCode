@@ -3,6 +3,7 @@ using CvLocate.Common.DbFacadeInterface;
 using CvLocate.Common.EndUserDtoInterface.Response;
 using CvLocate.Common.Logging;
 using CvLocate.DBComponent.EndUserDBFacade;
+using CvLocate.Website.Bl.Common;
 using CvLocate.Website.Bl.DataWrapper;
 using CvLocate.Website.Bl.Interfaces;
 using CvLocate.Website.Bl.Response;
@@ -72,6 +73,8 @@ namespace CvLocate.Website.Bl
             this.Container.Register<IUserBl, UserBl>(Lifestyle.Transient);
 
             RegisterAutoMapper();
+
+            SessionManager.Instance.Initilize();
         }
 
         private void RegisterAutoMapper()

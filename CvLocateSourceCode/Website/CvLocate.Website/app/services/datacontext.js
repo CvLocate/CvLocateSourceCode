@@ -14,7 +14,10 @@
         var users =
             {
                 signUp: function signUp(params) {
-                    return $http.post('/api/Users/signUp', params);
+                    return $http.post('/api/users/signUp', params);
+                },
+                signOut: function signOut() {
+                    return $http.post('/api/users/signOut');
                 }
             };
 

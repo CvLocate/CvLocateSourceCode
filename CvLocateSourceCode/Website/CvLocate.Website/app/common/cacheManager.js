@@ -16,9 +16,8 @@
         function getItem(key) {
             var dataCache = cacheFactory.get('dataCache');
 
-            if (dataCache.get(key)) {
-                return (dataCache.get(key));
-            }
+            return dataCache.get(key);
+            
             //else {
             //    throw new Exception("Cache item is not supported");
             //}

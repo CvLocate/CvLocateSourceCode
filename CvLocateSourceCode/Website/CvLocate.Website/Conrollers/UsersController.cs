@@ -20,11 +20,19 @@ namespace CvLocate.Website.Conrollers
             this._userBl = Bootstrapper.Instance.Container.GetInstance<IUserBl>();
         }
 
+
         [HttpPost]
-        [ActionName("signUp")]
+        //api/users/signUp
         public SignupResponse SignUp(SignUpCommand command)
         {
            return  this._userBl.SignUp(command);
+        }
+
+        //[Authorize]
+        [HttpPost]
+        public BaseWebsiteResponse SignOut()
+        {
+            return new BaseWebsiteResponse();
         }
     }
 }

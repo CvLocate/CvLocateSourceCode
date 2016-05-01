@@ -42,6 +42,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,6 +51,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Common\CacheManager.cs" />
+    <Compile Include="Common\Enums.cs" />
+    <Compile Include="Common\SessionData.cs" />
+    <Compile Include="Common\SessionManager.cs" />
     <Compile Include="DataWrapper\RecruiterDataWrapper.cs" />
     <Compile Include="DataWrapper\UserDataWrapper.cs" />
     <Compile Include="Interfaces\IRecruiterDataWrapper.cs" />
@@ -85,6 +90,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

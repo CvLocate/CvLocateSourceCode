@@ -1,4 +1,6 @@
 ﻿using CvLocate.Website.Bl;
+using CvLocate.Website.Bl.Common;
+using CvLocate.Website.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +22,7 @@ namespace CvLocate.Website
 
             var config = GlobalConfiguration.Configuration;
             // Authenticaion handler
-            // config.MessageHandlers.Add(new AuthenticationHandler());
+            config.MessageHandlers.Add(new AuthenticationHandler());
 
             RouteTable.Routes.MapHttpRoute(
                      name: "actionApi",
@@ -46,8 +48,7 @@ namespace CvLocate.Website
             //var contractResolver = (DefaultContractResolver)json.SerializerSettings.ContractResolver;
             //contractResolver.IgnoreSerializableAttribute = true;
 
-            //// Initial Cache Manager
-            //CacheManager.Instance.Initilize();
+            
         }
 
         protected void Session_Start(object sender, EventArgs e)

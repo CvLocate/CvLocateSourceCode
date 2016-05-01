@@ -313,8 +313,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conrollers\BaseController.cs" />
-    <Compile Include="Conrollers\LoginController.cs" />
     <Compile Include="Conrollers\UsersController.cs" />
+    <Compile Include="Core\AuthenticationHandler.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

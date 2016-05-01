@@ -1,14 +1,19 @@
 ﻿using AutoMapper;
+using CvLocate.Common.CommonDto;
 using CvLocate.Common.EndUserDtoInterface.Command;
 using CvLocate.Common.EndUserDtoInterface.Response;
 using CvLocate.Common.Logging;
+using CvLocate.Website.Bl.Common;
 using CvLocate.Website.Bl.Interfaces;
 using CvLocate.Website.Bl.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace CvLocate.Website.Bl
 {
@@ -24,20 +29,27 @@ namespace CvLocate.Website.Bl
         }
         public SignupResponse SignUp(SignUpCommand command)
         {
-           SignResponse dataResponse = this._dataWrapper.SignUp(command);
+            SignupResponse result = new SignupResponse();
+            result.UserType = command.UserType;
 
-           if (dataResponse.Error != null)
+           SignResponse response = this._dataWrapper.SignUp(command);
+
+           if (response.Error != null)
            {
-               _logger.WarnFormat("Failed to signup with following details: {0}. Error Message: {1}", command.ToString(), dataResponse.ErrorMessage);
+               _logger.WarnFormat("Failed to signup with following details: {0}. Error Message: {1}", command.ToString(), response.ErrorMessage);
+               result.Error = response.Error;
            }
            else
            {
                _logger.InfoFormat("Signup with following details: {0}", command.ToString());
+               result.SessionId = SessionManager.Instance.CreateSession(response.UserId,response.UserType,command.Email);
            }
 
-           SignupResponse response = Mapper.Map<SignResponse, SignupResponse>(dataResponse);
-           return response;
+           //SignupResponse result = Mapper.Map<SignResponse, SignupResponse>(response);
+           return result;
 
         }
+
+       
     }
 }

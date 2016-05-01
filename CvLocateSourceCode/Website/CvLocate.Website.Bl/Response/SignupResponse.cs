@@ -9,7 +9,7 @@ namespace CvLocate.Website.Bl.Response
 {
     public class SignupResponse:BaseWebsiteResponse
     {
-        public string UserId { get; set; }
         public UserType UserType { get; set; }
+        public string SessionId { get; set; }
     }
 }
