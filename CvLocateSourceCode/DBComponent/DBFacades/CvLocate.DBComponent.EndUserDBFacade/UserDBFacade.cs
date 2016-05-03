@@ -58,5 +58,10 @@ namespace CvLocate.DBComponent.EndUserDBFacade
 
             return new SignResponse() { CanSignIn = false, Error = EndUserError.EmailPasswordNotFound, ErrorMessage = "Cannot find user with such email and password" };
         }
+
+        public IsEmailExistInSystemResponse IsEmailExistInSystem(Common.EndUserDtoInterface.Query.IsEmailExistInSystemQuery query)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

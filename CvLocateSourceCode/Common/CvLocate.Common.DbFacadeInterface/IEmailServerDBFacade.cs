@@ -16,5 +16,6 @@ namespace CvLocate.Common.DbFacadeInterface
     {
         BaseInsertResult CreateCvFile(CreateCvFileCommand command);
         IList<FileType> GetSupportedFileTypes();
+
     }
 }
