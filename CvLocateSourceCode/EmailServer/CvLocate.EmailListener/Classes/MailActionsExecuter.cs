@@ -3,6 +3,7 @@ using CvLocate.EmailListener.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,11 +20,11 @@ namespace CvLocate.EmailListener
             this._logger = logger;
         }
 
-        public void ExecuteMailActions(MailBox mailBox, List<IMailActionDefinition> mailActionsDefinitions)
+        public void ExecuteMailActions(MailBox mailBox,MailMessage mail, List<IMailActionDefinition> mailActionsDefinitions)
         {
             foreach (var actionDefinition in mailActionsDefinitions)
             {
-                IMailAction doneAction = ExecuteMailActions(actionDefinition);
+                IMailAction doneAction = ExecuteMailActions(mail,actionDefinition);
                 bool continueExecute = actionDefinition.ActionDone(actionDefinition, mailBox, doneAction.Result);
                 if (!continueExecute)
                 {
@@ -32,9 +33,9 @@ namespace CvLocate.EmailListener
             }
         }
 
-        private IMailAction ExecuteMailActions(IMailActionDefinition actionDefinition)
+        private IMailAction ExecuteMailActions(MailMessage mail, IMailActionDefinition actionDefinition)
         {
-            IMailAction action = this._mailActionFactory.Create(actionDefinition);
+            IMailAction action = this._mailActionFactory.Create(mail,actionDefinition);
             action.DoAction();
             return action;
         }

@@ -12,5 +12,7 @@ namespace CvLocate.EmailListener
     {
         public abstract MailActionType ActionType { get; }
 
+        public abstract Func<IMailActionDefinition, MailBox, MailActionResult, bool> ActionDone{get;set;}
+       
     }
 }

@@ -1,4 +1,5 @@
-﻿using CvLocate.Common.CommonDto.Results;
+﻿using CvLocate.Common.CommonDto.Enums;
+using CvLocate.Common.CommonDto.Results;
 using CvLocate.Common.CvFilesScannerDtoInterface.Command;
 using CvLocate.Common.CvFilesScannerDtoInterface.Result;
 using System;
@@ -13,5 +14,6 @@ namespace CvLocate.Common.DbFacadeInterface
     {
         BaseResult UploadScannedCvFile(UploadScannedCvFileCommand command);
         BaseResult DeleteScannedCvFile(DeleteScannedCvFileCommand command);
+        IList<FileType> GetSupportedFileTypes();
     }
 }

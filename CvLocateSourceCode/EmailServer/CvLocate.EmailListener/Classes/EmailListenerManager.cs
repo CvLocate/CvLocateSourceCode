@@ -44,6 +44,16 @@ namespace CvLocate.EmailListener
             }
         }
 
+        public void StopAllIsteners()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void StopListeners(IList<MailBox> mailBoxes)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         #region Private Methods
@@ -61,7 +71,7 @@ namespace CvLocate.EmailListener
                 }
 
                 List<IMailActionDefinition> actions = this._listenersDefinitions[e.SourceMailBox];
-                this._mailActionsExecuter.ExecuteMailActions(e.SourceMailBox, actions);
+                this._mailActionsExecuter.ExecuteMailActions(e.SourceMailBox,e.Mail, actions);
             }
             catch (Exception ex)
             {
@@ -72,35 +82,11 @@ namespace CvLocate.EmailListener
 
 
         #endregion
-        #region Public Methods
-
-        public void AddListener(IEnumerable<IMaillListenerDefinition> mailActionsDefinitions)
-        {
-            if (mailActionsDefinitions == null)
-                return;
-
-            mailActionsDefinitions.ToList().ForEach(actionDef =>
-            {
-                try
-                {
-                    IMailAction action = _mailActionFactory.Create(actionDef.ActionDefinition);
-                    if (action == null)
-                    {
-                        this._logger.Error("[EmailListener.Initialize] error: action cannot be null.");
-                        return;
-                    }
-                    action.Email = actionDef.MailBox;
-                    action.DoAction();
-                }
-                catch (Exception ex)
-                {
-                    this._logger.ErrorFormat(ex.ToString());
-                }
-            });
-        }
-
-        #endregion
 
 
+
+
+
+        
     }
 }

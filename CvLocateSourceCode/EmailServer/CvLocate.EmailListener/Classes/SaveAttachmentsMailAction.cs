@@ -13,43 +13,52 @@ namespace CvLocate.EmailListener
 {
     public class SaveAttachmentsMailAction : MailAction
     {
-        SaveAttachmentsActionDefinition _saveAttachmentsActionDefinition;
-
-        public override IMailActionDefinition ActionDefinition
+        SaveAttachmentsActionDefinition _saveAttachmentsActionDefinition
         {
-            get { return _saveAttachmentsActionDefinition; }
+            get
+            {
+                return base.ActionDefinition as SaveAttachmentsActionDefinition;
+            }
         }
+
+        public SaveAttachmentsMailAction(MailMessage mail, SaveAttachmentsActionDefinition saveAttachmentsActionDefinition)
+            : base(mail, saveAttachmentsActionDefinition)
+        {
+            
+        }
+
+
 
         public override void DoAction()
         {
-            EmailListener.Instance.NewMailReceived += Instance_NewMailReceived;
-            EmailListener.Instance.Connect(Email);
+            this.Mail.Attachments.ToList().ForEach(attachment => SaveMailAttachment(attachment));
         }
 
-        void Instance_NewMailReceived(MailMessage message)
-        {
-            if (message == null)
-                return;
-            message.Attachments.ToList().ForEach(attachment => SaveMailAttachment(attachment));
-        }
+
 
         public void SaveMailAttachment(System.Net.Mail.Attachment attachment)
         {
-            byte[] allBytes = new byte[attachment.ContentStream.Length];
-            int bytesRead = attachment.ContentStream.Read(allBytes, 0, (int)attachment.ContentStream.Length);
+            if (IsAllowAttachment(attachment))
+            {
 
-            //save files in attchments folder
-            string destinationFile = _saveAttachmentsActionDefinition.TargetFolder;
-            destinationFile += "\\" + attachment.Name;
+                byte[] allBytes = new byte[attachment.ContentStream.Length];
+                int bytesRead = attachment.ContentStream.Read(allBytes, 0, (int)attachment.ContentStream.Length);
 
-            BinaryWriter writer = new BinaryWriter(new FileStream(destinationFile, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None));
-            writer.Write(allBytes);
-            writer.Close();
+                //save files in attchments folder
+                string destinationFile = _saveAttachmentsActionDefinition.TargetFolder;
+                destinationFile += "\\" + attachment.Name;
+
+                BinaryWriter writer = new BinaryWriter(new FileStream(destinationFile, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None));
+                writer.Write(allBytes);
+                writer.Close();
+            }
         }
 
-        public SaveAttachmentsMailAction(SaveAttachmentsActionDefinition saveAttachmentsActionDefinition)
+        private bool IsAllowAttachment(Attachment attachment)
         {
-            _saveAttachmentsActionDefinition = saveAttachmentsActionDefinition;
+            return this._saveAttachmentsActionDefinition.AllowFileExtensions.Any(extension => attachment.Name.ToLower().EndsWith(extension.ToLower()));
         }
+
+
     }
 }

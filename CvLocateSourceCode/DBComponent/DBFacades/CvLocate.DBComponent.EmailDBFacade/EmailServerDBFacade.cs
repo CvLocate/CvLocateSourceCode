@@ -48,5 +48,11 @@ namespace CvLocate.DBComponent.EmailServerDBFacade
         }
 
         #endregion
+
+
+        public IList<Common.CommonDto.Enums.FileType> GetSupportedFileTypes()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

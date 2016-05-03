@@ -1,5 +1,7 @@
-﻿using CvLocate.Common.Logging;
+﻿using CvLocate.Common.DbFacadeInterface;
+using CvLocate.Common.Logging;
 using CvLocate.CvFilesScanner.Interfaces;
+using CvLocate.DBComponent.CvFilesDBFacade;
 using SimpleInjector;
 using System;
 using System.Collections.Generic;
@@ -18,6 +20,7 @@ namespace CvLocate.CvFilesScanner
             var container = new Container();
             container.RegisterSingleton<ICvLocateLogger>(new CvLocateLogger("scannerEngineLogger"));
             container.Register<ICvFilesFilesListener, CvFilesListener>(Lifestyle.Singleton);
+            container.Register<ICvFilesScannerDBFacade, CvFilesScannerDBFacade>(Lifestyle.Singleton);
             container.Register<IScannerDataWrapper, ScannerDataWrapper>(Lifestyle.Singleton);
             container.Register<IDocumentConverterFactory, DocumentConverterFactory>(Lifestyle.Transient);
             container.Register<ICvFileScanner, CvFileScanner>(Lifestyle.Transient);

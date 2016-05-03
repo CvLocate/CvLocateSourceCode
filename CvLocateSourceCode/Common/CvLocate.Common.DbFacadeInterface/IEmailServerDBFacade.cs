@@ -1,4 +1,5 @@
-﻿using CvLocate.Common.CommonDto.Results;
+﻿using CvLocate.Common.CommonDto.Enums;
+using CvLocate.Common.CommonDto.Results;
 using CvLocate.Common.CoreDtoInterface.Command;
 using CvLocate.Common.CoreDtoInterface.Query;
 using CvLocate.Common.CoreDtoInterface.Result;
@@ -14,5 +15,6 @@ namespace CvLocate.Common.DbFacadeInterface
     public interface IEmailServerDBFacade
     {
         BaseInsertResult CreateCvFile(CreateCvFileCommand command);
+        IList<FileType> GetSupportedFileTypes();
     }
 }

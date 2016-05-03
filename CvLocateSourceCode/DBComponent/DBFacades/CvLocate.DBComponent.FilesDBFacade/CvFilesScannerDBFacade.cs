@@ -88,5 +88,11 @@ namespace CvLocate.DBComponent.CvFilesDBFacade
         }
 
         #endregion
+
+
+        public IList<Common.CommonDto.Enums.FileType> GetSupportedFileTypes()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
