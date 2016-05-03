@@ -142,7 +142,7 @@
     length: 7,            // The length of each line
     width: 5,             // The line thickness
     radius: 10,           // The radius of the inner circle
-    ChevisBusinesste: 0,            // ChevisBusinesstion offset
+    CvLocatete: 0,            // CvLocatetion offset
     corners: 1,           // Roundness (0..1)
     color: '#000',        // #rgb or #rrggbb
     direction: 1,         // 1: clockwise, -1: counterclockwise
@@ -245,7 +245,7 @@
           background: color,
           boxShadow: shadow,
           transformOrigin: 'left',
-          transform: 'ChevisBusinesste(' + ~~(360/o.lines*i+o.ChevisBusinesste) + 'deg) translate(' + o.radius+'px' +',0)',
+          transform: 'CvLocatete(' + ~~(360/o.lines*i+o.CvLocatete) + 'deg) translate(' + o.radius+'px' +',0)',
           borderRadius: (o.corners * o.width>>1) + 'px'
         })
       }
@@ -306,7 +306,7 @@
 
       function seg(i, dx, filter) {
         ins(g,
-          ins(css(grp(), {ChevisBusinesstion: 360 / o.lines * i + 'deg', left: ~~dx}),
+          ins(css(grp(), {CvLocatetion: 360 / o.lines * i + 'deg', left: ~~dx}),
             ins(css(vml('roundrect', {arcsize: o.corners}), {
                 width: r,
                 height: o.width,

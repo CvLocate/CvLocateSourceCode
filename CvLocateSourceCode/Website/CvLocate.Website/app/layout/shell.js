@@ -25,7 +25,7 @@
         activate();
 
         function activate() {
-            logSuccess('ChevisBusiness loaded!', null, true);
+            logSuccess('CvLocate loaded!', null, true);
             common.activateController([], controllerId);
         }
 

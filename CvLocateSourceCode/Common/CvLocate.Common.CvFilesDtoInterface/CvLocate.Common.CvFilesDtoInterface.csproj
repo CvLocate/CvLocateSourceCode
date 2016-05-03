@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{859F0983-9D4C-4FBF-998C-FF8743BDA69B}</ProjectGuid>
+    <ProjectGuid>{D82B5DD6-4DE7-40E5-BD50-A09E017895F5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CvLocate.DBComponent.CvFilesDBFacade</RootNamespace>
-    <AssemblyName>CvLocate.DBComponent.CvFilesDBFacade</AssemblyName>
+    <RootNamespace>CvLocate.Common.CvFilesDtoInterface</RootNamespace>
+    <AssemblyName>CvLocate.Common.CvFilesDtoInterface</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -31,10 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,38 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CvFilesDBFacade.cs" />
-    <Compile Include="CvFilesScannerDBFacade.cs" />
+    <Compile Include="Command\CreateCvFileCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Common\CvLocate.Common.CommonDto\CvLocate.Common.CommonDto.csproj">
+    <ProjectReference Include="..\CvLocate.Common.CommonDto\CvLocate.Common.CommonDto.csproj">
       <Project>{7e682acb-3652-4537-a375-f7dee4cf8446}</Project>
       <Name>CvLocate.Common.CommonDto</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Common\CvLocate.Common.CvFilesDtoInterface\CvLocate.Common.CvFilesDtoInterface.csproj">
-      <Project>{d82b5dd6-4de7-40e5-bd50-a09e017895f5}</Project>
-      <Name>CvLocate.Common.CvFilesDtoInterface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Common\CvLocate.Common.CvFilesScannerDtoInterface\CvLocate.Common.CvFilesScannerDtoInterface.csproj">
-      <Project>{3263b227-652b-439c-ba95-4b3fef0d4bb1}</Project>
-      <Name>CvLocate.Common.CvFilesScannerDtoInterface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Common\CvLocate.Common.DbFacadeInterface\CvLocate.Common.DbFacadeInterface.csproj">
-      <Project>{53337976-55e2-42fd-bcf1-2d743907aefc}</Project>
-      <Name>CvLocate.Common.DbFacadeInterface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\CvLocate.DBComponent.DbInterface\CvLocate.DBComponent.DbInterface.csproj">
-      <Project>{32cc8542-a2ab-4031-8c1b-8c0eec64d9bb}</Project>
-      <Name>CvLocate.DBComponent.DbInterface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\CvLocate.DBComponent.MongoDB\CvLocate.DBComponent.MongoDB.csproj">
-      <Project>{d70757bf-23d5-472b-8cfc-b4fe76468c8e}</Project>
-      <Name>CvLocate.DBComponent.MongoDB</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

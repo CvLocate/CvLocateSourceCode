@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Command\CheckEmailCommand.cs" />
     <Compile Include="Common\CacheManager.cs" />
     <Compile Include="Common\Enums.cs" />
     <Compile Include="Common\SessionData.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Interfaces\IUserDataWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Response\BaseWebsiteResponse.cs" />
+    <Compile Include="Response\CheckEmailResponse.cs" />
     <Compile Include="Response\SignupResponse.cs" />
     <Compile Include="UserBl.cs" />
   </ItemGroup>

@@ -1,5 +1,6 @@
 ﻿using CvLocate.Common.EndUserDtoInterface.Command;
 using CvLocate.Website.Bl;
+using CvLocate.Website.Bl.Command;
 using CvLocate.Website.Bl.Interfaces;
 using CvLocate.Website.Bl.Response;
 using System;
@@ -12,6 +13,8 @@ using System.Web.Http;
 
 namespace CvLocate.Website.Conrollers
 {
+
+
     public class UsersController : ApiController
     {
         IUserBl _userBl;
@@ -20,12 +23,20 @@ namespace CvLocate.Website.Conrollers
             this._userBl = Bootstrapper.Instance.Container.GetInstance<IUserBl>();
         }
 
+        [HttpPost]
+        public CheckEmailResponse CheckEmail(CheckEmailCommand command)
+        {
+            if (command.Email == "aaa@aaa")
+                return new CheckEmailResponse() { IsFreeEmail = false };
+            else
+                return new CheckEmailResponse() { IsFreeEmail = true };
+
+        }
 
         [HttpPost]
-        //api/users/signUp
         public SignupResponse SignUp(SignUpCommand command)
         {
-           return  this._userBl.SignUp(command);
+            return this._userBl.SignUp(command);
         }
 
         //[Authorize]

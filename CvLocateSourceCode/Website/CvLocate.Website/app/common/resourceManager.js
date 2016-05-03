@@ -1,9 +1,9 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('common').service('resourceManager', ['localStorageService', '$q', '$injector', resourceManager]);
+    angular.module('common').service('resourceManager', ['localStorageService', 'resources.en-US', '$q', '$injector', resourceManager]);
 
-    function resourceManager(localStorageService, $q, $injector) {
+    function resourceManager(localStorageService,resource, $q, $injector) {
 
         var resources, language, languages;
 
@@ -32,10 +32,11 @@
 
         // Get string from current resource
         function getString(key) {
-            return key + "??";
-            if (!resources)
-                initResources();
-            return resources[key];
+            
+            if (!resource[key])
+                return key + "??";
+                
+            return resource[key];
         }
 
 

@@ -37,7 +37,10 @@
         <!--Image--> 
         <div class="form-group">
             <label><b>Image</b></label>
-            <input type="file" file-dialog />
+            <button type="button" id="filebrowseruploadbutton" style="cursor:pointer">text</button> 
+            <img ng-src="vm.getSrc" height="50" width="50" /> 
+            <input type="file" id="filebrowserupload" ng-model-instant onchange="angular.element(this).scope().setFiles(this)" accept="image/*" style="display:none" />
+            <!--<input type="file" file-dialog />-->
             <!--<input type="Image"
                    name="Image"
                    ng-model="vm.currentUser.email"

@@ -14,7 +14,6 @@ namespace CvLocate.Common.DbFacadeInterface
 {
     public interface IEmailServerDBFacade
     {
-        BaseInsertResult CreateCvFile(CreateCvFileCommand command);
         IList<FileType> GetSupportedFileTypes();
 
     }

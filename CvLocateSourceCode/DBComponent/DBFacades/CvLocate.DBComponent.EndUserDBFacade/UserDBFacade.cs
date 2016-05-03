@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using CvLocate.DBComponent.MongoDB.Managers;
 using CvLocate.DBComponent.DbInterface.Managers;
 using CvLocate.Common.EndUserDTO.Enums;
+using CvLocate.Common.EndUserDtoInterface.Query;
 
 namespace CvLocate.DBComponent.EndUserDBFacade
 {
@@ -59,9 +60,24 @@ namespace CvLocate.DBComponent.EndUserDBFacade
             return new SignResponse() { CanSignIn = false, Error = EndUserError.EmailPasswordNotFound, ErrorMessage = "Cannot find user with such email and password" };
         }
 
-        public IsEmailExistInSystemResponse IsEmailExistInSystem(Common.EndUserDtoInterface.Query.IsEmailExistInSystemQuery query)
+        public IsEmailExistInSystemResponse IsEmailExistInSystem(IsEmailExistInSystemQuery query)
         {
-            throw new NotImplementedException();
+            try
+            {
+                bool emailExist = false;
+                IRecruiterManager recManager = RecruiterManager.Instance;
+                emailExist = recManager.RecruiterEmailExists(query.Email);
+                if (!emailExist)
+                {
+                    ICandidateManager candidateManager = CandidateManager.Instance;
+                    emailExist = candidateManager.CandidateEmailExists(query.Email);
+                }
+                return new IsEmailExistInSystemResponse() { EmailExistInSystem = emailExist };
+            }
+            catch (Exception ex)
+            {
+                return new IsEmailExistInSystemResponse() { Error = EndUserError.UnknownError, ErrorMessage = ex.ToString() };
+            }
         }
     }
 }

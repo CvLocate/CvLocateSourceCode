@@ -1,5 +1,6 @@
 ﻿STEP 1:
-<form data-ng-controller="signUp as vm">
+<form name="signUpForm" data-ng-controller="signUp as vm">
+
     <!--email-->
     <div class="form-group">
         <label><b>email</b></label>
@@ -8,16 +9,17 @@
                ng-model="vm.signUpStep1.email"
                class="form-control k-textbox"
                required="required"
-               placeholder="email" />
-        <div ng-messages="signForm.email.$error" ng-if='signForm.userName.$dirty||signForm.$submitted==true'>
+               placeholder="email"
+               ng-blur="vm.checkEmail(signUpForm)" ng-focus="vm.resetEmailValidation(signUpForm)" />
+        <div ng-messages="signUpForm.email.$error" ng-if='signUpForm.email.$dirty||signUpForm.$submitted==true'>
             <div ng-message when="required">
-                {{::resources.requiredFieldValidation}}
+                required
             </div>
             <div ng-message when="email">
-                {{::resources.emailValidation}}
+                email not valid
             </div>
-            <div ng-message when="EmailExists">
-                {{::resources.emailExistsValidation}}
+            <div ng-message when="emailExists">
+                email exists
             </div>
         </div>
     </div>
@@ -30,35 +32,50 @@
                data-ng-model="vm.signUpStep1.password"
                class="form-control k-textbox"
                placeholder="password"
-               ng-maxlength="10"
-               required />
-        <a href="" ng-click="vm.forgotPassword(loginForm)" ng-disabled="forgotPasswordisLoading">{{::resources.forgotMyPassword}}</a>
+               ng-minlength="6"
+               required
+               ng-blur="vm.checkPassword(signUpForm)" />
+        <div ng-messages="signUpForm.password.$error" ng-if='signUpForm.password.$dirty||signUpForm.$submitted==true'>
+            <div ng-message when="required">
+                required
+            </div>
+            <div ng-message when="minlength">
+                min length
+            </div>
+            <div ng-message when="emailExists">
+                email exists
+            </div>
+        </div>
     </div>
 
     <!--Reenter password-->
     <div class="form-group">
         <label>Reenter password</label>
         <input type="password"
-               name="password"
-               data-ng-model="vm.password"
+               name="reenterPassword"
+               data-ng-model="vm.reenterPassword"
                class="form-control k-textbox"
                placeholder="Reenter password"
-               ng-maxlength="10"
-               required />
-        <a href="" ng-click="vm.forgotPassword(loginForm)" ng-disabled="forgotPasswordisLoading">{{::resources.forgotMyPassword}}</a>
+               required ng-blur="vm.checkPassword(signUpForm)" />
+        <div ng-messages="signUpForm.reenterPassword.$error" ng-if='signUpForm.password.$dirty||signUpForm.$submitted==true'>
+            <div ng-message when="required">
+                required
+            </div>
+            <div ng-message when="equalPassword">
+                not equal Password
+            </div>
+        </div>
     </div>
-
-   
 
     <!--Registration type-->
     <div class="form-group">
-        <label><b>Registration type</b></label><br/>
+        <label><b>Registration type</b></label><br />
         <select name="RegistrationType"
                 ng-model="vm.signUpStep1.userType"
-                ng-options="value.id as vm.resourceManager.getString(value.resourceKey) for (name, value) in vm.enums.userTypeEnum "></select>
+                ng-options="value.id as vm.resourceManager.getString(value.resourceKey) for (name, value) in vm.enums.userTypeEnum "
+                disabled></select>
     </div>
-    <br/>
-    <br/>
-    <button ng-click="vm.nextStep()">NEXT</button>
-    <!--usertype.id as usertype.description for usertype in vm.enums.userTypeEnum track by usertype.id-->
+    <br />
+    <br />
+    <button ng-disabled="!signUpForm.$valid" ng-click="vm.nextStep()">NEXT</button>
 </form>

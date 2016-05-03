@@ -14,6 +14,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CvLocate.Common.CvFilesDtoInterface.Command;
 
 namespace CvLocate.DBComponent.DBFacade.Tester
 {
@@ -100,8 +101,8 @@ namespace CvLocate.DBComponent.DBFacade.Tester
 
         private static void CvFilesTester()
         {
-            EmailServerDBFacade.EmailServerDBFacade emailServer = new EmailServerDBFacade.EmailServerDBFacade();
-            string id = emailServer.CreateCvFile(new CreateCvFileCommand() { Extension = Common.CommonDto.Enums.FileType.Docx, SourceType = CvSourceType.Email, Source = "rachelifishman1@gmail.com" }).Id;
+            CvFilesDBFacade.CvFilesDBFacade cvFilesDBFacade = new CvFilesDBFacade.CvFilesDBFacade();
+            string id = cvFilesDBFacade.CreateCvFile(new CreateCvFileCommand() { Extension = Common.CommonDto.Enums.FileType.Docx, SourceType = CvSourceType.Email, Source = "rachelifishman1@gmail.com" }).Id;
             CvFilesScannerDBFacade cvFiles = new CvFilesScannerDBFacade();
 
             byte[] cvStream;

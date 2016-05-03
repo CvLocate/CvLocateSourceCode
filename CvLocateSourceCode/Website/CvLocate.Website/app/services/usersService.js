@@ -5,6 +5,8 @@
     angular.module('app').factory(serviceId, ['common', '$http', '$location', 'datacontext', 'cacheManager', 'Base64', userService]);
 
     function userService(common, $http, $location, datacontext, cacheManager, Base64) {
+
+        //PRIVATE METHODS
         function clearCredentials() {
             cacheManager.setItem("user", {});//todo replace"user" to enum ('cacheItems.user')
             $http.defaults.headers.common.Authorization = 'Basic ';
@@ -16,14 +18,22 @@
             $location.path('/'); //???? what is it?
         };
 
-
-        function getLoggedInUser() {
-            return cacheManager.getItem("user");//todo replace"user" to enum ('cacheItems.user')
-        };
-
         function onSignIn(userEmail, userType, sessionId) {
             setCredentials(userEmail, sessionId);
             cacheManager.setItem("user", { userEmail: userEmail, userType: userType, sessionId: sessionId });//todo replace"user" key to enum ('cacheItems.user') and the user object to js class
+        };
+
+        //PUBLIC METHODS
+
+        function checkEmail(email, callback)
+        {
+            datacontext.users.checkEmail(email).then(function onCheckEmailResponse(response) {
+                callback(response.data);
+            });
+        };
+
+        function getLoggedInUser() {
+            return cacheManager.getItem("user");//todo replace"user" to enum ('cacheItems.user')
         };
 
         function signUp(params, callback) {
@@ -57,6 +67,7 @@
 
 
         var service = {
+            checkEmail:checkEmail,
             signUp: signUp,
             signIn: signIn,
             signOut: signOut,

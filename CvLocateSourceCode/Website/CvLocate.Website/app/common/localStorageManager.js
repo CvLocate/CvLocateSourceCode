@@ -6,7 +6,7 @@ angular.module('common').provider('localStorageService', function () {
     // myApp.config(function (localStorageServiceProvider) {
     //    localStorageServiceProvider.prefix = 'yourAppName';
     // });
-    this.prefix = 'lsChevisBusiness';
+    this.prefix = 'lsCvLocate';
 
     // You could change web storage type localstorage or sessionStorage
     this.storageType = 'localStorage';

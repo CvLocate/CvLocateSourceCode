@@ -245,7 +245,7 @@ var svgAttrs = makeMap('accent-height,accumulate,additive,alphabetic,arabic-form
     'keySplines,keyTimes,lang,marker-end,marker-mid,marker-start,markerHeight,markerUnits,' +
     'markerWidth,mathematical,max,min,offset,opacity,orient,origin,overline-position,' +
     'overline-thickness,panose-1,path,pathLength,points,preserveAspectRatio,r,refX,refY,' +
-    'repeatCount,repeatDur,requiredExtensions,requiredFeatures,restart,ChevisBusinesste,rx,ry,slope,stemh,' +
+    'repeatCount,repeatDur,requiredExtensions,requiredFeatures,restart,CvLocatete,rx,ry,slope,stemh,' +
     'stemv,stop-color,stop-opacity,strikethrough-position,strikethrough-thickness,stroke,' +
     'stroke-dasharray,stroke-dashoffset,stroke-linecap,stroke-linejoin,stroke-miterlimit,' +
     'stroke-opacity,stroke-width,systemLanguage,target,text-anchor,to,transform,type,u1,u2,' +

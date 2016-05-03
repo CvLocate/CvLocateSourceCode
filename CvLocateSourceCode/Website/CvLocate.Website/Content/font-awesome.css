@@ -85,64 +85,64 @@
 }
 @-moz-keyframes spin {
   0% {
-    -moz-transform: ChevisBusinesste(0deg);
+    -moz-transform: CvLocatete(0deg);
   }
   100% {
-    -moz-transform: ChevisBusinesste(359deg);
+    -moz-transform: CvLocatete(359deg);
   }
 }
 @-webkit-keyframes spin {
   0% {
-    -webkit-transform: ChevisBusinesste(0deg);
+    -webkit-transform: CvLocatete(0deg);
   }
   100% {
-    -webkit-transform: ChevisBusinesste(359deg);
+    -webkit-transform: CvLocatete(359deg);
   }
 }
 @-o-keyframes spin {
   0% {
-    -o-transform: ChevisBusinesste(0deg);
+    -o-transform: CvLocatete(0deg);
   }
   100% {
-    -o-transform: ChevisBusinesste(359deg);
+    -o-transform: CvLocatete(359deg);
   }
 }
 @keyframes spin {
   0% {
-    -webkit-transform: ChevisBusinesste(0deg);
-    transform: ChevisBusinesste(0deg);
+    -webkit-transform: CvLocatete(0deg);
+    transform: CvLocatete(0deg);
   }
   100% {
-    -webkit-transform: ChevisBusinesste(359deg);
-    transform: ChevisBusinesste(359deg);
+    -webkit-transform: CvLocatete(359deg);
+    transform: CvLocatete(359deg);
   }
 }
-.fa-ChevisBusinesste-90 {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(ChevisBusinesstion=1);
-  -webkit-transform: ChevisBusinesste(90deg);
-  -moz-transform: ChevisBusinesste(90deg);
-  -ms-transform: ChevisBusinesste(90deg);
-  -o-transform: ChevisBusinesste(90deg);
-  transform: ChevisBusinesste(90deg);
+.fa-CvLocatete-90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(CvLocatetion=1);
+  -webkit-transform: CvLocatete(90deg);
+  -moz-transform: CvLocatete(90deg);
+  -ms-transform: CvLocatete(90deg);
+  -o-transform: CvLocatete(90deg);
+  transform: CvLocatete(90deg);
 }
-.fa-ChevisBusinesste-180 {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(ChevisBusinesstion=2);
-  -webkit-transform: ChevisBusinesste(180deg);
-  -moz-transform: ChevisBusinesste(180deg);
-  -ms-transform: ChevisBusinesste(180deg);
-  -o-transform: ChevisBusinesste(180deg);
-  transform: ChevisBusinesste(180deg);
+.fa-CvLocatete-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(CvLocatetion=2);
+  -webkit-transform: CvLocatete(180deg);
+  -moz-transform: CvLocatete(180deg);
+  -ms-transform: CvLocatete(180deg);
+  -o-transform: CvLocatete(180deg);
+  transform: CvLocatete(180deg);
 }
-.fa-ChevisBusinesste-270 {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(ChevisBusinesstion=3);
-  -webkit-transform: ChevisBusinesste(270deg);
-  -moz-transform: ChevisBusinesste(270deg);
-  -ms-transform: ChevisBusinesste(270deg);
-  -o-transform: ChevisBusinesste(270deg);
-  transform: ChevisBusinesste(270deg);
+.fa-CvLocatete-270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(CvLocatetion=3);
+  -webkit-transform: CvLocatete(270deg);
+  -moz-transform: CvLocatete(270deg);
+  -ms-transform: CvLocatete(270deg);
+  -o-transform: CvLocatete(270deg);
+  transform: CvLocatete(270deg);
 }
 .fa-flip-horizontal {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(ChevisBusinesstion=0, mirror=1);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(CvLocatetion=0, mirror=1);
   -webkit-transform: scale(-1, 1);
   -moz-transform: scale(-1, 1);
   -ms-transform: scale(-1, 1);
@@ -150,7 +150,7 @@
   transform: scale(-1, 1);
 }
 .fa-flip-vertical {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(ChevisBusinesstion=2, mirror=1);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(CvLocatetion=2, mirror=1);
   -webkit-transform: scale(1, -1);
   -moz-transform: scale(1, -1);
   -ms-transform: scale(1, -1);
@@ -271,7 +271,7 @@
 .fa-play-circle-o:before {
   content: "\f01d";
 }
-.fa-ChevisBusinesste-right:before,
+.fa-CvLocatete-right:before,
 .fa-repeat:before {
   content: "\f01e";
 }
@@ -802,7 +802,7 @@
 .fa-linkedin:before {
   content: "\f0e1";
 }
-.fa-ChevisBusinesste-left:before,
+.fa-CvLocatete-left:before,
 .fa-undo:before {
   content: "\f0e2";
 }

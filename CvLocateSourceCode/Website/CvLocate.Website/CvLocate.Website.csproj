@@ -93,6 +93,7 @@
     <Content Include="app\app.js" />
     <Content Include="app\common\enums.js" />
     <Content Include="app\common\localStorageManager.js" />
+    <Content Include="app\common\resources.js" />
     <Content Include="app\directives\customvalidation.js" />
     <Content Include="app\layout\error.html" />
     <Content Include="app\layout\error.js" />

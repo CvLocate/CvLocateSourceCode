@@ -8,16 +8,19 @@
 
         var $q = common.$q;
 
-
+        var baseUsersApi = '/api/users/';
 
 
         var users =
             {
+                checkEmail:function checkEmail(param){
+                    return $http.post(baseUsersApi + 'checkEmail', param);
+                },
                 signUp: function signUp(params) {
-                    return $http.post('/api/users/signUp', params);
+                    return $http.post(baseUsersApi+'signup', params);
                 },
                 signOut: function signOut() {
-                    return $http.post('/api/users/signOut');
+                    return $http.post(baseUsersApi+'signout');
                 }
             };
 

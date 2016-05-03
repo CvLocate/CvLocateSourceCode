@@ -1817,7 +1817,7 @@ angular.module('ui.bootstrap.pagination', [])
   previousText: 'Previous',
   nextText: 'Next',
   lastText: 'Last',
-  ChevisBusinesste: true
+  CvLocatete: true
 })
 
 .directive('pagination', ['$parse', 'paginationConfig', function($parse, config) {
@@ -1841,7 +1841,7 @@ angular.module('ui.bootstrap.pagination', [])
       previousText   = paginationCtrl.getAttributeValue(attrs.previousText,   config.previousText,  true),
       nextText       = paginationCtrl.getAttributeValue(attrs.nextText,       config.nextText,      true),
       lastText       = paginationCtrl.getAttributeValue(attrs.lastText,       config.lastText,      true),
-      ChevisBusinesste         = paginationCtrl.getAttributeValue(attrs.ChevisBusinesste,         config.ChevisBusinesste);
+      CvLocatete         = paginationCtrl.getAttributeValue(attrs.CvLocatete,         config.CvLocatete);
 
       paginationCtrl.init(config.itemsPerPage);
 
@@ -1871,7 +1871,7 @@ angular.module('ui.bootstrap.pagination', [])
 
         // recompute if maxSize
         if ( isMaxSized ) {
-          if ( ChevisBusinesste ) {
+          if ( CvLocatete ) {
             // Current page is displayed in the middle of the visible ones
             startPage = Math.max(currentPage - Math.floor(maxSize/2), 1);
             endPage   = startPage + maxSize - 1;
@@ -1897,7 +1897,7 @@ angular.module('ui.bootstrap.pagination', [])
         }
 
         // Add links to move between page sets
-        if ( isMaxSized && ! ChevisBusinesste ) {
+        if ( isMaxSized && ! CvLocatete ) {
           if ( startPage > 1 ) {
             var previousPageSet = makePage(startPage - 1, '...', false, false);
             pages.unshift(previousPageSet);

@@ -53,6 +53,10 @@
       <Project>{7e682acb-3652-4537-a375-f7dee4cf8446}</Project>
       <Name>CvLocate.Common.CommonDto</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Common\CvLocate.Common.CvFilesDtoInterface\CvLocate.Common.CvFilesDtoInterface.csproj">
+      <Project>{d82b5dd6-4de7-40e5-bd50-a09e017895f5}</Project>
+      <Name>CvLocate.Common.CvFilesDtoInterface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Common\CvLocate.Common.CvFilesScannerDtoInterface\CvLocate.Common.CvFilesScannerDtoInterface.csproj">
       <Project>{3263b227-652b-439c-ba95-4b3fef0d4bb1}</Project>
       <Name>CvLocate.Common.CvFilesScannerDtoInterface</Name>
