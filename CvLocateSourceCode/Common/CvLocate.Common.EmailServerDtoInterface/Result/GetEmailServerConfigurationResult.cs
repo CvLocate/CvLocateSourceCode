@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CvLocate.Common.EmailServerDtoInterface.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,6 @@ namespace CvLocate.Common.EmailServerDtoInterface.Result
 {
     public class GetEmailServerConfigurationResult
     {
-        public string CvEmailFlagName { get; set; }
-        public string CvEmailFlagValue { get; set; }
+        public EmailServerConfiguration EmailServerConfiguration { get; set; }
     }
 }
