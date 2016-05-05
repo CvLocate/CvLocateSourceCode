@@ -1,7 +1,4 @@
-﻿using CvLocate.Common.EndUserDtoInterface.Command;
-using CvLocate.Common.EndUserDtoInterface.DTO;
-using CvLocate.Common.CommonDto;
-using CvLocate.Common.EndUserDtoInterface.Response;
+﻿using CvLocate.Common.CommonDto;
 using CvLocate.DBComponent.DbInterface;
 using CvLocate.DBComponent.MongoDB.Entities;
 using MongoRepository;
@@ -15,6 +12,9 @@ using MongoDB.Bson;
 using CvLocate.Common.EndUserDtoInterface.Query;
 using CvLocate.DBComponent.DbInterface.Exceptions;
 using CvLocate.DBComponent.DbInterface.Managers;
+using CvLocate.DBComponent.DbInterface.DBEntities;
+using AutoMapper;
+using CvLocate.Common.EndUserDtoInterface.DTO;
 
 namespace CvLocate.DBComponent.MongoDB.Managers
 {
@@ -31,6 +31,13 @@ namespace CvLocate.DBComponent.MongoDB.Managers
         private RecruiterManager()
         {
             _recruitersRepository = new MongoRepository<RecruiterEntity>();
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<RecruiterEntity, RecruiterDBEntity>();
+                cfg.CreateMap<UpdateRecruiterDBEntity, RecruiterEntity>();
+            });
+
+            mapper = config.CreateMapper();
         }
 
         #endregion
@@ -38,7 +45,8 @@ namespace CvLocate.DBComponent.MongoDB.Managers
         #region Members
 
         private MongoRepository<RecruiterEntity> _recruitersRepository;
-
+        private IMapper mapper;
+        
         #endregion
 
         #region Public Methods
@@ -93,59 +101,49 @@ namespace CvLocate.DBComponent.MongoDB.Managers
             return entity.Id;
         }
 
-        public UpdateRecruiterProfileResponse UpdateRecruiterProfile(UpdateRecruiterProfileCommand command)
+        /// <summary>
+        /// Update existing recruiter 
+        /// </summary>
+        /// <param name="recruiterDBEntity">Recruiter details</param>
+        /// <returns>Updated recruiter</returns>
+        public RecruiterDBEntity UpdateRecruiterProfile(UpdateRecruiterDBEntity recruiterDBEntity)
         {
-            if (command == null)
-                return new UpdateRecruiterProfileResponse(false);
+            if (recruiterDBEntity == null)
+                throw new NullObjectException(typeof(RecruiterDBEntity).Name);
 
-            RecruiterEntity recEntity = _recruitersRepository.GetById(command.RecruiterId);
-            recEntity.Gender = command.Gender;
-            recEntity.FirstName = command.FirstName;
-            recEntity.LastName = command.LastName;
-            recEntity.CompanyName = command.CompanyName;
+            RecruiterEntity recEntity = _recruitersRepository.GetById(recruiterDBEntity.Id);
+
+            if (recEntity == null)
+                throw new MongoEntityNotFoundException(recruiterDBEntity.Id, "recruiters");
+
             
-            //upload image
-            if (command.Image != null)
-            {
-                //check if there is old image in DB. if true, remove old image
-                if (!string.IsNullOrEmpty(recEntity.ImageId))
-                {
-                    MongoExtensions.Instance.RemoveFile(recEntity.ImageId);
-                }
-                string imageName = "[ImageOf]:[" + recEntity.Email + "]";
-                string imageId = MongoExtensions.Instance.UploadFile(command.Image, imageName);
-                recEntity.ImageId = imageId;
-            }
+            recEntity = mapper.Map(recruiterDBEntity, recEntity);
+            
             //update UpdatedAt for current date
             recEntity.UpdatedAt = DateTime.Now;
             //update entity
             recEntity = _recruitersRepository.Update(recEntity);
 
-            //download image
-            byte[] imageBytes = MongoExtensions.Instance.DownloadFile(recEntity.ImageId);
+            RecruiterDBEntity recruiter = mapper.Map<RecruiterEntity, RecruiterDBEntity>(recEntity);
 
-            //convert from RecruiterEntity to Recruiter
-            AutoMapper.Mapper.CreateMap<RecruiterEntity, Recruiter>();
-            Recruiter recruiter = AutoMapper.Mapper.Map<RecruiterEntity, Recruiter>(recEntity);
-            recruiter.Image = imageBytes;
-
-            return new UpdateRecruiterProfileResponse(true) { Recruiter = recruiter };
+            return recruiter;
         }
 
-        public GetRecruiterProfileResponse GetRecruiterProfile(GetRecruiterProfileQuery query)
+        /// <summary>
+        /// Get recruiter by id
+        /// </summary>
+        /// <param name="recruiterId">The id</param>
+        /// <returns>Recruiter details</returns>
+        public RecruiterDBEntity GetRecruiterById(string recruiterId)
         {
-            if (query == null)
-                return null;
-            RecruiterEntity recEntity = _recruitersRepository.GetById(query.RecruiterId);
-            if (recEntity != null)
-            {
-                AutoMapper.Mapper.CreateMap<RecruiterEntity, Recruiter>();
-                Recruiter recruiter = AutoMapper.Mapper.Map<RecruiterEntity, Recruiter>(recEntity);
-                byte[] imageBytes = MongoExtensions.Instance.DownloadFile(recEntity.ImageId);
-                recruiter.Image = imageBytes;
-                return new GetRecruiterProfileResponse() { Recruiter = recruiter };
-            }
-            return null;
+            RecruiterEntity recEntity = _recruitersRepository.GetById(recruiterId);
+
+            if (recEntity == null)
+                throw new MongoEntityNotFoundException(recruiterId, "recruiters");
+            
+            RecruiterDBEntity recruiter = mapper.Map<RecruiterEntity, RecruiterDBEntity>(recEntity);
+
+            return recruiter;
         }
 
         public string GetRecruiterNameById(string recruiterId)

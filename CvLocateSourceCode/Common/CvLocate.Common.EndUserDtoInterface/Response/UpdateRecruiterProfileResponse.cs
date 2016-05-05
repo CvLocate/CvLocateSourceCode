@@ -10,6 +10,7 @@ namespace CvLocate.Common.EndUserDtoInterface.Response
     {
         public Recruiter Recruiter { get; set; }
         public bool IsUpdated { get; set; }
+        public string ErrorMessage { get; set; }
 
         public UpdateRecruiterProfileResponse(bool isUpdated)
         {

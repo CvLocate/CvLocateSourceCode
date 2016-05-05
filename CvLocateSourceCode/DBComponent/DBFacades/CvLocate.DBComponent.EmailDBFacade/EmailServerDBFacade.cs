@@ -43,7 +43,7 @@ namespace CvLocate.DBComponent.EmailServerDBFacade
             }
             catch (Exception ex)
             {
-                return new BaseInsertResult(false) { ErrorMessage = "Failed too create new cv file. Orginal error: " + ex.ToString() };
+                return new BaseInsertResult(false) { ErrorMessage = "Failed create new cv file. Orginal error: " + ex.ToString() };
             }
         }
 

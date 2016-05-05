@@ -9,5 +9,6 @@ namespace CvLocate.Common.EndUserDtoInterface.Response
     public class GetRecruiterProfileResponse : BaseResponse
     {
         public Recruiter Recruiter { get; set; }
+        public string ErrorMessage { get; set; }
     }
 }

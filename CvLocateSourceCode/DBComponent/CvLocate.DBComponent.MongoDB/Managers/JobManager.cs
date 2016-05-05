@@ -1,10 +1,13 @@
-﻿using CvLocate.Common.CommonDto;
+﻿using AutoMapper;
+using CvLocate.Common.CommonDto;
 using CvLocate.Common.EndUserDTO.DTO;
 using CvLocate.Common.EndUserDtoInterface;
 using CvLocate.Common.EndUserDtoInterface.Command;
 using CvLocate.Common.EndUserDtoInterface.DTO;
 using CvLocate.Common.EndUserDtoInterface.Query;
 using CvLocate.Common.EndUserDtoInterface.Response;
+using CvLocate.DBComponent.DbInterface.DBEntities.Jobs;
+using CvLocate.DBComponent.DbInterface.Exceptions;
 using CvLocate.DBComponent.DbInterface.Managers;
 using CvLocate.DBComponent.MongoDB.Entities;
 using MongoRepository;
@@ -27,6 +30,14 @@ namespace CvLocate.DBComponent.MongoDB.Managers
         private JobManager()
         {
             _jobRepository = new MongoRepository<JobEntity>();
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<CreateJobDBEntity, JobEntity>();
+                cfg.CreateMap<JobEntity, JobDBEntity>();
+            });
+
+            mapper = config.CreateMapper();
+
         }
 
         #endregion
@@ -34,55 +45,44 @@ namespace CvLocate.DBComponent.MongoDB.Managers
         #region Members
 
         private MongoRepository<JobEntity> _jobRepository;
+        private IMapper mapper;
 
         #endregion
 
         #region Public Methods
 
-        public RecruiterJobResponse RecruiterCreateJob(CreateJobCommand command)
+        /// <summary>
+        /// Create new job for specific recruiter
+        /// </summary>
+        /// <param name="jobDBEntity">Job details</param>
+        /// <returns>New job</returns>
+        public JobDBEntity CreateJob(CreateJobDBEntity jobDBEntity)
         {
-            if (command == null)
-                return new RecruiterJobResponse(false);
-            JobEntity jobEntity = new JobEntity()
-            {
-                Name = command.JobName,
-                FriendlyId = RepositoryExtensions.GetNextId<JobEntity>(_jobRepository),
-                Owner = new List<Owner>() { new Owner() { RecruiterId = command.RecruiterId } },
-                Content = string.Empty,
-                MandatoryRequirements = command.MandatoryRequirements,
-                OptionalRequirements = command.OptionalRequirements,
-                Location = command.JobLocation,
-                Address = command.Address,
-                Status = JobStatus.Accepted,
-                SourceType = JobSourceType.Recruiter,
-                Source = string.Empty,
-                MatchingStatus = MatchingProcessStatus.WaitingForMatching,
-                CreatedBy = command.RecruiterId,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
-                StatusHistory = new List<BaseStatusHistory<JobStatus>>() { new BaseStatusHistory<JobStatus>() { Status = JobStatus.Accepted, Date = DateTime.Now } },
-                MatchingStatusHistory = new List<BaseStatusHistory<MatchingProcessStatus>>() { new BaseStatusHistory<MatchingProcessStatus>() { Status = MatchingProcessStatus.WaitingForMatching, Date = DateTime.Now } }
-            };
+            if (jobDBEntity == null)
+                throw new NullObjectException(typeof(CreateJobDBEntity).Name);
 
-            jobEntity = _jobRepository.Add(jobEntity);
-            AutoMapper.Mapper.CreateMap<JobEntity, Job>();
-            Job job = AutoMapper.Mapper.Map<JobEntity, Job>(jobEntity);
+            JobEntity jobEntity = mapper.Map<CreateJobDBEntity, JobEntity>(jobDBEntity);
+            jobEntity.FriendlyId = RepositoryExtensions.GetNextId<JobEntity>(_jobRepository);
+            
+            JobEntity newJob = _jobRepository.Add(jobEntity);
+            JobDBEntity newJobDBEntity = mapper.Map<JobEntity, JobDBEntity>(newJob);
             // if job was created by recruiter, get name of recruiter
             if (jobEntity.SourceType == JobSourceType.Recruiter)
             {
-                job.CreatedByName = RecruiterManager.Instance.GetRecruiterNameById(jobEntity.CreatedBy);
+            newJobDBEntity.CreatedByName = RecruiterManager.Instance.GetRecruiterNameById(jobDBEntity.CreatedBy);
             }
-            return new RecruiterJobResponse(true) { Job = job };
+
+            return newJobDBEntity;
         }
 
-        public RecruiterJobResponse RecruiterUpdateJob(UpdateJobCommand command)
+        public RecruiterJobResponse UpdateJob(UpdateJobCommand command)
         {
             if (command == null)
                 return new RecruiterJobResponse(false);
             //get jobEntity by id
             JobEntity jobEntity = _jobRepository.GetById(command.JobId);
             //check the recruiter id is the owner
-            if (!CheckRecruiterIsJobOwner(jobEntity,command.RecruiterId))
+            if (!CheckRecruiterIsJobOwner(jobEntity, command.Id))
                 return new RecruiterJobResponse(false);
 
             //check if there is changes that affect on matching process
@@ -185,7 +185,7 @@ namespace CvLocate.DBComponent.MongoDB.Managers
             if (command == null)
                 return null;
             JobEntity jobEntity = _jobRepository.GetById(command.JobId);
-            if (!CheckRecruiterIsJobOwner(jobEntity, command.RecruiterId))
+            if (!CheckRecruiterIsJobOwner(jobEntity, command.Id))
                 return null;
             jobEntity.Status = JobStatus.Closed;
             _jobRepository.Update(jobEntity);

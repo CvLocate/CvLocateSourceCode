@@ -10,6 +10,7 @@ namespace CvLocate.Common.EndUserDtoInterface.Response
     {
         public bool CanExecute { get; set; }
         public Job Job { get; set; }
+        public string ErrorMessage { get; set; }
 
         public RecruiterJobResponse(bool canExecute)
         {

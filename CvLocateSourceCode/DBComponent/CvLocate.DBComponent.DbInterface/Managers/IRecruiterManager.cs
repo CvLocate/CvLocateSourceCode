@@ -1,6 +1,7 @@
 ﻿using CvLocate.Common.EndUserDtoInterface.Command;
 using CvLocate.Common.EndUserDtoInterface.Query;
 using CvLocate.Common.EndUserDtoInterface.Response;
+using CvLocate.DBComponent.DbInterface.DBEntities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,6 @@ namespace CvLocate.DBComponent.DbInterface.Managers
 {
     public interface IRecruiterManager
     {
-        UpdateRecruiterProfileResponse UpdateRecruiterProfile(UpdateRecruiterProfileCommand command);
-        GetRecruiterProfileResponse GetRecruiterProfile(GetRecruiterProfileQuery query);
-
         /// <summary>
         /// Create new record in Recruiters table
         /// </summary>
@@ -36,5 +34,19 @@ namespace CvLocate.DBComponent.DbInterface.Managers
         /// <param name="email">Email for check</param>
         /// <returns>If exists</returns>
         bool RecruiterEmailExists(string email);
+
+        /// <summary>
+        /// Update existing recruiter 
+        /// </summary>
+        /// <param name="recruiterDBEntity">Recruiter details</param>
+        /// <returns>Updated recruiter</returns>
+        RecruiterDBEntity UpdateRecruiterProfile(UpdateRecruiterDBEntity recruiterDBEntity);
+
+        /// <summary>
+        /// Get recruiter by id
+        /// </summary>
+        /// <param name="recruiterId">The id</param>
+        /// <returns>Recruiter details</returns>
+        RecruiterDBEntity GetRecruiterById(string recruiterId);
     }
 }

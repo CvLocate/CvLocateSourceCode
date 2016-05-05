@@ -134,7 +134,7 @@ namespace CvLocate.DBComponent.MongoDB.Managers
                 Source = source,
                 Status = CvFileStatus.New,
                 ParsingStatus = ParsingProcessStatus.NotReadyForParsing,
-                CreatedAt = DateTime.Now,
+                CreatedAt = DateTime.Now.ToUniversalTime(),
                 UpdatedAt = DateTime.Now
             };
             cvFile = _cvFilesRepository.Add(cvFile);
