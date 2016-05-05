@@ -38,6 +38,12 @@ namespace CvLocate.DBComponent.EmailServerDBFacade
         #endregion
 
 
-       
+
+
+
+        public Common.EmailServerDtoInterface.Result.GetEmailServerConfigurationResult GetEmailServerConfiguration()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
