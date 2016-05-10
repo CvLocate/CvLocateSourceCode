@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\TextEncoding.cs" />
     <Compile Include="Enums\CandidateRegisterStatus.cs" />
     <Compile Include="Enums\CandidateSearchJobStatus.cs" />
     <Compile Include="Enums\CvSourceType.cs" />

@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CvLocate.Common.EmailServerDtoInterface.Command
+namespace CvLocate.Common.CvFilesDtoInterface.Command
 {
-    public class CreateCvFileCommand : BaseEmailServerCommand
+    public class CreateCvFileCommand 
     {
         public FileType Extension { get; set; }
         public CvSourceType SourceType { get; set; }

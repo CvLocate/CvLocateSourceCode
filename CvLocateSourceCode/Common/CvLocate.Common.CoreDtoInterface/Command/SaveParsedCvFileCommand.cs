@@ -12,7 +12,6 @@ namespace CvLocate.Common.CoreDtoInterface.Command
     public class SaveParsedCvFileCommand:BaseCommonCommand
     {
         public CvFile CvFile { get; set; }
-        public string Text { get; set; }
         public List<string> SeperatedTexts { get; set; }
 
         public SaveParsedCvFileCommand()
@@ -24,7 +23,7 @@ namespace CvLocate.Common.CoreDtoInterface.Command
         {
             string result = "Save parsed CV file with the following details:\n";
             result += this.CvFile.ToString();
-            result += string.Format("\nText:{0}\nSeperatedTexts:{1}", this.Text, this.SeperatedTexts.StringsListToString());
+            result += string.Format("\nSeperatedTexts:{0}", this.SeperatedTexts.StringsListToString());
             return result;
         }
     }

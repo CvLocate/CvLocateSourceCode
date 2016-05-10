@@ -15,6 +15,7 @@ using CvLocate.DBComponent.DbInterface.Managers;
 using CvLocate.DBComponent.DbInterface.DBEntities;
 using AutoMapper;
 using CvLocate.Common.EndUserDtoInterface.DTO;
+using CvLocate.DBComponent.DbInterface.DBEntities.Recruiters;
 
 namespace CvLocate.DBComponent.MongoDB.Managers
 {

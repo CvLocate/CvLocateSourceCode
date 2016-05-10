@@ -2,6 +2,7 @@
 using CvLocate.Common.EndUserDtoInterface.Query;
 using CvLocate.Common.EndUserDtoInterface.Response;
 using CvLocate.DBComponent.DbInterface.DBEntities;
+using CvLocate.DBComponent.DbInterface.DBEntities.Recruiters;
 using System;
 using System.Collections.Generic;
 using System.Linq;

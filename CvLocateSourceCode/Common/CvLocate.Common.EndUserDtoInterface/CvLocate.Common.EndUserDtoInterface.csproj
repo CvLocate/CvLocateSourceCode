@@ -7,8 +7,8 @@
     <ProjectGuid>{CA6983F7-AF69-4473-8712-4BA2DDD23DE8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CvLocate.Common.EndUserDTO</RootNamespace>
-    <AssemblyName>CvLocate.Common.EndUserDTO</AssemblyName>
+    <RootNamespace>CvLocate.Common.EndUserDtoInterface</RootNamespace>
+    <AssemblyName>CvLocate.Common.EndUserDtoInterface</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -58,9 +58,11 @@
     <Compile Include="DTO\MatchCandidate.cs" />
     <Compile Include="DTO\Matching.cs" />
     <Compile Include="DTO\Owner.cs" />
+    <Compile Include="Enums\EndUserError.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query\BaseQuery.cs" />
     <Compile Include="Query\BaseRecruiterQuery.cs" />
+    <Compile Include="Query\IsEmailExistInSystemQuery.cs" />
     <Compile Include="Query\RecruiterGetJobMatchingsQuery.cs" />
     <Compile Include="Query\RecruiterGetJobQuery.cs" />
     <Compile Include="Query\GetRecruiterProfileQuery.cs" />
@@ -69,6 +71,7 @@
     <Compile Include="DTO\Recruiter.cs" />
     <Compile Include="Response\BaseResponse.cs" />
     <Compile Include="Response\GetRecruiterProfileResponse.cs" />
+    <Compile Include="Response\IsEmailExistInSystemResponse.cs" />
     <Compile Include="Response\UpdateRecruiterProfileResponse.cs" />
     <Compile Include="Response\SignupResponse.cs" />
     <Compile Include="Response\RecruiterJobResponse.cs" />

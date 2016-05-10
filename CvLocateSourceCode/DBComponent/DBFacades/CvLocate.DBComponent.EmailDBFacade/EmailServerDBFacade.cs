@@ -16,7 +16,7 @@ namespace CvLocate.DBComponent.EmailServerDBFacade
     {
         #region Members
 
-        private ICvFilesManager _cvFilesManager;
+       
 
         #endregion
 
@@ -24,29 +24,28 @@ namespace CvLocate.DBComponent.EmailServerDBFacade
 
         public EmailServerDBFacade()
         {
-            _cvFilesManager = CvFilesManager.Instance;
         }
 
         #endregion
 
         #region Public Methods
 
-        public BaseInsertResult CreateCvFile(CreateCvFileCommand command)
-        {
-            try
-            {
-                if (command == null)
-                    return new BaseInsertResult(false) { ErrorMessage = "Command cannot be null" };
-
-                string newId = _cvFilesManager.CreateCvFile(command.Extension, command.SourceType, command.Source);
-                return new BaseInsertResult(true) { Id = newId };
-            }
-            catch (Exception ex)
-            {
-                return new BaseInsertResult(false) { ErrorMessage = "Failed create new cv file. Orginal error: " + ex.ToString() };
-            }
-        }
+       
 
         #endregion
+
+
+
+
+
+        public Common.EmailServerDtoInterface.Result.GetEmailServerConfigurationResult GetEmailServerConfiguration()
+        {
+            throw new NotImplementedException();
+        }
+
+        List<Common.CommonDto.Enums.FileType> IEmailServerDBFacade.GetSupportedFileTypes()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

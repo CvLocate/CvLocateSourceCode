@@ -75,7 +75,7 @@ namespace CvLocate.DBComponent.MongoDB.Managers
             return newJobDBEntity;
         }
 
-        public RecruiterJobResponse UpdateJob(UpdateJobCommand command)
+        public RecruiterJobResponse RecruiterUpdateJob(UpdateJobCommand command)
         {
             if (command == null)
                 return new RecruiterJobResponse(false);
@@ -215,5 +215,7 @@ namespace CvLocate.DBComponent.MongoDB.Managers
         }
 
         #endregion
+
+       
     }
 }

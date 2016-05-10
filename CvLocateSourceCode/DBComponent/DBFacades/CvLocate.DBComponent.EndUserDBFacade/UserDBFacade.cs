@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using CvLocate.DBComponent.MongoDB.Managers;
 using CvLocate.DBComponent.DbInterface.Managers;
+using CvLocate.Common.EndUserDTO.Enums;
+using CvLocate.Common.EndUserDtoInterface.Query;
 
 namespace CvLocate.DBComponent.EndUserDBFacade
 {
@@ -39,13 +41,16 @@ namespace CvLocate.DBComponent.EndUserDBFacade
             }
             catch (Exception ex)
             {
-                return new SignResponse() { CanSignIn = false, ErrorMessage = "Failed sign up with email: " + command.Email + ". The orginal error: " + ex.ToString() };
+               return new SignResponse() { CanSignIn = false, ErrorMessage = "Failed sign up with email: " + command.Email + ". The orginal error: " + ex.ToString() };
+
             }
         }
 
         public SignResponse SignIn(SigninCommand command)
         {
+
             try
+
             {
                 if (command == null)
                     return new SignResponse() { CanSignIn = false, ErrorMessage = "Command cannot be null" };
@@ -71,6 +76,30 @@ namespace CvLocate.DBComponent.EndUserDBFacade
             {
                 return new SignResponse() { CanSignIn = false, ErrorMessage = "Failed sign in with email: " + command.Email + ". The orginal error: " + ex.ToString() };
             }
+
+
+            return new SignResponse() { CanSignIn = false, Error = EndUserError.EmailPasswordNotFound, ErrorMessage = "Cannot find user with such email and password" };
+        }
+
+        public IsEmailExistInSystemResponse IsEmailExistInSystem(IsEmailExistInSystemQuery query)
+        {
+            try
+            {
+                bool emailExist = false;
+                IRecruiterManager recManager = RecruiterManager.Instance;
+                emailExist = recManager.RecruiterEmailExists(query.Email);
+                if (!emailExist)
+                {
+                    ICandidateManager candidateManager = CandidateManager.Instance;
+                    emailExist = candidateManager.CandidateEmailExists(query.Email);
+                }
+                return new IsEmailExistInSystemResponse() { EmailExistInSystem = emailExist };
+            }
+            catch (Exception ex)
+            {
+                return new IsEmailExistInSystemResponse() { Error = EndUserError.UnknownError, ErrorMessage = ex.ToString() };
+            }
+
         }
     }
 }

@@ -40,11 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBEntities\CreateJobDBEntity.cs" />
     <Compile Include="DBEntities\CvFileDBEntity.cs" />
-    <Compile Include="DBEntities\JobDBEntity.cs" />
-    <Compile Include="DBEntities\RecruiterDBEntity.cs" />
-    <Compile Include="DBEntities\UpdateRecruiterDBEntity.cs" />
+    <Compile Include="DBEntities\Jobs\CreateJobDBEntity.cs" />
+    <Compile Include="DBEntities\Jobs\JobDBEntity.cs" />
+    <Compile Include="DBEntities\Jobs\UpdateJobDBEntity.cs" />
+    <Compile Include="DBEntities\Recruiters\RecruiterDBEntity.cs" />
+    <Compile Include="DBEntities\Recruiters\UpdateRecruiterDBEntity.cs" />
     <Compile Include="Exceptions\BaseMongoException.cs" />
     <Compile Include="Exceptions\MongoEntityNotFoundException.cs" />
     <Compile Include="Exceptions\NullObjectException.cs" />
