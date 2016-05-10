@@ -35,7 +35,7 @@ namespace CvLocate.ParsingEngine.Tester
             {
                 CandidateCvFileForParsing file = new CandidateCvFileForParsing()
                 {
-                    CvFile = new CvFileForParsing() { Extension = "docx", Id = (i * 100).ToString(), ParsingStatus = ParsingProcessStatus.WaitingForParsing, Status = CvFileStatus.New }
+                    CvFile = new CvFileForParsing() {  Id = (i * 100).ToString(), ParsingStatus = ParsingProcessStatus.WaitingForParsing, Status = CvFileStatus.New,Text="Text check the case of bad cv files (the mockCvParser returns to those files empty email or empaty text)" }
                 };
                 if (i % 2 == 0)
                 {//some files are already connected to candidates
@@ -52,7 +52,7 @@ namespace CvLocate.ParsingEngine.Tester
             {
                 CandidateCvFileForParsing file = new CandidateCvFileForParsing();
                 file.Candidate = new Candidate() { Id = i.ToString(), CVFileId = (i * 100).ToString(), Email = i.ToString() + "@gmail.com", MatchingStatus = MatchingProcessStatus.NotReadyForMatching, UpdatedAt = DateTime.Today.AddDays(-i) };
-                file.CvFile = new CvFileForParsing() { CandidateId = file.Candidate.Id, Extension = "docx", Id = (i * 100).ToString(), ParsingStatus = ParsingProcessStatus.WaitingForParsing, Status = CvFileStatus.New };
+                file.CvFile = new CvFileForParsing() { CandidateId = file.Candidate.Id, Id = (i * 100).ToString(), ParsingStatus = ParsingProcessStatus.WaitingForParsing, Status = CvFileStatus.New,Text="Text for check the case of cv files that are already connected to existing candidate" };
 
                 cvFiles.Add(file);
             }
@@ -62,7 +62,7 @@ namespace CvLocate.ParsingEngine.Tester
             {
                 CandidateCvFileForParsing file = new CandidateCvFileForParsing();
                 file.Candidate = new Candidate() { Id = i.ToString() , CVFileId = (i * 100).ToString(), Email = i.ToString() + "-other@gmail.com", MatchingStatus = MatchingProcessStatus.NotReadyForMatching, UpdatedAt = DateTime.Today.AddDays(-i) };
-                file.CvFile = new CvFileForParsing() { CandidateId = file.Candidate.Id, Extension = "docx", Id = (i * 100).ToString(), ParsingStatus = ParsingProcessStatus.WaitingForParsing, Status = CvFileStatus.New };
+                file.CvFile = new CvFileForParsing() { CandidateId = file.Candidate.Id, Id = (i * 100).ToString(), ParsingStatus = ParsingProcessStatus.WaitingForParsing, Status = CvFileStatus.New, Text = "text for check the case of cv files that are already connected to existing candidate but contains another email" };
 
                 cvFiles.Add(file);
             }
@@ -72,7 +72,7 @@ namespace CvLocate.ParsingEngine.Tester
             {
                 CandidateCvFileForParsing file = new CandidateCvFileForParsing()
                 {
-                    CvFile = new CvFileForParsing() { Extension = "docx", Id = (i * 100).ToString(), ParsingStatus = ParsingProcessStatus.WaitingForParsing, Status = CvFileStatus.New }
+                    CvFile = new CvFileForParsing() { Id = (i * 100).ToString(), ParsingStatus = ParsingProcessStatus.WaitingForParsing, Status = CvFileStatus.New, Text = "text for check the case of cv files that are not connected to candidate" }
                 };
                 cvFiles.Add(file);
             }
@@ -83,7 +83,7 @@ namespace CvLocate.ParsingEngine.Tester
             {
                 CandidateCvFileForParsing file = new CandidateCvFileForParsing()
                 {
-                    CvFile = new CvFileForParsing() { Extension = "docx", Id = (i * 100).ToString(), ParsingStatus = ParsingProcessStatus.WaitingForParsing, Status = CvFileStatus.New, CreatedDate = DateTime.Now.AddDays(-10) }
+                    CvFile = new CvFileForParsing() { Id = (i * 100).ToString(), ParsingStatus = ParsingProcessStatus.WaitingForParsing, Status = CvFileStatus.New, CreatedDate = DateTime.Now.AddDays(-10),Text="Text for check the case of cv files that are not connected to candidate" }
                 };
 
                 cvFiles.Add(file);

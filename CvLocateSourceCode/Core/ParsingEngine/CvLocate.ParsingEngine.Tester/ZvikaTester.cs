@@ -21,8 +21,7 @@ namespace CvLocate.ParsingEngine.Tester
                 CvFileForParsing cvFile = new CvFileForParsing()
                 {
                     Id = "idblabla",
-                    Extension = "docx",
-                    Stream = fileBytes
+                    Text = "text of file"
                 };
 
                 CvLocateLogger logger = new CvLocateLogger();
@@ -32,8 +31,8 @@ namespace CvLocate.ParsingEngine.Tester
 
                 CvParsedData parsedData = parser.ParseCv(cvFile);
 
-                logger.InfoFormat("parse cv file {0}: Email={1}, Name={2},  Seperated Texts count ={3},Text= {4}",
-                    cvFile.Id, parsedData.Email, parsedData.Name, parsedData.SeperatedTexts.Count, parsedData.Text);
+                logger.InfoFormat("parse cv file {0}: Email={1}, Name={2},  Seperated Texts count ={3}",
+                    cvFile.Id, parsedData.Email, parsedData.Name, parsedData.SeperatedTexts.Count);
 
             }
         }

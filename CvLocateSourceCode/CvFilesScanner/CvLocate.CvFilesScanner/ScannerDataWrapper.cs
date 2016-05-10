@@ -3,6 +3,7 @@ using CvLocate.Common.CvFilesScannerDtoInterface.Command;
 using CvLocate.Common.CvFilesScannerDtoInterface.Result;
 using CvLocate.Common.DbFacadeInterface;
 using CvLocate.CvFilesScanner.Interfaces;
+using SimpleInjector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,11 @@ namespace CvLocate.CvFilesScanner
     public class ScannerDataWrapper:IScannerDataWrapper
     {
         ICvFilesScannerDBFacade _cvFilesScannerDBFacade;
-        public ScannerDataWrapper()
+        public ScannerDataWrapper(Container container)
         {
-            _cvFilesScannerDBFacade = new CvLocate.DBComponent.CvFilesDBFacade.CvFilesScannerDBFacade();
+            _cvFilesScannerDBFacade = container.GetInstance<ICvFilesScannerDBFacade>();
         }
-        public IList<FileType> GetSupportedFileTypes()
+        public IList<FileType> GetSupportedFileTypes()//todo change to get from db
         {
             return new List<FileType>() { FileType.Doc, FileType.Docx, FileType.Pdf, FileType.Rtf, FileType.Txt };
         }

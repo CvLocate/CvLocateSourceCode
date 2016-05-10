@@ -23,26 +23,23 @@ namespace CvLocate.ParsingEngine.Tester
 
             CvParsedData result = new CvParsedData()
             {
-                Text = "bla bla for " + cvFile.Id,
                 SeperatedTexts = new List<string>() { "bla", "bla" }
             };
             int id = Int32.Parse(cvFile.Id);
             if (id <= -1000)
             {//parsing failed
-                if (id <= -1500)
-                    result.Text = null;
-                else
-                    result.SeperatedTexts.Clear();
+
+                result.SeperatedTexts.Clear();
             }
-            else if (id <0)
+            else if (id < 0)
             {//extract email failed
                 result.Email = null;
             }
             else if (id <= 1000)
             {
-                result.Email = Int32.Parse(cvFile.Id)/100 + "@gmail.com";
+                result.Email = Int32.Parse(cvFile.Id) / 100 + "@gmail.com";
             }
-            else 
+            else
             {
                 result.Email = cvFile.Id + "@gmail.com";
             }

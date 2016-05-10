@@ -17,5 +17,8 @@
     <Setting Name="ArchiveDirectoryForFailedDeletedFiles" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="ArchiveDirectoryForUnsupportedFiles" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

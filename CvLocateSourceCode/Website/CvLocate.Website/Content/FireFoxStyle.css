@@ -1,0 +1,10 @@
+﻿/** css to fireFox **/
+@-moz-document url-prefix()
+{
+    .k-scheduler-times th.k-slot-cell
+        {
+            height: 100%;
+        }
+}
+
+/*******/

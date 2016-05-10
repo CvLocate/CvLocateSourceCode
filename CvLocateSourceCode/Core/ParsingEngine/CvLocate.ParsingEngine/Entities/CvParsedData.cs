@@ -9,7 +9,6 @@ namespace CvLocate.ParsingEngine
 {
     public class CvParsedData
     {
-        public string Text { get; set; }
         public List<string> SeperatedTexts { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
@@ -21,7 +20,7 @@ namespace CvLocate.ParsingEngine
 
         public override string ToString()
         {
-            return string.Format("Email: {0},\nText: {1}\nSeperatedTexts: {2}", Email, Text, SeperatedTexts.StringsListToString());
+            return string.Format("Email: {0},\nSeperatedTexts: {1}", Email, SeperatedTexts.StringsListToString());
         }
     }
 }

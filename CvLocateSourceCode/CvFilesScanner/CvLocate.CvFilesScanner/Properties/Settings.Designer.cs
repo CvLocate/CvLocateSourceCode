@@ -67,5 +67,14 @@ namespace CvLocate.CvFilesScanner.Properties {
                 return ((string)(this["ArchiveDirectoryForFailedDeletedFiles"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ArchiveDirectoryForUnsupportedFiles {
+            get {
+                return ((string)(this["ArchiveDirectoryForUnsupportedFiles"]));
+            }
+        }
     }
 }

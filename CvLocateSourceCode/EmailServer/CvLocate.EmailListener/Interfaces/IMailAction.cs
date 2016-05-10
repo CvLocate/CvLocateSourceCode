@@ -1,7 +1,8 @@
-﻿using CvLocate.EmailListener.Classes;
+﻿using CvLocate.EmailListener;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,21 +10,13 @@ namespace CvLocate.EmailListener.Interfaces
 {
     public interface IMailAction
     {
-        #region Properties
+        MailMessage Mail { get; set; }
 
         IMailActionDefinition ActionDefinition { get; }
 
-        IEmailServer Email { get; set; }
-
         MailActionResult Result { get; set; }
 
-        #endregion
-
-        #region Methods
-
         void DoAction();
-
-        #endregion
 
     }
 }
